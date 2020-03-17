@@ -1,0 +1,30 @@
+name: deploy
+
+on:
+  push:
+    branches: master
+
+jobs:
+  deploy:
+    runs-on: [ubuntu-18.04]
+    
+    strategy:
+      matrix:
+        node-version: [6.13.4]
+
+    steps:
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          source: '.'
+          script: |
+            cd /var/www/corona/vidakovic.si/html
+            git pull origin master
+            cd client/
+            rm -rf build/
+            npm run build
+            
