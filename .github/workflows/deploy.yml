@@ -24,6 +24,7 @@ jobs:
           script: |
             cd /var/www/corona.vidakovic.si/html
             git pull origin master
+            cd client/
             rm -rf build/
             npm run build
             
