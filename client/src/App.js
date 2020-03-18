@@ -4,17 +4,15 @@ import csvToJson  from 'convert-csv-to-json';
 import logo from './logo.svg';
 import './App.css';
 
+import List from './List/List.js';
+
 
 function App() {
 
 
 	return (
 		<div className="App">
-			<header className="App-header">
-				<p>
-					CORONAAAA
-				</p>
-			</header>
+			<List />
 		</div>
 	);
 }
