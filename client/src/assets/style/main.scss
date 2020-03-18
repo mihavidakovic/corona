@@ -48,8 +48,12 @@ body {
 					cursor: pointer;
 				}
 
+				&:last-child {
+					display: none;
+				}
+
 				span {
-					font-size: 1rem;
+					font-size: 0.8rem;
 				}
 
 				i {
@@ -77,20 +81,28 @@ body {
 				.item__cell {
 					width: 20%;
 					padding: 1rem 1rem;
-					font-size: 0.9rem;
+					font-size: 0.8rem;
+					display: flex;
+					flex-flow: column;
+					justify-content: center;
 				}
 
 				.item__state {
-					display: flex;
-					flex-flow: row;
-					justify-content: flex-start;
 					
 					span {
 
 						&:first-child {
+							font-weight: bold;
 							margin-right: 0.2rem;
 						}
+
+						&:last-child {
+						}
 					}
+				}
+
+				.item__date {
+					display: none;
 				}
 			}
 		}
