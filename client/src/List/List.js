@@ -54,36 +54,36 @@ export default class List extends React.Component {
 
 	render() {
 		const { currentSort } = this.state;
-		if (this.state.loading === true) {
+		if (this.state.loading) {
 			return (
-				<div>
-					<div className="list">
-						<div className="list__head">
-							<div><span>Država</span></div>
-							<div onClick={this.onSortChange}>
-								<span>Smrti</span>
-								<i className={`fas fa-${sortTypes[currentSort].class}`} />
-							</div>
-							<div><span>Potrjenih primerov</span></div>
-							<div><span>Okrevanih pacientov</span></div>
-							<div><span>Posodobljeno</span></div>
+				<div className="list">
+					<div className="list__head">
+						<div className="list__head--state"><span>Država</span></div>
+						<div className="list__head--confirmed"><span>Potrjenih</span></div>
+						<div className="list__head--deaths" onClick={this.onSortChange}>
+							<span>Smrti</span>
+							<i className={`fas fa-${sortTypes[currentSort].class}`} />
 						</div>
+						<div className="list__head--recovered"><span>Okrevanih</span></div>
+						<div className="list__head--date"><span>Posodobljeno</span></div>
 					</div>
-					<div className="loading"></div>
-				</div>
+					<div className="loading">
+						<div className="loader"></div>
+					</div>
+			</div>
 			)
 		} else {
 			return (
 				<div className="list">
 					<div className="list__head">
-						<div><span>Država</span></div>
-						<div onClick={this.onSortChange}>
+						<div className="list__head--state"><span>Država</span></div>
+						<div className="list__head--confirmed"><span>Potrjenih</span></div>
+						<div className="list__head--deaths" onClick={this.onSortChange}>
 							<span>Smrti</span>
 							<i className={`fas fa-${sortTypes[currentSort].class}`} />
 						</div>
-						<div><span>Potrjenih primerov</span></div>
-						<div><span>Okrevanih pacientov</span></div>
-						<div><span>Posodobljeno</span></div>
+						<div className="list__head--recovered"><span>Okrevanih</span></div>
+						<div className="list__head--date"><span>Posodobljeno</span></div>
 					</div>
 					<div className="items">
 						{[...this.state.items].sort(sortTypes[currentSort].fn).map(item => 
@@ -92,8 +92,8 @@ export default class List extends React.Component {
 									<span>{item.region}</span> 
 									{item.state.length > 0 && <span>{item.state}</span>}
 								</div>
-								<div className="item__cell item__deaths">{item.deaths}</div>
 								<div className="item__cell item__confirmed">{item.confirmed}</div>
+								<div className="item__cell item__deaths">{item.deaths}</div>
 								<div className="item__cell item__recovered">{item.recovered}</div>
 								<div className="item__cell item__date" hidden title={item.last_update}><Moment fromNow locale="sl">{item.last_update}</Moment></div>
 							</div>

@@ -1,41 +1,164 @@
-@import "https://fonts.googleapis.com/css?family=Roboto&display=swap";
-@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css";
-
+@import "https://fonts.googleapis.com/css?family=Inter&display=swap";
 @import "./loader/loaders.scss";
 
 body {
-	background-color: rgba(#000, 0.95);
-	font-family: "Roboto" !important;
+	font-family: 'Inter', sans-serif;
+	padding: 0;
+	margin: 0;
 }
 
-.App {
-	height: 100vh;
-	color: #fff;
-	padding: 1rem;
-	display: flex;
-	justify-content: center;
-	position: relative;
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
 
-	.loading {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		@include loader06;
+
+.App {
+	min-height: 100vh;
+	padding: 2rem;
+	display: flex;
+	flex-flow: column;
+	position: relative;
+	
+	&.light {
+
+		background-color: #fff;
+		
+		.logo {
+			
+			h1 {
+				color: #000;
+			}
+
+			h2 {
+				color: rgba(#000, 0.5);
+			}
+		}
+
+		.list {
+			
+			.list__head {
+				background-color: #ddd;
+				
+				div {
+					
+					&:hover {
+						background-color: rgba(#000, 0.04);
+					}
+				}
+			}
+
+			.items {
+				
+				.item {
+					
+					&:hover {
+						background-color: rgba(#000, 0.04);
+					}
+
+					&:not(:last-child) {
+						border-bottom: 1px solid rgba(#000, 0.09);
+					}
+
+				}
+			}
+		}
+	}
+	
+	&.dark {
+		background-color: rgba(#000, 0.95);
+		
+		.logo {
+			
+			h1 {
+				color: #FFF;
+			}
+
+			h2 {
+				color: rgba(#fff, 0.5);
+			}
+		}
+
+		.list {
+			
+			.list__head {
+				background-color: #292929;
+				
+				div {
+					color: #FFF;
+					
+					&:hover {
+						background-color: rgba(#fff, 0.04);
+					}
+				}
+			}
+
+			.items {
+				
+				.item {
+					color: #FFF;
+					
+					&:hover {
+						background-color: rgba(#fff, 0.04);
+					}
+
+					&:not(:last-child) {
+						border-bottom: 1px solid rgba(#fff, 0.15);
+					}
+
+				}
+			}
+		}
+	}
+	
+	.logo {
+		margin-bottom: 2rem;
+		
+		h1 {
+			font-size: 2rem;
+			font-weight: 800;
+			text-transform: uppercase;
+			margin: 0 0 0.2rem;
+			padding: 0;
+		}
+
+		h2 {
+			font-size: 1rem;
+			font-weight: 400;
+			margin: 0;
+			padding: 0;
+		}
 	}
 
 	.list {
-		width: 95vw;
+		width: 100%;
+		min-height: 50vh;
 		display: flex;
 		flex-flow: column;
+
+		.loading {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			
+			.loader {
+				@include loader06;
+			}
+		}
 
 		.list__head {
 			display: flex;
 			flex-flow: row;
-			background-color: rgba(#fff, 0.09);
+			position: sticky;
+			border-top-left-radius: 4px;
+			border-top-right-radius: 4px;
+			top: 0;
 
 			div {
-				width: 20%;
+				width: 25%;
 				font-weight: bold;
 				padding: 1rem;
 				display: flex;
@@ -43,13 +166,28 @@ body {
 				justify-content: space-between;
 				
 				&:hover {
-					background-color: rgba(#fff, 0.04);
 					user-select: none;
 					cursor: pointer;
 				}
 
 				&:last-child {
 					display: none;
+				}
+
+				&.list__head--state {
+					width: 40%;
+				}
+
+				&.list__head--confirmed {
+					width: 20%;
+				}
+
+				&.list__head--deaths {
+					width: 20%;
+				}
+
+				&.list__head--recovered {
+					width: 20%;
 				}
 
 				span {
@@ -71,15 +209,10 @@ body {
 				flex-flow: row;
 
 				&:hover {
-					background-color: rgba(#fff, 0.04);
-				}
-
-				&:not(:last-child) {
-					border-bottom: 1px solid rgba(#fff, 0.15);
 				}
 
 				.item__cell {
-					width: 20%;
+					width: 25%;
 					padding: 1rem 1rem;
 					font-size: 0.8rem;
 					display: flex;
@@ -88,6 +221,7 @@ body {
 				}
 
 				.item__state {
+					width: 40%;
 					
 					span {
 
@@ -99,6 +233,18 @@ body {
 						&:last-child {
 						}
 					}
+				}
+
+				.item__confirmed {
+					width: 20%;
+				}
+
+				.item__deaths {
+					width: 20%;
+				}
+
+				.item__recovered {
+					width: 20%;
 				}
 
 				.item__date {

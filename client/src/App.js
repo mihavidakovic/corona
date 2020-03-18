@@ -9,7 +9,11 @@ function App() {
 
 
 	return (
-		<div className="App">
+		<div className="App dark">
+			<div className="logo">
+				<h1>Koronavirus</h1>
+				<h2>Podrobni podatki o posledicah virusa</h2>
+			</div>
 			<List />
 		</div>
 	);
