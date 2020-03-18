@@ -15,7 +15,7 @@ connection.connect();
 router.get('/data', (req, res) => {
     res.set('Content-Type', 'application/json');
 
-    let querySelect = "SELECT * from data ";
+    let querySelect = "SELECT * FROM data GROUP BY region ORDER BY deaths DESC";
     connection.query(querySelect, (error, response) => {
         console.log(response || error);
         data = response;
@@ -24,10 +24,10 @@ router.get('/data', (req, res) => {
     res.json({data});
 });
 
-router.get('/data/{num}', (req, res) => {
+router.get('/data/graph/:type', (req, res) => {
     res.set('Content-Type', 'application/json');
 
-    let querySelect = "SELECT * from data LIMIT " + num;
+    let querySelect = "SELECT region, " + req.params.type + " FROM data GROUP BY region";
     connection.query(querySelect, (error, response) => {
         console.log(response || error);
         data = response;
