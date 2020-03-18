@@ -23,7 +23,7 @@ export default class List extends React.Component {
                     <div>Država</div>
                 </div>
                 <div className="items">
-                    {...this.state.items.map(item => 
+                    {this.state.items.map(item => 
                         <div className="item">
                             <span className="item__state">{item.state}</span>
                             <span className="item__deaths">{item.deaths}</span>
