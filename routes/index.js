@@ -24,4 +24,16 @@ router.get('/data', (req, res) => {
     res.json({data});
 });
 
+router.get('/data/{num}', (req, res) => {
+    res.set('Content-Type', 'application/json');
+
+    let querySelect = "SELECT * from data LIMIT " + num;
+    connection.query(querySelect, (error, response) => {
+        console.log(response || error);
+        data = response;
+    });
+
+    res.json({data});
+});
+
 module.exports = router;
