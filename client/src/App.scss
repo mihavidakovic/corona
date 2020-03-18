@@ -12,7 +12,10 @@
       flex-flow: row;
 
       div {
-        width: 33.33%;
+        width: 25%;
+        font-weight: bold;
+        background-color: rgba(#000, 0.05);
+        padding: 0.5em;
       }
     }
 
@@ -25,7 +28,7 @@
         flex-flow: row;
 
         span {
-          width: 33.333%;
+          width: 25%;
         }
       }
     }

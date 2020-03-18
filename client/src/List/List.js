@@ -19,8 +19,9 @@ export default class List extends React.Component {
             <div className="list">
                 <div className="list__head">
                     <div>Država</div>
-                    <div>Država</div>
-                    <div>Država</div>
+                    <div>Smrti</div>
+                    <div>Potrjenih primerov</div>
+                    <div>Okrevanih pacientov</div>
                 </div>
                 <div className="items">
                     {this.state.items.map(item => 
