@@ -16,8 +16,20 @@ export default class List extends React.Component {
 
     render() {
         return (
-            <ul>
-                {this.state.items.map(item => <li>{item.state}</li>)}
+            <div className="list">
+                <div className="list__head">
+                    <div>Država</div>
+                    <div>Država</div>
+                    <div>Država</div>
+                </div>
+                {this.state.items.map(item => 
+                    <div className="item">
+                        <span className="item__state">{item.state}</span>
+                        <span className="item__deaths">{item.deaths}</span>
+                        <span className="item__confirmed">{item.confirmed}</span>
+                        <span className="item__recovered">{item.recovered}</span>
+                    </div>
+                )}
             </ul>
         )
     }
