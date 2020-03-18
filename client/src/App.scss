@@ -1,0 +1,24 @@
+.App {
+
+  .list {
+    width: 50%;
+    display: flex;
+    flex-flow: column;
+
+    .list__head {
+      display: flex;
+      flex-flow: row;
+    }
+
+    .items {
+      display: flex;
+      flex-flow: colum;
+
+      .item {
+        display: flex;
+        flex-flow: row;
+      }
+    }
+
+  }
+}

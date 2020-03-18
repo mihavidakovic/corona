@@ -9,6 +9,7 @@
     "@vtex/react-csv-parse": "^3.0.2",
     "convert-csv-to-json": "0.0.15",
     "csvtojson": "^2.0.10",
+    "node-sass": "^4.13.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-scripts": "3.4.0"
