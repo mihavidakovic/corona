@@ -8,9 +8,8 @@ const connection = mysql.createConnection({
     database: "corona"
   });
 
-  
-
 var csvData=[];
+
 fs.createReadStream("data/confirmed.csv")
     .pipe(parse({
         delimiter: ',',
