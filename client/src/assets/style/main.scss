@@ -1,18 +1,28 @@
 @import "https://fonts.googleapis.com/css?family=Roboto&display=swap";
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css";
 
+@import "./loader/loaders.scss";
+
 body {
 	background-color: rgba(#000, 0.95);
 	font-family: "Roboto" !important;
 }
 
 .App {
-	background-color: rgba(#000, 0.95);
+	height: 100vh;
 	color: #fff;
 	padding: 1rem;
 	display: flex;
-	align-items: center;
 	justify-content: center;
+	position: relative;
+
+	.loading {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		@include loader06;
+	}
 
 	.list {
 		width: 95vw;

@@ -21,6 +21,7 @@ const sortTypes = {
 
 export default class List extends React.Component {
 	state = {
+		loading: true,
 		items: [],
 		currentSort: 'default'
 	}
@@ -31,6 +32,7 @@ export default class List extends React.Component {
 		.then(res => {
 			const items = res.data.data;
 			this.setState({items});
+			this.setState({loading: false});
 		});
 	}
 
@@ -52,32 +54,52 @@ export default class List extends React.Component {
 
 	render() {
 		const { currentSort } = this.state;
-		return (
-			<div className="list">
-				<div className="list__head">
-					<div>Država</div>
-					<div onClick={this.onSortChange}>
-						<span>Smrti</span>
-						<i className={`fas fa-${sortTypes[currentSort].class}`} />
-					</div>
-					<div>Potrjenih primerov</div>
-					<div>Okrevanih pacientov</div>
-					<div>Posodobljeno</div>
-				</div>
-				<div className="items">
-					{[...this.state.items].sort(sortTypes[currentSort].fn).map(item => 
-						<div className="item">
-							<div className="item__cell item__state">
-								<span>{item.region}</span> {item.state.length > 0 && <span>/ {item.state}</span>}
+		if (this.state.loading === true) {
+			return (
+				<div>
+					<div className="list">
+						<div className="list__head">
+							<div>Država</div>
+							<div onClick={this.onSortChange}>
+								<span>Smrti</span>
+								<i className={`fas fa-${sortTypes[currentSort].class}`} />
 							</div>
-							<div className="item__cell item__deaths">{item.deaths}</div>
-							<div className="item__cell item__confirmed">{item.confirmed}</div>
-							<div className="item__cell item__recovered">{item.recovered}</div>
-							<div className="item__cell item__date"><Moment fromNow locale="sl">{item.last_update}</Moment></div>
+							<div>Potrjenih primerov</div>
+							<div>Okrevanih pacientov</div>
+							<div>Posodobljeno</div>
 						</div>
-					)}
+					</div>
+					<div className="loading"></div>
 				</div>
-			</div>
-		)
+			)
+		} else {
+			return (
+				<div className="list">
+					<div className="list__head">
+						<div>Država</div>
+						<div onClick={this.onSortChange}>
+							<span>Smrti</span>
+							<i className={`fas fa-${sortTypes[currentSort].class}`} />
+						</div>
+						<div>Potrjenih primerov</div>
+						<div>Okrevanih pacientov</div>
+						<div>Posodobljeno</div>
+					</div>
+					<div className="items">
+						{[...this.state.items].sort(sortTypes[currentSort].fn).map(item => 
+							<div className="item">
+								<div className="item__cell item__state">
+									<span>{item.region}</span> {item.state.length > 0 && <span>/ {item.state}</span>}
+								</div>
+								<div className="item__cell item__deaths">{item.deaths}</div>
+								<div className="item__cell item__confirmed">{item.confirmed}</div>
+								<div className="item__cell item__recovered">{item.recovered}</div>
+								<div className="item__cell item__date"><Moment fromNow locale="sl">{item.last_update}</Moment></div>
+							</div>
+						)}
+					</div>
+				</div>
+			)
+		}
 	}
 }
