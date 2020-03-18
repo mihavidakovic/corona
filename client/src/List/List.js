@@ -90,7 +90,6 @@ export default class List extends React.Component {
 							<div className="item">
 								<div className="item__cell item__state">
 									<span>{item.region}</span> 
-									{item.state.length > 0 && <span>{item.state}</span>}
 								</div>
 								<div className="item__cell item__confirmed">{item.confirmed}</div>
 								<div className="item__cell item__deaths">{item.deaths}</div>
