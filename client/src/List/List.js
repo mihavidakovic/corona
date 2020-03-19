@@ -94,7 +94,6 @@ export default class List extends React.Component {
 								<div className="item__cell item__confirmed">{item.confirmed}</div>
 								<div className="item__cell item__deaths">{item.deaths}</div>
 								<div className="item__cell item__recovered">{item.recovered}</div>
-								<div className="item__cell item__date" hidden title={item.last_update}><Moment fromNow locale="sl">{item.last_update}</Moment></div>
 							</div>
 						)}
 					</div>

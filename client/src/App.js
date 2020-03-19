@@ -7,15 +7,30 @@ import Graph from './Graph/Graph.js';
 
 
 function App() {
+	const [darkMode, setDarkMode] = React.useState(getInitialMode());
+	React.useEffect(() => {
+		localStorage.setItem('dark', JSON.stringify(darkMode));
+	}, [darkMode]);
 
+	function getInitialMode() {
+		const savedMode = JSON.parse(localStorage.getItem('dark'));
+		return savedMode || false;
+	}
 
 	return (
-		<div className="App light">
-			<div className="logo">
-				<h1>Koronavirus</h1>
-				<h2>Podrobni podatki o posledicah virusa</h2>
-			</div>
-			
+		<div className={darkMode ? "App dark" : "App light"}>
+			<header>
+				<div className="logo">
+					<h1>Koronavirus</h1>
+					<h2>Podrobni podatki o posledicah virusa</h2>
+				</div>
+				<div className="mode">
+					<div className="mode__button" onClick={() => setDarkMode(prevMode => !prevMode)}>
+						<i className={darkMode ? "fa fa-sun" : "fa fa-moon"}></i>
+					</div>
+				</div>
+			</header>
+
 			<section>
 				<h3>Podatki</h3>
 				<List />

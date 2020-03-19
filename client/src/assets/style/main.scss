@@ -1,5 +1,6 @@
 @import "https://fonts.googleapis.com/css?family=Inter&display=swap";
 @import "./loader/loaders.scss";
+@import "./util/breakpoints.scss";
 
 body {
 	font-family: 'Inter', sans-serif;
@@ -17,11 +18,11 @@ html {
 
 .App {
 	min-height: 100vh;
-	padding: 2rem;
 	display: flex;
 	flex-flow: column;
 	position: relative;
-	
+	transition: 200ms all ease-in-out;
+		
 	&.light {
 
 		background-color: #fff;
@@ -34,6 +35,14 @@ html {
 
 			h2 {
 				color: rgba(#000, 0.5);
+			}
+		}
+
+		.mode__button {
+			color: rgba(#000, 0.7);
+			
+			&:hover {
+				background-color: rgba(#000, 0.06);
 			}
 		}
 
@@ -82,6 +91,14 @@ html {
 			}
 		}
 
+		.mode__button {
+			color: #FFF;
+			
+			&:hover {
+				background-color: rgba(#fff, 0.06);
+			}
+		}
+
 		.list {
 			
 			.list__head {
@@ -114,23 +131,60 @@ html {
 			}
 		}
 	}
-	
-	.logo {
+
+	header {
+		padding: 2rem 2rem 0 2rem;
+		display: flex;
+		flex-flow: row;
+		justify-content: space-between;
+		align-items: center;
 		margin-bottom: 2rem;
-		
-		h1 {
-			font-size: 2rem;
-			font-weight: 800;
-			text-transform: uppercase;
-			margin: 0 0 0.2rem;
-			padding: 0;
+
+		.logo {
+			
+			h1 {
+				font-size: 2rem;
+				font-weight: 800;
+				text-transform: uppercase;
+				margin: 0 0 0.2rem;
+				padding: 0;
+				transition: 200ms color ease-in-out;
+			}
+
+			h2 {
+				font-size: 1rem;
+				font-weight: 400;
+				margin: 0;
+				padding: 0;
+				transition: 200ms color ease-in-out;
+			}
 		}
 
-		h2 {
-			font-size: 1rem;
-			font-weight: 400;
-			margin: 0;
-			padding: 0;
+		.mode {
+			
+			.mode__button {
+				width: 3rem;
+				height: 3rem;
+				border-radius: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+				transition: 200ms all ease-in-out;
+				
+			}
+		}
+	}
+	
+	section {
+		
+		h3 {
+			padding: 0 2rem;
+			transition: 200ms all ease-in-out;
+			
+			@include breakpoint(sm, max) {
+				padding: 0 2rem;
+			}
 		}
 	}
 
@@ -139,7 +193,12 @@ html {
 		min-height: 50vh;
 		display: flex;
 		flex-flow: column;
-
+		padding: 0 2rem;
+		
+		@include breakpoint(sm, max) {
+			padding: 0;
+		}
+		
 		.loading {
 			position: absolute;
 			top: 50%;
@@ -155,8 +214,7 @@ html {
 			display: flex;
 			flex-flow: row;
 			position: sticky;
-			border-top-left-radius: 4px;
-			border-top-right-radius: 4px;
+			transition: 200ms background-color ease-in-out;
 			top: 0;
 
 			div {
@@ -166,6 +224,7 @@ html {
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
+				transition: 200ms background-color ease-in-out;
 				
 				&:hover {
 					user-select: none;
@@ -209,8 +268,16 @@ html {
 			.item {
 				display: flex;
 				flex-flow: row;
+				transition: 200ms background-color ease-in-out;
 
 				&:hover {
+				}
+
+				.item__cell {
+					
+					&:not(:last-child) {
+						border-right: 1px solid rgba(#000, 0.05);
+					}
 				}
 
 				.item__cell {
@@ -220,6 +287,7 @@ html {
 					display: flex;
 					flex-flow: column;
 					justify-content: center;
+					transition: 200ms background-color ease-in-out;
 				}
 
 				.item__state {
