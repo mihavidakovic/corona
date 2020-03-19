@@ -10,16 +10,12 @@ function App() {
 
 
 	return (
-		<div className="App dark">
+		<div className="App light">
 			<div className="logo">
 				<h1>Koronavirus</h1>
 				<h2>Podrobni podatki o posledicah virusa</h2>
 			</div>
 			
-			<section>
-				<Graph />
-			</section>
-
 			<section>
 				<h3>Podatki</h3>
 				<List />

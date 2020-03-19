@@ -53,6 +53,7 @@ html {
 			.items {
 				
 				.item {
+					background-color: rgba(#000, 0.02);
 					
 					&:hover {
 						background-color: rgba(#000, 0.04);
@@ -99,6 +100,7 @@ html {
 				
 				.item {
 					color: #FFF;
+					background-color: rgba(#fff, 0.02);
 					
 					&:hover {
 						background-color: rgba(#fff, 0.04);

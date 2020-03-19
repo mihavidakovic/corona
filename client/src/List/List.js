@@ -28,7 +28,7 @@ export default class List extends React.Component {
 
 
 	componentDidMount() {
-		axios.get(process.env.REACT_APP_BASE_URL + '/api/data')
+		axios.get(process.env.REACT_APP_BASE_URL + '/api/data/list')
 		.then(res => {
 			const items = res.data.data;
 			this.setState({items});
