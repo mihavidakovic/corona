@@ -51,6 +51,10 @@ html {
 			h3 {
 				color: rgba(#000, 0.7);
 			}
+
+			.data__update {
+				color: rgba(#000, 0.5);
+			}
 		}
 
 		.list {
@@ -111,6 +115,10 @@ html {
 			h3 {
 				color: #fff;
 			}
+
+			.data__update {
+				color: rgba(#fff, 0.3);
+			}
 		}
 
 		.list {
@@ -146,7 +154,7 @@ html {
 		}
 	}
 
-	header {
+	.main__header {
 		padding: 2rem 2rem 0 2rem;
 		display: flex;
 		flex-flow: row;
@@ -191,15 +199,22 @@ html {
 	}
 	
 	section {
-		
-		h3 {
+
+		.section__header {
 			padding: 0 2rem;
-			transition: 200ms all ease-in-out;
+			display: flex;
+			flex-flow: row;
+			justify-content: space-between;
+			align-items: center;
 			
-			@include breakpoint(sm, max) {
-				padding: 0 2rem;
+			h3 {
+				transition: 200ms all ease-in-out;
 			}
-		}
+
+			.data__update {
+				font-size: 0.7rem;
+			}
+		}		
 	}
 
 	.list {

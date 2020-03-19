@@ -40,7 +40,7 @@ function App() {
 
 	return (
 		<div className={darkMode ? "App dark" : "App light"}>
-			<header>
+			<header className="main__header">
 				<div className="logo">
 					<h1>Koronavirus</h1>
 					<h2>Podrobni podatki o posledicah virusa</h2>
@@ -53,7 +53,10 @@ function App() {
 			</header>
 
 			<section>
-				<h3>Podatki</h3>
+				<header className="section__header">
+					<h3>Podatki</h3>
+					<p className="data__update">Posodobljeno 19.3.2020 02:21</p>
+				</header>
 				<List />
 			</section>
 

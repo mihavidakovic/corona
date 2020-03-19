@@ -4,7 +4,22 @@ import Moment from 'react-moment';
 import 'moment/locale/sl';
 import 'moment-timezone';
 
-const sortTypes = {
+const sortTypesCountries = {
+	up: {
+		class: 'sort-up',
+		fn: (a, b) => a.countries - b.countries
+	},
+	down: {
+		class: 'sort-down',
+		fn: (a, b) => b.countries - a.countries
+	},
+	default: {
+		class: 'sort',
+		fn: (a, b) => a
+	}
+};
+
+const sortTypesDeaths = {
 	up: {
 		class: 'sort-up',
 		fn: (a, b) => a.deaths - b.deaths
@@ -23,7 +38,7 @@ export default class List extends React.Component {
 	state = {
 		loading: true,
 		items: [],
-		currentSort: 'default'
+		currentDeathsSort: 'default'
 	}
 
 
@@ -36,16 +51,16 @@ export default class List extends React.Component {
 		});
 	}
 
-	onSortChange = () => {
-		const { currentSort } = this.state;
+	onSortDeathsChange = () => {
+		const { currentDeathsSort } = this.state;
 		let nextSort;
 
-		if (currentSort === 'down') nextSort = 'up';
-		else if (currentSort === 'up') nextSort = 'default';
-		else if (currentSort === 'default') nextSort = 'down';
+		if (currentDeathsSort === 'down') nextSort = 'up';
+		else if (currentDeathsSort === 'up') nextSort = 'default';
+		else if (currentDeathsSort === 'default') nextSort = 'down';
 
 		this.setState({
-			currentSort: nextSort
+			currentDeathsSort: nextSort
 		});
 
 		console.log("klik");
@@ -53,16 +68,16 @@ export default class List extends React.Component {
 
 
 	render() {
-		const { currentSort } = this.state;
+		const { currentDeathsSort } = this.state;
 		if (this.state.loading) {
 			return (
 				<div className="list">
 					<div className="list__head">
 						<div className="list__head--state"><span>Država</span></div>
 						<div className="list__head--confirmed"><span>Potrjenih</span></div>
-						<div className="list__head--deaths" onClick={this.onSortChange}>
+						<div className="list__head--deaths" onClick={this.onSortDeathsChange}>
 							<span>Smrti</span>
-							<i className={`fas fa-${sortTypes[currentSort].class}`} />
+							<i className={`fas fa-${sortTypesDeaths[currentDeathsSort].class}`} />
 						</div>
 						<div className="list__head--recovered"><span>Okrevanih</span></div>
 						<div className="list__head--date"><span>Posodobljeno</span></div>
@@ -78,15 +93,15 @@ export default class List extends React.Component {
 					<div className="list__head">
 						<div className="list__head--state"><span>Država</span></div>
 						<div className="list__head--confirmed"><span>Potrjenih</span></div>
-						<div className="list__head--deaths" onClick={this.onSortChange}>
+						<div className="list__head--deaths" onClick={this.onSortDeathsChange}>
 							<span>Smrti</span>
-							<i className={`fas fa-${sortTypes[currentSort].class}`} />
+							<i className={`fas fa-${sortTypesDeaths[currentDeathsSort].class}`} />
 						</div>
 						<div className="list__head--recovered"><span>Okrevanih</span></div>
 						<div className="list__head--date"><span>Posodobljeno</span></div>
 					</div>
 					<div className="items">
-						{[...this.state.items].sort(sortTypes[currentSort].fn).map(item => 
+						{[...this.state.items].sort(sortTypesDeaths[currentDeathsSort].fn).map(item => 
 							<div className="item">
 								<div className="item__cell item__state">
 									<span>{item.region}</span> 
