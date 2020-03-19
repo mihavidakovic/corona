@@ -46,6 +46,13 @@ html {
 			}
 		}
 
+		section {
+			
+			h3 {
+				color: rgba(#000, 0.7);
+			}
+		}
+
 		.list {
 			
 			.list__head {
@@ -96,6 +103,13 @@ html {
 			
 			&:hover {
 				background-color: rgba(#fff, 0.06);
+			}
+		}
+
+		section {
+			
+			h3 {
+				color: #fff;
 			}
 		}
 
