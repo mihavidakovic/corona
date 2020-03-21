@@ -4,6 +4,8 @@ import Moment from 'react-moment';
 import 'moment/locale/sl';
 import 'moment-timezone';
 
+import ListItem from './ListItem.js';
+
 const sortTypesCountries = {
 	up: {
 		class: 'sort-up',
@@ -38,6 +40,7 @@ export default class List extends React.Component {
 	state = {
 		loading: true,
 		items: [],
+		lastUpdate: "",
 		currentDeathsSort: 'default'
 	}
 
@@ -48,6 +51,7 @@ export default class List extends React.Component {
 			const items = res.data.data;
 			this.setState({items});
 			this.setState({loading: false});
+			this.setState({lastUpdate: items[0]["created_at"]});
 		});
 	}
 
@@ -102,14 +106,7 @@ export default class List extends React.Component {
 					</div>
 					<div className="items">
 						{[...this.state.items].sort(sortTypesDeaths[currentDeathsSort].fn).map(item => 
-							<div className="item">
-								<div className="item__cell item__state">
-									<span>{item.region}</span> 
-								</div>
-								<div className="item__cell item__confirmed">{item.confirmed}</div>
-								<div className="item__cell item__deaths">{item.deaths}</div>
-								<div className="item__cell item__recovered">{item.recovered}</div>
-							</div>
+							<ListItem region={item.region} confirmed={item.confirmed} deaths={item.deaths} recovered={item.recovered} />
 						)}
 					</div>
 				</div>
