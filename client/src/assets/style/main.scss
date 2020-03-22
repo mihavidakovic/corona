@@ -400,14 +400,23 @@ html {
 
 				.item__confirmed {
 					width: 20%;
+					@include breakpoint(sm, max) {
+						width: 23.333%;
+					}
 				}
 
 				.item__deaths {
 					width: 20%;
+					@include breakpoint(sm, max) {
+						width: 23.333%;
+					}
 				}
 
 				.item__recovered {
 					width: 20%;
+					@include breakpoint(sm, max) {
+						width: 23.333%;
+					}
 				}
 
 				.item__date {
