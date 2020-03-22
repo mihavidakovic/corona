@@ -3,7 +3,6 @@ import React from 'react';
 import './assets/style/main.scss';
 
 import List from './List/List.js';
-import Graph from './Graph/Graph.js';
 
 
 function App() {
