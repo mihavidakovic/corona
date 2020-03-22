@@ -287,13 +287,16 @@ html {
 			top: 0;
 
 			div {
-				width: 25%;
 				font-weight: bold;
 				padding: 1rem;
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
 				transition: 200ms background-color ease-in-out;
+				
+				@include breakpoint(sm, max) {
+					padding: 0.75rem 0.5rem;
+				}
 				
 				&:hover {
 					user-select: none;
@@ -306,18 +309,35 @@ html {
 
 				&.list__head--state {
 					width: 40%;
+					
+					@include breakpoint(sm, max) {
+						width: 30%;
+					}
+		
 				}
 
 				&.list__head--confirmed {
 					width: 20%;
+					@include breakpoint(sm, max) {
+						width: 23.3333%;
+					}
+		
 				}
 
 				&.list__head--deaths {
 					width: 20%;
+					@include breakpoint(sm, max) {
+						width: 23.3333%;
+					}
+		
 				}
 
 				&.list__head--recovered {
 					width: 20%;
+					@include breakpoint(sm, max) {
+						width: 23.3333%;
+					}
+		
 				}
 
 				span {
@@ -362,6 +382,10 @@ html {
 				.item__state {
 					width: 40%;
 					
+					@include breakpoint(sm, max) {
+						width: 30%;
+					}
+
 					span {
 
 						&:first-child {
