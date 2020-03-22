@@ -9,7 +9,13 @@
       name="description"
       content="Podrobni podatki o koronavirusu"
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <meta name="keywords" content="korona, korona virus, corona, corona virus, coronavirus, koronavirus, vidakovic"/>
+    <meta name="author" content="Miha Vidakovič">
+    <meta name="robots" content="follow"/>
+    <meta http-equiv="refresh" content="30; url=https://corona.vidakovic.si"/>
+
+
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -26,6 +32,15 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Koronavirus</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133841417-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-133841417-2');
+    </script>
   </head>
   <body>
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/sl_SI/sdk.js#xfbml=1&version=v6.0&appId=239832329821923&autoLogAppEvents=1"></script>
