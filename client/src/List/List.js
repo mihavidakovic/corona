@@ -136,8 +136,9 @@ export default class List extends React.Component {
 						</div>
 						<div className="list__head--recovered" onClick={this.onSort('recovered')}>
 							<span>Okrevanih</span>
-							<i className="fa fa-sort"  />
+							<i className="fa fa-sort" />
 						</div>
+						<div className="list__head--date"><span>Posodobljeno</span></div>
 					</div>
 					<div className="items">
 						{newdata.map((item, index) => 
