@@ -112,7 +112,6 @@ export default class List extends React.Component {
 							<span>Smrti</span>
 						</div>
 						<div className="list__head--recovered"><span>Okrevanih</span></div>
-						<div className="list__head--date"><span>Posodobljeno</span></div>
 					</div>
 					<div className="loading">
 						<div className="loader"></div>
@@ -139,7 +138,6 @@ export default class List extends React.Component {
 							<span>Okrevanih</span>
 							<i className="fa fa-sort" />
 						</div>
-						<div className="list__head--date"><span>Posodobljeno</span></div>
 					</div>
 					<div className="items">
 						{newdata.map((item, index) => 
