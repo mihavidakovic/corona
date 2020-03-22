@@ -45,6 +45,14 @@ function App() {
 					<h1>Koronavirus</h1>
 					<h2>Podrobni podatki o posledicah virusa</h2>
 				</div>
+				<div className="share_div">
+					<div class="fb-share-button" data-href="https://corona.vidakovic.si/" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcorona.vidakovic.si%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+					<a class="twitter-share-button"
+						href="https://twitter.com/intent/tweet?text=Podrobni podatki o koronavirusu"
+						data-size="large">
+						Tweet
+					</a>
+				</div>
 				<div className="mode">
 					<div className="mode__button" onClick={() => setDarkMode(prevMode => !prevMode)}>
 						<i className={darkMode ? "fa fa-sun" : "fa fa-moon"}></i>

@@ -158,7 +158,6 @@ html {
 		padding: 2rem 2rem 0 2rem;
 		display: flex;
 		flex-flow: row;
-		justify-content: space-between;
 		align-items: center;
 		margin-bottom: 2rem;
 
@@ -179,6 +178,21 @@ html {
 				margin: 0;
 				padding: 0;
 				transition: 200ms color ease-in-out;
+			}
+		}
+
+		.share_div {
+			width: 100%;
+			padding: 0 4rem;
+			display: flex;
+			align-items: cetner;
+			justify-content: flex-end;
+			
+			div {
+
+				&:first-child {
+					margin-right: 1rem;
+				}
 			}
 		}
 
