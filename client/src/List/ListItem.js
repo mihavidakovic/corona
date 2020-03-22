@@ -1,17 +1,6 @@
 import React from 'react';
-import axios from 'axios';
-import Moment from 'react-moment';
-import 'moment/locale/sl';
-import 'moment-timezone';
-
-
 
 export default class ListItem extends React.Component {
-	constructor(props) {
-		super(props)
-	}
-
-
 	render() {
 		return(
 			<div className="listItem">
