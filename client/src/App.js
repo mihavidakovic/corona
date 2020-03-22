@@ -64,7 +64,7 @@ function App() {
 			<section>
 				<header className="section__header">
 					<h3>Podatki</h3>
-					<p className="data__update">Posodobljeno 12.3.2020 02:26</p>
+					<p className="data__update">Posodobljeno 22.3.2020 02:26</p>
 				</header>
 				<List />
 			</section>
