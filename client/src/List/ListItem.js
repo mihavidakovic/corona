@@ -8,11 +8,9 @@ import 'moment-timezone';
 
 export default class ListItem extends React.Component {
 	constructor(props) {
-		super(props);
-		this.state  = {
-			item: []
-		}
+		super(props)
 	}
+
 
 	render() {
 		return(
