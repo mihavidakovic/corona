@@ -136,7 +136,7 @@ export default class List extends React.Component {
 						</div>
 						<div className="list__head--recovered" onClick={this.onSort('recovered')}>
 							<span>Okrevanih</span>
-							<i className="fa fa-sort" />
+							<i className="fa fa-sort"  />
 						</div>
 					</div>
 					<div className="items">
