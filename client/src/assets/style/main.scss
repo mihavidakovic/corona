@@ -40,9 +40,10 @@ html {
 
 		.mode__button {
 			color: rgba(#000, 0.7);
+			background-color: rgba(#000, 0.06);
 			
 			&:hover {
-				background-color: rgba(#000, 0.06);
+				background-color: rgba(#000, 0.08);
 			}
 		}
 
@@ -104,9 +105,10 @@ html {
 
 		.mode__button {
 			color: #FFF;
+			background-color: rgba(#fff, 0.06);
 			
 			&:hover {
-				background-color: rgba(#fff, 0.06);
+				background-color: rgba(#fff, 0.08);
 			}
 		}
 
@@ -160,8 +162,19 @@ html {
 		flex-flow: row;
 		align-items: center;
 		margin-bottom: 2rem;
+	
+		@include breakpoint(sm, max) {
+			flex-flow: column;
+			padding: 2rem 1rem 1rem;
+			margin-bottom: 0;
+		}
 
 		.logo {
+
+			@include breakpoint(sm, max) {
+				margin-bottom: 1rem;
+				text-align: center;
+			}
 			
 			h1 {
 				font-size: 2rem;
@@ -183,11 +196,16 @@ html {
 
 		.share_div {
 			width: 100%;
-			padding: 0 4rem;
+			padding: 0 2rem;
 			display: flex;
-			align-items: cetner;
+			align-items: center;
 			justify-content: flex-end;
 			
+			@include breakpoint(sm, max) {
+				margin-bottom: 1rem;
+				justify-content: center;
+			}
+
 			div {
 
 				&:first-child {
@@ -199,14 +217,18 @@ html {
 		.mode {
 			
 			.mode__button {
-				width: 3rem;
+				width: 10rem;
 				height: 3rem;
-				border-radius: 100%;
+				border-radius: 30px;
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				cursor: pointer;
 				transition: 200ms all ease-in-out;
+				
+				i {
+					margin-right: 1rem;
+				}
 				
 			}
 		}
@@ -221,6 +243,10 @@ html {
 			justify-content: space-between;
 			align-items: center;
 			
+			@include breakpoint(sm, max) {
+				padding: 0 1rem;
+			}
+
 			h3 {
 				transition: 200ms all ease-in-out;
 			}

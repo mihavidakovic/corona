@@ -56,6 +56,7 @@ function App() {
 				<div className="mode">
 					<div className="mode__button" onClick={() => setDarkMode(prevMode => !prevMode)}>
 						<i className={darkMode ? "fa fa-sun" : "fa fa-moon"}></i>
+						<span>{darkMode ? "Svetli" : "Temni"} način</span>
 					</div>
 				</div>
 			</header>
