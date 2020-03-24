@@ -3,6 +3,7 @@ import React from 'react';
 import './assets/style/main.scss';
 
 import List from './List/List.js';
+import Graph from './Graph/Graph.js';
 
 
 function App() {
@@ -65,7 +66,12 @@ function App() {
 					<h3>Podatki</h3>
 					<p className="data__update">Posodobljeno 23.3.2020 00:27</p>
 				</header>
-				<List />
+				<div className="podatki">
+					<List />
+					<div className="neki">
+					<Graph />
+					</div>
+				</div>
 			</section>
 
 		</div>

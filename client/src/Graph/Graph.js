@@ -5,22 +5,23 @@ import 'moment/locale/sl';
 import 'moment-timezone';
 
 import {
-  AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip,
+  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
 
 
 export default class Graph extends React.Component {
 	state = {
 		loading: true,
-		data: [],
+		data: {},
 		currentSort: 'default'
 	}
 
 
 	componentDidMount() {
-		axios.get(process.env.REACT_APP_BASE_URL + '/api/data/graph')
+		axios.get("https://corona.lmao.ninja/historical/slovenia")
 		.then(res => {
-			const data = res.data.data;
+			console.log(res.data)
+			const data = res.data;
 			this.setState({data});
 			this.setState({loading: false});
 		});
@@ -28,21 +29,22 @@ export default class Graph extends React.Component {
 
 	render() {
 		return (
-			<div>
-		      <AreaChart
-		        width={800}
-		        height={400}
+			<div className="graf">
+		      <LineChart
+		        width={500}
+		        height={300}
 		        data={this.state.data}
 		        margin={{
-		          top: 10, right: 30, left: 0, bottom: 0,
+		          top: 5, right: 30, left: 20, bottom: 5,
 		        }}
 		      >
 		        <CartesianGrid strokeDasharray="3 3" />
-		        <XAxis dataKey="name" />
+		        <XAxis dataKey="standardizedCountryName" />
 		        <YAxis />
 		        <Tooltip />
-		        <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
-		      </AreaChart>
+		        <Legend />
+		        <Line type="monotone" dataKey="timeline.deaths" stroke="#82ca9d" />
+		      </LineChart>
 			</div>
 		);
 	}
