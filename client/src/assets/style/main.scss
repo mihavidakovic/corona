@@ -270,7 +270,6 @@ html {
 	}
 
 	.list {
-		width: 100%;
 		min-height: 50vh;
 		display: flex;
 		flex-flow: column;
@@ -315,12 +314,8 @@ html {
 					cursor: pointer;
 				}
 
-				&:last-child {
-					display: none;
-				}
-
 				&.list__head--state {
-					width: 40%;
+					width: 20%;
 					
 					@include breakpoint(sm, max) {
 						width: 30%;
@@ -348,6 +343,15 @@ html {
 					width: 20%;
 					@include breakpoint(sm, max) {
 						width: 23.3333%;
+					}
+		
+				}
+
+				&.list__head--critical {
+					width: 20%;
+					@include breakpoint(sm, max) {
+						width: 23.3333%;
+						display: none;
 					}
 		
 				}
@@ -386,13 +390,28 @@ html {
 					padding: 1rem 1rem;
 					font-size: 0.8rem;
 					display: flex;
-					flex-flow: column;
+					flex-flow: row;
 					justify-content: center;
+					align-items: center;
 					transition: 200ms background-color ease-in-out;
+					
+					.new_cases {
+						margin-left: 0.2rem;
+						font-weight: bold;
+						font-size: 0.7rem;
+						
+						&.positive {
+							color: rgba(#f00, 1);
+						}
+
+						&.negative {
+							color: rgba(#4ad71f, 1);
+						}
+					}
 				}
 
 				.item__state {
-					width: 40%;
+					width: 20%;
 					
 					@include breakpoint(sm, max) {
 						width: 30%;
@@ -431,11 +450,27 @@ html {
 					}
 				}
 
-				.item__date {
-					display: none;
+				.item__critical {
+					width: 20%;
+					@include breakpoint(sm, max) {
+						width: 23.333%;
+						display: none;
+					}
 				}
 			}
 		}
+	}
 
+	.podatki {
+		display: flex;
+		flex-flow: row;
+		
+		.list {
+			width: 100%;
+		}
+
+		.graf {
+			display: none;
+		}
 	}
 }

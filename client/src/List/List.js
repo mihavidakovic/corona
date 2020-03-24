@@ -16,21 +16,21 @@ export default class List extends React.Component {
 
 
 	componentDidMount() {
-		axios.get(process.env.REACT_APP_BASE_URL + '/api/data/list')
+		axios.get("https://corona.lmao.ninja/countries")
 		.then(res => {
-			const data = res.data.data;
+			console.log(res.data)
+			const data = res.data;
 			this.setState({data});
 			this.setState({loading: false});
-			this.setState({lastUpdate: data[0]["created_at"]});
 		});
 	}
 
 	onSort = (column) => (e) => {
 	  const direction = this.state.sort.column ? (this.state.sort.direction === 'asc' ? 'desc' : 'asc') : 'desc';
 	  const sortedData = this.state.data.sort((a, b) => {
-	    if (column === 'region') {
-			const nameA = a.region.toUpperCase();
-			const nameB = b.region.toUpperCase();
+	    if (column === 'country') {
+			const nameA = a.country.toUpperCase();
+			const nameB = b.country.toUpperCase();
 
 			if (nameA < nameB) {
 				return -1;
@@ -70,6 +70,19 @@ export default class List extends React.Component {
 	    } else if (column === 'recovered') {
 			const nameA = a.recovered;
 			const nameB = b.recovered;
+
+			if (nameA < nameB) {
+				return -1;
+			}
+			if (nameA > nameB) {
+				return 1;
+			}
+
+			return 0;
+
+	    } else if (column === 'crititcal') {
+			const nameA = a.crititcal;
+			const nameB = b.crititcal;
 
 			if (nameA < nameB) {
 				return -1;
@@ -122,7 +135,7 @@ export default class List extends React.Component {
 			return (
 				<div className="list">
 					<div className="list__head">
-						<div className="list__head--state" onClick={this.onSort('region')}>
+						<div className="list__head--state" onClick={this.onSort('country')}>
 							<span>Država</span>
 							<i className="fa fa-sort" />
 						</div>
@@ -138,11 +151,14 @@ export default class List extends React.Component {
 							<span>Okrevanih</span>
 							<i className="fa fa-sort" />
 						</div>
-						<div className="list__head--date"><span>Posodobljeno</span></div>
+						<div className="list__head--critical" onClick={this.onSort('critical')}>
+							<span>Kritični</span>
+							<i className="fa fa-sort" />
+						</div>
 					</div>
 					<div className="items">
 						{newdata.map((item, index) => 
-							<ListItem key={index}  id={item.id} region={item.region} confirmed={item.confirmed} deaths={item.deaths} recovered={item.recovered} />
+							<ListItem key={index}  id={item.id} country={item.country} cases={item.cases} todayCases={item.todayCases} deaths={item.deaths} todayDeaths={item.todayDeaths} recovered={item.recovered} critical={item.critical} />
 						)}
 					</div>
 				</div>
