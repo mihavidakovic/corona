@@ -4,25 +4,37 @@ import axios from 'axios';
 import ListItem from './ListItem.js';
 
 export default class List extends React.Component {
-	state = {
-		loading: true,
-		data: [],
-		lastUpdate: "",
-		sort: {
-			column: null,
-			direction: 'desc',
-		},
+	constructor(props){
+		super(props)
+		this.state = {
+			loading: true,
+			data: [],
+			sort: {
+				column: null,
+				direction: 'desc',
+			},
+		};
 	}
 
+	componentWillMount() {
+		this.fetchData();
 
-	componentDidMount() {
+		setInterval(() => {
+			this.onSort(this.state.sort.column)
+			this.fetchData();
+		}, 2000);		
+
+	};
+
+	fetchData() {
+
+
 		axios.get("https://corona.lmao.ninja/countries")
-		.then(res => {
-			console.log(res.data)
-			const data = res.data;
-			this.setState({data});
-			this.setState({loading: false});
-		});
+			.then(res => {
+				const data = res.data;
+				this.setState({data});
+				this.setState({loading: false});
+		})
 	}
 
 	onSort = (column) => (e) => {
@@ -80,9 +92,9 @@ export default class List extends React.Component {
 
 			return 0;
 
-	    } else if (column === 'crititcal') {
-			const nameA = a.crititcal;
-			const nameB = b.crititcal;
+	    } else if (column === 'critical') {
+			const nameA = a.critical;
+			const nameB = b.critical;
 
 			if (nameA < nameB) {
 				return -1;
@@ -113,7 +125,6 @@ export default class List extends React.Component {
 	};
 
 	render() {
-		let newdata = this.state.data;
 
 		if (this.state.loading) {
 			return (
@@ -157,7 +168,7 @@ export default class List extends React.Component {
 						</div>
 					</div>
 					<div className="items">
-						{newdata.map((item, index) => 
+						{this.state.data.map((item, index) => 
 							<ListItem key={index}  id={item.id} country={item.country} cases={item.cases} todayCases={item.todayCases} deaths={item.deaths} todayDeaths={item.todayDeaths} recovered={item.recovered} critical={item.critical} />
 						)}
 					</div>

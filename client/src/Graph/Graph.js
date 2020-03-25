@@ -20,7 +20,6 @@ export default class Graph extends React.Component {
 	componentDidMount() {
 		axios.get("https://corona.lmao.ninja/historical/slovenia")
 		.then(res => {
-			console.log(res.data)
 			const data = res.data;
 			this.setState({data});
 			this.setState({loading: false});
