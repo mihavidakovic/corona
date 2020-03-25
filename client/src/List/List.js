@@ -22,7 +22,7 @@ export default class List extends React.Component {
 		setInterval(() => {
 			this.onSort(this.state.sort.column)
 			this.fetchData();
-		}, 2000);		
+		}, 10000);		
 
 	};
 
