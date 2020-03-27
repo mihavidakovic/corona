@@ -4,7 +4,10 @@ import 'moment-timezone';
 
 import './assets/style/main.scss';
 
+import Header from './Components/Header.js';
+
 import List from './List/List.js';
+import All from './Components/All.js';
 import Graph from './Graph/Graph.js';
 
 
@@ -14,19 +17,9 @@ class App extends React.Component {
 
 		this.state = {
 			darkMode: true,
-			updated: []
 		};
 	}
 
-	componentDidMount() {
-		this.giveDate(new Date( Date.now() - 1000 * 60 ), new Date( Date.now() - 4500 * 60))
-	}
-
-
-	giveDate = (start, end) => {
-		var date = new Date(+start + Math.random() * (end - start));
-		this.setState({updated: date.toString()});
-	}
 
 
 	// getInitialMode = () => {
@@ -56,37 +49,14 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className={this.state.darkMode ? "App dark" : "App light"}>
-				<header className="main__header">
-					<div className="logo">
-						<h1>Koronavirus</h1>
-						<h2>Podrobni podatki o posledicah virusa</h2>
-					</div>
-					<div className="share_div">
-						<div class="fb-share-button" data-href="https://corona.vidakovic.si/" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcorona.vidakovic.si%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
-						<a class="twitter-share-button"
-							href="https://twitter.com/intent/tweet?text=Podrobni podatki o koronavirusu"
-							data-size="large">
-							Tweet
-						</a>
-					</div>
-					<div className="mode">
-						<div className="mode__button" onClick={() => this.setState({darkMode: !this.state.darkMode})}>
-							<i className={this.state.darkMode ? "fa fa-sun" : "fa fa-moon"}></i>
-							<span>{this.state.darkMode ? "Svetli" : "Temni"} način</span>
-						</div>
-					</div>
-				</header>
+				<Header />
 
 				<section>
-					<header className="section__header">
-						<h3>Podatki</h3>
-						<p className="data__update"><Moment format="DD.MM.YYYY hh:mm" tz="Slovenia/Ljubljana">{this.state.updated}</Moment></p>
-					</header>
+					<div className="all">
+						<All />
+					</div>
 					<div className="podatki">
 						<List />
-						<div className="neki">
-						<Graph />
-						</div>
 					</div>
 				</section>
 

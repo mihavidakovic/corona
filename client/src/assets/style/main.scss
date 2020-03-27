@@ -173,7 +173,7 @@ html {
 		display: flex;
 		flex-flow: row;
 		align-items: center;
-		margin-bottom: 2rem;
+		margin-bottom: 3rem;
 	
 		@include breakpoint(sm, max) {
 			flex-flow: column;
@@ -208,7 +208,7 @@ html {
 		}
 
 		.share_div {
-			padding: 0 2rem;
+			padding: 0 rem;
 			display: flex;
 			align-items: center;
 			justify-content: flex-end;
@@ -227,6 +227,7 @@ html {
 		}
 
 		.mode {
+			display: none;
 			
 			.mode__button {
 				width: 10rem;
@@ -246,28 +247,6 @@ html {
 		}
 	}
 	
-	section {
-
-		.section__header {
-			padding: 0 2rem;
-			display: flex;
-			flex-flow: row;
-			justify-content: space-between;
-			align-items: center;
-			
-			@include breakpoint(sm, max) {
-				padding: 0 1rem;
-			}
-
-			h3 {
-				transition: 200ms all ease-in-out;
-			}
-
-			.data__update {
-				font-size: 0.7rem;
-			}
-		}		
-	}
 
 	.list {
 		min-height: 50vh;
@@ -463,14 +442,134 @@ html {
 
 	.podatki {
 		display: flex;
-		flex-flow: row;
+		flex-flow: column;
 		
+		.section__header {
+			padding: 0 2rem;
+			display: flex;
+			flex-flow: row;
+			justify-content: space-between;
+			align-items: center;
+			
+			@include breakpoint(sm, max) {
+				padding: 0 1rem;
+			}
+
+			h3 {
+				transition: 200ms all ease-in-out;
+			}
+
+			.date {
+				display: flex;
+				flex-flow: row;
+				align-items: center;
+				
+				i {
+					color: rgba(#fff, 0.7);
+					transition: 200ms all ease-in-out;
+					margin-right: 0.5rem;
+					font-size: 0.7rem;
+					
+					&:hover {
+						color: rgba(#fff, 0.85);
+						cursor: pointer;
+					}
+				}
+
+				.data__updated {
+					font-size: 0.7rem;
+					color: rgba(#fff, 0.7);
+					margin: 0.1rem 0 0;
+				}
+			}
+
+		}	
+
 		.list {
 			width: 100%;
 		}
 
 		.graf {
 			display: none;
+		}
+	}
+
+	.all-data {
+		width: 100%;
+		padding: 0 2rem;
+		display: flex;
+		flex-flow: column;
+		margin: 0 0 2rem 0;
+		
+		.all-data__header {
+			display: flex;
+			flex-flow: row;
+			align-items: center;
+			justify-content: space-between;
+			margin-bottom: 1rem;
+			
+			h2 {
+				color: #FFF;
+				font-size: 1.2rem;
+				margin: 0 0.5rem 0 0;
+			}
+
+			p {
+				margin: 0;
+				font-size: 0.7rem;
+				color: rgba(#fff, 0.6);
+				
+				span {
+					@include breakpoint(sm, max) {
+						display: none;
+					}
+				}
+			}
+		
+		}
+		
+		.data-points {
+			display: flex;
+			flex-flow: row;
+			
+			@include breakpoint(sm, max) {
+				flex-flow: column;
+			}
+		
+			.data-point {
+				width: 33.333%;
+				background-color: rgba(#fff, 0.05);
+				display: flex;
+				flex-flow: column;
+				text-align: center;
+				padding: 2rem 1rem;
+				border-radius: 4px;
+				
+				@include breakpoint(sm, max) {
+					width: 100%;
+					
+					&:not(:last-of-type) {
+						margin-bottom: 1rem;
+					}
+				}
+
+				&:not(:last-of-type) {
+					margin-right: 1rem;
+				}
+
+				h3 {
+					margin: 0;
+					font-size: 2rem;
+				}
+
+				span {
+					color: rgba(#fff, 0.6);
+					text-transform: uppercase;
+					font-size: 0.7rem;
+					font-weight: bold;
+					letter-spacing: 2px;
+				}
+			}
 		}
 	}
 }
