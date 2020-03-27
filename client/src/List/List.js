@@ -37,7 +37,8 @@ export default class List extends React.Component {
 				const data = res.data;
 				this.setState({data});
 				this.setState({loading: false});
-				this.giveDate(new Date( Date.now() - 1000 * 60 ), new Date( Date.now() - 4500 * 60))
+				this.setState({updated: new Date()});
+				// this.giveDate(new Date( Date.now() - 1000 * 60 ), new Date( Date.now() - 4500 * 60))
 		})
 	}
 
