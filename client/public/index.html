@@ -19,6 +19,7 @@
     <meta property="og:url" content="https://corona.vidakovic.si" />
     <meta property="og:title" content="Koronavirus" />
     <meta property="og:description" content="Podrobni podatki o koronavirusu." />
+    <meta property="og:image" content="https://corona.vidakovic.si/card.jpg" />
 
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -47,13 +48,6 @@
     </script>
   </head>
   <body>
-  <script>
-    var random = Math.random().toString(36).substring(7);
-    var imgLink = document.createElement('meta');
-    imgLink.setAttribute('property', 'og:image');
-    imgLink.content = "https://corona.vidakovic.si/card.jpg?v=" + random;
-    document.getElementsByTagName('head')[0].appendChild(imgLink);
-  </script>
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/sl_SI/sdk.js#xfbml=1&version=v6.0&appId=239832329821923&autoLogAppEvents=1"></script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
