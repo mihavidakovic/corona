@@ -11,6 +11,7 @@ export default class List extends React.Component {
 		this.state = {
 			loading: true,
 			data: [],
+			expanded: false,
 			updated: new Date(),
 			sort: {
 				column: null,
@@ -134,6 +135,10 @@ export default class List extends React.Component {
 		this.setState({updated: date.toString()});
 	}
 
+	expandList = () => {
+		this.setState({expanded: !this.state.expanded});
+	}
+
 	render() {
 
 		if (this.state.loading) {
@@ -171,7 +176,10 @@ export default class List extends React.Component {
 						</div>
 					</header>
 
-					<div className="list">
+					<div className={this.state.expanded ? 'list expanded' : 'list'}>
+						<div className="see-more" onClick={() => this.expandList()}>
+							<span><i className="fa fa-plus"></i> Prikaži vse</span>
+						</div>
 						<div className="list__head">
 							<div className="list__head--state" onClick={this.onSort('country')}>
 								<span>Država</span>

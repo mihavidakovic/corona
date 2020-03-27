@@ -55,6 +55,9 @@ class App extends React.Component {
 					<div className="all">
 						<All />
 					</div>
+					<div className="graf">
+						<Graph />
+					</div>
 					<div className="podatki">
 						<List />
 					</div>
