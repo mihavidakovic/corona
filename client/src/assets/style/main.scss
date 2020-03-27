@@ -457,6 +457,10 @@ html {
 
 			h3 {
 				transition: 200ms all ease-in-out;
+				
+				@include breakpoint(sm, max) {
+					font-size: 1rem;
+				}
 			}
 
 			.date {
@@ -470,6 +474,10 @@ html {
 					margin-right: 0.5rem;
 					font-size: 0.7rem;
 					
+					@include breakpoint(sm, max) {
+						font-size: 0.5rem;
+					}
+					
 					&:hover {
 						color: rgba(#fff, 0.85);
 						cursor: pointer;
@@ -480,6 +488,10 @@ html {
 					font-size: 0.7rem;
 					color: rgba(#fff, 0.7);
 					margin: 0.1rem 0 0;
+					
+					@include breakpoint(sm, max) {
+						font-size: 0.6rem;
+					}
 				}
 			}
 
@@ -501,6 +513,10 @@ html {
 		flex-flow: column;
 		margin: 0 0 2rem 0;
 		
+		@include breakpoint(sm, max) {
+			padding: 0 1rem;
+		}
+		
 		.all-data__header {
 			display: flex;
 			flex-flow: row;
@@ -512,6 +528,10 @@ html {
 				color: #FFF;
 				font-size: 1.2rem;
 				margin: 0 0.5rem 0 0;
+				
+				@include breakpoint(sm, max) {
+					font-size: 1rem;
+				}
 			}
 
 			p {
@@ -519,6 +539,10 @@ html {
 				font-size: 0.7rem;
 				color: rgba(#fff, 0.6);
 				
+				@include breakpoint(sm, max) {
+					font-size: 0.6rem;
+				}
+
 				span {
 					@include breakpoint(sm, max) {
 						display: none;
