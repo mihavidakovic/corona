@@ -438,7 +438,7 @@ html {
 				.item__state {
 					width: 20%;
 					position: relative;
-					padding-left: calc(1rem + 30px);
+					padding: 0 calc(1rem) 0 calc(1rem + 20px);
 					
 					@include breakpoint(sm, max) {
 						width: 30%;
