@@ -579,6 +579,16 @@ html {
 			@include breakpoint(sm, max) {
 				padding: 0 1rem;
 			}
+
+			h2 {
+				color: #FFF;
+				font-size: 1.2rem;
+				margin: 0 0 1.5rem 0;
+				
+				@include breakpoint(sm, max) {
+					font-size: 1rem;
+				}
+			}
 		}
 
 		.custom-tooltip {
