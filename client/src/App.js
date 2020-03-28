@@ -52,11 +52,13 @@ class App extends React.Component {
 				<Header />
 
 				<section>
-					<div className="all">
-						<All />
-					</div>
-					<div className="graf">
-						<Graph />
+					<div className="two">
+						<div className="graf">
+							<Graph />
+						</div>
+						<div className="all">
+							<All />
+						</div>
 					</div>
 					<div className="podatki">
 						<List />

@@ -69,7 +69,7 @@ export default class Graph extends React.Component {
 				<header className="section__header">
 					<h2>Graf potrjenih primerov v Sloveniji</h2>
 				</header>
-				<div style={{width: '100%', height: 300}}>
+				<div style={{width: '100%', height: 210}}>
 					<ResponsiveContainer>
 						<AreaChart
 							height={100}

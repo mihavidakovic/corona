@@ -2,6 +2,9 @@
 @import "./loader/loaders.scss";
 @import "./util/breakpoints.scss";
 
+$black: #121212;
+
+
 body {
 	font-family: 'Inter', sans-serif;
 	padding: 0;
@@ -96,7 +99,7 @@ html {
 	}
 	
 	&.dark {
-		background-color: rgba(#000, 0.95);
+		background-color: $black;
 		
 		.logo {
 			
@@ -290,7 +293,7 @@ html {
 			bottom: 0;
 			width: 100%;
 			height: 80%;
-			background-image: linear-gradient(rgba(#000, 0) 0%, rgba(#000, 1) 70%);
+			background-image: linear-gradient(rgba($black, 0) 0%, $black 70%);
 			z-index: 100;
 			display: flex;
 			align-items: flex-end;
@@ -461,6 +464,10 @@ html {
 						background: rgba(#fff, 0.08);
 						transform: translateY(-50%);
 						border-radius: 4px;
+						
+						@include breakpoint(sm, max) {
+							left: 0.3rem;
+						}
 					}
 
 					span {
@@ -569,7 +576,24 @@ html {
 		}
 	}
 
+	.two {
+		display: flex;
+		flex-flow: row;
+		
+		@include breakpoint(sm, max) {
+			flex-direction: column-reverse;
+		}
+	}
+
 	.graf {
+		display: flex;
+		flex-flow: column;
+		position: relative;
+		width: 50%;
+		
+		@include breakpoint(sm, max) {
+			width: 100%;
+		}
 
 		.section__header {
 			padding: 0 2rem;
@@ -596,9 +620,16 @@ html {
 		}
 	}
 
+	.all {
+		width: 50%;
+		
+		@include breakpoint(sm, max) {
+			width: 100%;
+		}
+	}
 	.all-data {
 		width: 100%;
-		padding: 0 2rem;
+		padding: 0 2rem 0 0;
 		display: flex;
 		flex-flow: column;
 		margin: 0 0 2rem 0;
@@ -617,7 +648,7 @@ html {
 			h2 {
 				color: #FFF;
 				font-size: 1.2rem;
-				margin: 0 0.5rem 0 0;
+				margin: 0 0.5rem 0.5rem 0;
 				
 				@include breakpoint(sm, max) {
 					font-size: 1rem;
@@ -652,12 +683,25 @@ html {
 		
 			.data-point {
 				width: 33.333%;
+				height: 180px;
 				background-color: rgba(#fff, 0.05);
 				display: flex;
 				flex-flow: column;
+				justify-content: center;
 				text-align: center;
-				padding: 2rem 1rem;
-				border-radius: 4px;
+				padding: 0rem 1rem;
+				border-radius: 8px;
+				transition: 200ms all ease-in-out;
+				
+				@include breakpoint(sm, max) {
+					height: 120px;
+				}
+				
+				&:hover {
+					cursor: pointer;
+					background-color: rgba(#fff, 0.07);
+					box-shadow: 0 2px 20px 0px rgba(#000, 0.5);
+				}
 				
 				@include breakpoint(sm, max) {
 					width: 100%;
@@ -672,8 +716,12 @@ html {
 				}
 
 				h3 {
-					margin: 0;
-					font-size: 2rem;
+					margin: 0 0 0.5rem 0;
+					font-size: 1.8rem;
+					
+					@include breakpoint(sm, max) {
+						font-size: 2rem;
+					}
 				}
 
 				span {
