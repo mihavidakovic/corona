@@ -567,8 +567,22 @@ html {
 		.list {
 			width: 100%;
 		}
+	}
 
-		.graf {
+	.graf {
+
+		.section__header {
+			padding: 0 2rem;
+			display: flex;
+			flex-flow: column;
+			
+			@include breakpoint(sm, max) {
+				padding: 0 1rem;
+			}
+		}
+
+		.custom-tooltip {
+			background-color: red;
 		}
 	}
 
