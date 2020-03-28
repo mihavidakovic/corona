@@ -9,7 +9,7 @@ var dateFormat = require('dateformat');
 const tooltip = {
 	background: '#fff',
 	padding: '0.5rem 1rem',
-	borderRadius: '4px',
+	borderRadius: '3px',
 	color: 'black',
 	fontSize: '0.9rem'
 };
