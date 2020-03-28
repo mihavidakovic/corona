@@ -580,7 +580,7 @@ html {
 		display: flex;
 		flex-flow: row;
 		
-		@include breakpoint(sm, max) {
+		@include breakpoint(md, max) {
 			flex-direction: column-reverse;
 		}
 	}
@@ -591,7 +591,7 @@ html {
 		position: relative;
 		width: 50%;
 		
-		@include breakpoint(sm, max) {
+		@include breakpoint(md, max) {
 			width: 100%;
 		}
 
@@ -623,7 +623,7 @@ html {
 	.all {
 		width: 50%;
 		
-		@include breakpoint(sm, max) {
+		@include breakpoint(md, max) {
 			width: 100%;
 		}
 	}
@@ -634,7 +634,7 @@ html {
 		flex-flow: column;
 		margin: 0 0 2rem 0;
 		
-		@include breakpoint(sm, max) {
+		@include breakpoint(md, max) {
 			padding: 0 1rem;
 		}
 		
