@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import Moment from 'react-moment';
 import 'moment-timezone';
 
@@ -18,6 +19,17 @@ class App extends React.Component {
 		this.state = {
 			darkMode: true,
 		};
+	}
+
+	componentWillMount() {
+		this.getIp();
+	}
+
+	getIp() {
+		axios.get("https://corona.vidakovic.si/api/ip")
+			.then(res => {
+				console.log(res.data);
+		})
 	}
 
 
