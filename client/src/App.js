@@ -22,10 +22,10 @@ import Graph from './Graph/Graph.js';
 
 export default function App() {
 
-	// axios.get("https://corona.vidakovic.si/api/ip")
-	// 	.then(res => {
-	// 		console.log(res.data);
-	// })
+	axios.get("https://corona.vidakovic.si/api/ip")
+		.then(res => {
+			console.log(res.data);
+	})
 
 	return (
 		<BrowserRouter>
