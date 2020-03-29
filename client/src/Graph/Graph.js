@@ -17,7 +17,7 @@ const tooltip = {
 
 const CustomTooltip = ({ active, payload, label }) => {
   	let labelFormated = dateFormat(label, "dd.mm.yyyy")
-  if (active) {
+  if (active && payload) {
     return (
       <div style={tooltip}>
         <span className="label">{`${labelFormated}:`} <b>{`${payload[1].value}`} potrjenih primerov</b></span>
@@ -80,7 +80,6 @@ export default class Graph extends React.Component {
 
 			var allCases = cases.slice(40)
 
-			console.log(allCases)
 	    	
 			this.setState({data: res.data});
 			this.setState({cases: allCases});
@@ -107,12 +106,16 @@ export default class Graph extends React.Component {
 						<h2>Graf primerov v</h2>
 						<div className="select_country">
 							<select className="select_country--select" onChange={this.change} value={this.state.selectedCountry}>
-								<option value="slovenia">Slovenia</option>
-							{Object.keys(countries).map(function(i) {
-								var country = countries[i];
-									return (<option value={country.name}>{country.name}</option>)
-								} 
-								)}
+								<optgroup>
+									<option value="slovenia">Slovenija</option>
+								</optgroup>
+								<optgroup label="________________________________________">
+									{Object.keys(countries).map(function(i) {
+										var country = countries[i];
+											return (<option value={country.name}>{country.prevod}</option>)
+										} 
+									)}
+								</optgroup>
 							</select>
 							<div className="select_country--icon">
 								<i className="fa fa-chevron-down"></i>

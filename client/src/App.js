@@ -1,4 +1,12 @@
 import React from 'react';
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+
 import axios from 'axios';
 import Moment from 'react-moment';
 import 'moment-timezone';
@@ -12,76 +20,61 @@ import All from './Components/All.js';
 import Graph from './Graph/Graph.js';
 
 
-class App extends React.Component {
-	constructor() {
-		super();
+export default function App() {
 
-		this.state = {
-			darkMode: true,
-		};
-	}
+	// axios.get("https://corona.vidakovic.si/api/ip")
+	// 	.then(res => {
+	// 		console.log(res.data);
+	// })
 
-	componentWillMount() {
-		this.getIp();
-	}
-
-	getIp() {
-		axios.get("https://corona.vidakovic.si/api/ip")
-			.then(res => {
-				console.log(res.data);
-		})
-	}
-
-
-
-	// getInitialMode = () => {
-	// 	const isReturningUser = "dark" in localStorage;
-	// 	const savedMode = JSON.parse(localStorage.getItem('dark'));
-	// 	const userPrefersDark = getPrefColorScheme();
-	// 	// if mode was saved -> dark / light
-	// 	if (isReturningUser) {
-	// 		return savedMode;
-	// 	} else if (userPrefersDark) {
-	// 		return true;
-	// 	} else {
-	// 		return false;
-	// 	}
-	// 	// if preferred color scheme dark -> dark
-	// 	// otherwise -> light
-
-	// 	return savedMode || false;
-	// }
-
-	// getPrefColorScheme = () => {
-	// 	if (!window.matchMedia) return;
-
-	// 	return window.matchMedia("(prefers-color-scheme: dark)").matches;
-	// }
-
-	render() {
-		return (
-			<div className={this.state.darkMode ? "App dark" : "App light"}>
+	return (
+		<BrowserRouter>
+			<div className="App dark">
 				<Header />
 
-				<section>
-					<div className="two">
-						<div className="graf">
-							<Graph />
-						</div>
-						<div className="all">
-							<All />
-						</div>
-					</div>
-					<div className="podatki">
-						<List />
-					</div>
-				</section>
+				<Switch>
+					<Route path="/">
+						<section>
+							<div className="two">
+								<div className="graf">
+									<Graph />
+								</div>
+								<div className="all">
+									<All />
+								</div>
+							</div>
+							<div className="podatki">
+								<List />
+							</div>
+						</section>
+					</Route>
+					<Route path="/admin">
+						<p>lol</p>
+					</Route>
+				</Switch>
 
 			</div>
-		);
-
-	}
-
+		</BrowserRouter>
+	);
 }
 
-export default App;
+function Home() {
+	return (
+		<section>
+			<div className="two">
+				<div className="graf">
+					<Graph />
+				</div>
+				<div className="all">
+					<All />
+				</div>
+			</div>
+			<div className="podatki">
+				<List />
+			</div>
+		</section>
+	);
+}
+function Admin() {
+	return (<h2>Admin</h2>);
+}

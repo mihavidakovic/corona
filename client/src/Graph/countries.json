@@ -1,749 +1,806 @@
 [
-  {
-    "name": "Afghanistan"
-  },
-  {
-    "name": "Albania"
-  },
-  {
-    "name": "Algeria"
-  },
-  {
-    "name": "American Samoa"
-  },
-  {
-    "name": "Andorra"
-  },
-  {
-    "name": "Angola"
-  },
-  {
-    "name": "Anguilla"
-  },
-  {
-    "name": "Antarctica"
-  },
-  {
-    "name": "Antigua and Barbuda"
-  },
-  {
-    "name": "Argentina"
-  },
-  {
-    "name": "Armenia"
-  },
-  {
-    "name": "Aruba"
-  },
-  {
-    "name": "Australia"
-  },
-  {
-    "name": "Austria"
-  },
-  {
-    "name": "Azerbaijan"
-  },
-  {
-    "name": "Bahamas"
-  },
-  {
-    "name": "Bahrain"
-  },
-  {
-    "name": "Bangladesh"
-  },
-  {
-    "name": "Barbados"
-  },
-  {
-    "name": "Belarus"
-  },
-  {
-    "name": "Belgium"
-  },
-  {
-    "name": "Belize"
-  },
-  {
-    "name": "Benin"
-  },
-  {
-    "name": "Bermuda"
-  },
-  {
-    "name": "Bhutan"
-  },
-  {
-    "name": "Bolivia"
-  },
-  {
-    "name": "Bosnia and Herzegovina"
-  },
-  {
-    "name": "Botswana"
-  },
-  {
-    "name": "Bouvet Island"
-  },
-  {
-    "name": "Brazil"
-  },
-  {
-    "name": "British Indian Ocean Territory"
-  },
-  {
-    "name": "Brunei"
-  },
-  {
-    "name": "Bulgaria"
-  },
-  {
-    "name": "Burkina Faso"
-  },
-  {
-    "name": "Burundi"
-  },
-  {
-    "name": "Cambodia"
-  },
-  {
-    "name": "Cameroon"
-  },
-  {
-    "name": "Canada"
-  },
-  {
-    "name": "Cape Verde"
-  },
-  {
-    "name": "Cayman Islands"
-  },
-  {
-    "name": "Central African Republic"
-  },
-  {
-    "name": "Chad"
-  },
-  {
-    "name": "Chile"
-  },
-  {
-    "name": "China"
-  },
-  {
-    "name": "Christmas Island"
-  },
-  {
-    "name": "Cocos (Keeling) Islands"
-  },
-  {
-    "name": "Colombia"
-  },
-  {
-    "name": "Comoros"
-  },
-  {
-    "name": "Congo"
-  },
-  {
-    "name": "The Democratic Republic of Congo"
-  },
-  {
-    "name": "Cook Islands"
-  },
-  {
-    "name": "Costa Rica"
-  },
-  {
-    "name": "Ivory Coast"
-  },
-  {
-    "name": "Croatia"
-  },
-  {
-    "name": "Cuba"
-  },
-  {
-    "name": "Cyprus"
-  },
-  {
-    "name": "Czech Republic"
-  },
-  {
-    "name": "Denmark"
-  },
-  {
-    "name": "Djibouti"
-  },
-  {
-    "name": "Dominica"
-  },
-  {
-    "name": "Dominican Republic"
-  },
-  {
-    "name": "East Timor"
-  },
-  {
-    "name": "Ecuador"
-  },
-  {
-    "name": "Egypt"
-  },
-  {
-    "name": "England"
-  },
-  {
-    "name": "El Salvador"
-  },
-  {
-    "name": "Equatorial Guinea"
-  },
-  {
-    "name": "Eritrea"
-  },
-  {
-    "name": "Estonia"
-  },
-  {
-    "name": "Ethiopia"
-  },
-  {
-    "name": "Falkland Islands"
-  },
-  {
-    "name": "Faroe Islands"
-  },
-  {
-    "name": "Fiji Islands"
-  },
-  {
-    "name": "Finland"
-  },
-  {
-    "name": "France"
-  },
-  {
-    "name": "French Guiana"
-  },
-  {
-    "name": "French Polynesia"
-  },
-  {
-    "name": "French Southern territories"
-  },
-  {
-    "name": "Gabon"
-  },
-  {
-    "name": "Gambia"
-  },
-  {
-    "name": "Georgia"
-  },
-  {
-    "name": "Germany"
-  },
-  {
-    "name": "Ghana"
-  },
-  {
-    "name": "Gibraltar"
-  },
-  {
-    "name": "Greece"
-  },
-  {
-    "name": "Greenland"
-  },
-  {
-    "name": "Grenada"
-  },
-  {
-    "name": "Guadeloupe"
-  },
-  {
-    "name": "Guam"
-  },
-  {
-    "name": "Guatemala"
-  },
-  {
-    "name": "Guernsey"
-  },
-  {
-    "name": "Guinea"
-  },
-  {
-    "name": "Guinea-Bissau"
-  },
-  {
-    "name": "Guyana"
-  },
-  {
-    "name": "Haiti"
-  },
-  {
-    "name": "Heard Island and McDonald Islands"
-  },
-  {
-    "name": "Holy See (Vatican City State)"
-  },
-  {
-    "name": "Honduras"
-  },
-  {
-    "name": "Hong Kong"
-  },
-  {
-    "name": "Hungary"
-  },
-  {
-    "name": "Iceland"
-  },
-  {
-    "name": "India"
-  },
-  {
-    "name": "Indonesia"
-  },
-  {
-    "name": "Iran"
-  },
-  {
-    "name": "Iraq"
-  },
-  {
-    "name": "Ireland"
-  },
-  {
-    "name": "Israel"
-  },
-  {
-    "name": "Isle of Man"
-  },
-  {
-    "name": "Italy"
-  },
-  {
-    "name": "Jamaica"
-  },
-  {
-    "name": "Japan"
-  },
-  {
-    "name": "Jersey"
-  },
-  {
-    "name": "Jordan"
-  },
-  {
-    "name": "Kazakhstan"
-  },
-  {
-    "name": "Kenya"
-  },
-  {
-    "name": "Kiribati"
-  },
-  {
-    "name": "Kuwait"
-  },
-  {
-    "name": "Kyrgyzstan"
-  },
-  {
-    "name": "Laos"
-  },
-  {
-    "name": "Latvia"
-  },
-  {
-    "name": "Lebanon"
-  },
-  {
-    "name": "Lesotho"
-  },
-  {
-    "name": "Liberia"
-  },
-  {
-    "name": "Libyan Arab Jamahiriya"
-  },
-  {
-    "name": "Liechtenstein"
-  },
-  {
-    "name": "Lithuania"
-  },
-  {
-    "name": "Luxembourg"
-  },
-  {
-    "name": "Macao"
-  },
-  {
-    "name": "North Macedonia"
-  },
-  {
-    "name": "Madagascar"
-  },
-  {
-    "name": "Malawi"
-  },
-  {
-    "name": "Malaysia"
-  },
-  {
-    "name": "Maldives"
-  },
-  {
-    "name": "Mali"
-  },
-  {
-    "name": "Malta"
-  },
-  {
-    "name": "Marshall Islands"
-  },
-  {
-    "name": "Martinique"
-  },
-  {
-    "name": "Mauritania"
-  },
-  {
-    "name": "Mauritius"
-  },
-  {
-    "name": "Mayotte"
-  },
-  {
-    "name": "Mexico"
-  },
-  {
-    "name": "Micronesia, Federated States of"
-  },
-  {
-    "name": "Moldova"
-  },
-  {
-    "name": "Monaco"
-  },
-  {
-    "name": "Mongolia"
-  },
-  {
-    "name": "Montserrat"
-  },
-  {
-    "name": "Montenegro"
-  },
-  {
-    "name": "Morocco"
-  },
-  {
-    "name": "Mozambique"
-  },
-  {
-    "name": "Myanmar"
-  },
-  {
-    "name": "Namibia"
-  },
-  {
-    "name": "Nauru"
-  },
-  {
-    "name": "Nepal"
-  },
-  {
-    "name": "Netherlands"
-  },
-  {
-    "name": "Netherlands Antilles"
-  },
-  {
-    "name": "New Caledonia"
-  },
-  {
-    "name": "New Zealand"
-  },
-  {
-    "name": "Nicaragua"
-  },
-  {
-    "name": "Niger"
-  },
-  {
-    "name": "Nigeria"
-  },
-  {
-    "name": "Niue"
-  },
-  {
-    "name": "Norfolk Island"
-  },
-  {
-    "name": "North Korea"
-  },
-  {
-    "name": "Northern Ireland"
-  },
-  {
-    "name": "Northern Mariana Islands"
-  },
-  {
-    "name": "Norway"
-  },
-  {
-    "name": "Oman"
-  },
-  {
-    "name": "Pakistan"
-  },
-  {
-    "name": "Palau"
-  },
-  {
-    "name": "Palestine"
-  },
-  {
-    "name": "Panama"
-  },
-  {
-    "name": "Papua New Guinea"
-  },
-  {
-    "name": "Paraguay"
-  },
-  {
-    "name": "Peru"
-  },
-  {
-    "name": "Philippines"
-  },
-  {
-    "name": "Pitcairn"
-  },
-  {
-    "name": "Poland"
-  },
-  {
-    "name": "Portugal"
-  },
-  {
-    "name": "Puerto Rico"
-  },
-  {
-    "name": "Qatar"
-  },
-  {
-    "name": "Reunion"
-  },
-  {
-    "name": "Romania"
-  },
-  {
-    "name": "Russian Federation"
-  },
-  {
-    "name": "Rwanda"
-  },
-  {
-    "name": "Saint Helena"
-  },
-  {
-    "name": "Saint Kitts and Nevis"
-  },
-  {
-    "name": "Saint Lucia"
-  },
-  {
-    "name": "Saint Pierre and Miquelon"
-  },
-  {
-    "name": "Saint Vincent and the Grenadines"
-  },
-  {
-    "name": "Samoa"
-  },
-  {
-    "name": "San Marino"
-  },
-  {
-    "name": "Sao Tome and Principe"
-  },
-  {
-    "name": "Saudi Arabia"
-  },
-  {
-    "name": "Scotland"
-  },
-  {
-    "name": "Senegal"
-  },
-  {
-    "name": "Serbia"
-  },
-  {
-    "name": "Seychelles"
-  },
-  {
-    "name": "Sierra Leone"
-  },
-  {
-    "name": "Singapore"
-  },
-  {
-    "name": "Slovakia"
-  },
-  {
-    "name": "Slovenia"
-  },
-  {
-    "name": "Solomon Islands"
-  },
-  {
-    "name": "Somalia"
-  },
-  {
-    "name": "South Africa"
-  },
-  {
-    "name": "South Georgia and the South Sandwich Islands"
-  },
-  {
-    "name": "South Korea"
-  },
-  {
-    "name": "South Sudan"
-  },
-  {
-    "name": "Spain"
-  },
-  {
-    "name": "SriLanka"
-  },
-  {
-    "name": "Sudan"
-  },
-  {
-    "name": "Suriname"
-  },
-  {
-    "name": "Svalbard and Jan Mayen"
-  },
-  {
-    "name": "Swaziland"
-  },
-  {
-    "name": "Sweden"
-  },
-  {
-    "name": "Switzerland"
-  },
-  {
-    "name": "Syria"
-  },
-  {
-    "name": "Tajikistan"
-  },
-  {
-    "name": "Tanzania"
-  },
-  {
-    "name": "Thailand"
-  },
-  {
-    "name": "Timor-Leste"
-  },
-  {
-    "name": "Togo"
-  },
-  {
-    "name": "Tokelau"
-  },
-  {
-    "name": "Tonga"
-  },
-  {
-    "name": "Trinidad and Tobago"
-  },
-  {
-    "name": "Tunisia"
-  },
-  {
-    "name": "Turkey"
-  },
-  {
-    "name": "Turkmenistan"
-  },
-  {
-    "name": "Turks and Caicos Islands"
-  },
-  {
-    "name": "Tuvalu"
-  },
-  {
-    "name": "Uganda"
-  },
-  {
-    "name": "Ukraine"
-  },
-  {
-    "name": "United Arab Emirates"
-  },
-  {
-    "name": "United Kingdom"
-  },
-  {
-    "name": "United States"
-  },
-  {
-    "name": "United States Minor Outlying Islands"
-  },
-  {
-    "name": "Uruguay"
-  },
-  {
-    "name": "Uzbekistan"
-  },
-  {
-    "name": "Vanuatu"
-  },
-  {
-    "name": "Venezuela"
-  },
-  {
-    "name": "Vietnam"
-  },
-  {
-    "name": "Virgin Islands, British"
-  },
-  {
-    "name": "Virgin Islands, U.S."
-  },
-  {
-    "name": "Wales"
-  },
-  {
-    "name": "Wallis and Futuna"
-  },
-  {
-    "name": "Western Sahara"
-  },
-  {
-    "name": "Yemen"
-  },
-  {
-    "name": "Yugoslavia"
-  },
-  {
-    "name": "Zambia"
-  },
-  {
-    "name": "Zimbabwe"
-  }
+	{
+		"name": "Afghanistan",
+		"prevod": "Afganistan"
+	},
+	{
+		"name": "Albania",
+		"prevod": "Albanija"
+	},
+	{
+		"name": "Algeria",
+		"prevod": "Alžirija"
+	},
+	{
+		"name": "Andorra",
+		"prevod": "Andora"
+	},
+	{
+		"name": "Angola",
+		"prevod": "Angola"
+	},
+	{
+		"name": "Anguilla",
+		"prevod": "Angvila"
+	},
+	{
+		"name": "Antigua and Barbuda",
+		"prevod": "Antigva in Barbuda"
+	},
+	{
+		"name": "Argentina",
+		"prevod": "Argentina"
+	},
+	{
+		"name": "Armenia",
+		"prevod": "Armenija"
+	},
+	{
+		"name": "Aruba",
+		"prevod": "Aruba"
+	},
+	{
+		"name": "Australia",
+		"prevod": "Avstralija"
+	},
+	{
+		"name": "Austria",
+		"prevod": "Avstrija"
+	},
+	{
+		"name": "Azerbaijan",
+		"prevod": "Azerbajdžan"
+	},
+	{
+		"name": "Bahamas",
+		"prevod": "Bahami"
+	},
+	{
+		"name": "Bahrain",
+		"prevod": "Bahrajn"
+	},
+	{
+		"name": "Bangladesh",
+		"prevod": "Bangladeš"
+	},
+	{
+		"name": "Barbados",
+		"prevod": "Barbados"
+	},
+	{
+		"name": "Belgium",
+		"prevod": "Belgija"
+	},
+	{
+		"name": "Belize",
+		"prevod": "Belize"
+	},
+	{
+		"name": "Belarus",
+		"prevod": "Belorusija"
+	},
+	{
+		"name": "Benin",
+		"prevod": "Benin"
+	},
+	{
+		"name": "Bermuda",
+		"prevod": "Bermuda"
+	},
+	{
+		"name": "Bosnia and Herzegovina",
+		"prevod": "BiH"
+	},
+	{
+		"name": "Bolivia",
+		"prevod": "Bolivija"
+	},
+	{
+		"name": "Brazil",
+		"prevod": "Brazilija"
+	},
+	{
+		"name": "British Virgin Islands",
+		"prevod": "Britanski Deviški otoki"
+	},
+	{
+		"name": "Brunei",
+		"prevod": "Brunej"
+	},
+	{
+		"name": "Bulgaria",
+		"prevod": "Bulgarija"
+	},
+	{
+		"name": "Burkina Faso",
+		"prevod": "Burkina Faso"
+	},
+	{
+		"name": "Bhutan",
+		"prevod": "Butan"
+	},
+	{
+		"name": "CAR",
+		"prevod": "Centralnoafriška republika"
+	},
+	{
+		"name": "Cyprus",
+		"prevod": "Ciper"
+	},
+	{
+		"name": "Curaçao",
+		"prevod": "Curaçao"
+	},
+	{
+		"name": "Denmark",
+		"prevod": "Danska"
+	},
+	{
+		"name": "DRC",
+		"prevod": "Demokratična republika Kongo"
+	},
+	{
+		"name": "Diamond Princess",
+		"prevod": "Diamond Princess"
+	},
+	{
+		"name": "Dominica",
+		"prevod": "Dominika"
+	},
+	{
+		"name": "Dominican Republic",
+		"prevod": "Dominikanska Republika"
+	},
+	{
+		"name": "Djibouti",
+		"prevod": "Džibuti"
+	},
+	{
+		"name": "Egypt",
+		"prevod": "Egipt"
+	},
+	{
+		"name": "Ecuador",
+		"prevod": "Ekvador"
+	},
+	{
+		"name": "Equatorial Guinea",
+		"prevod": "Ekvatorialna Gvineja"
+	},
+	{
+		"name": "Eritrea",
+		"prevod": "Eritreja"
+	},
+	{
+		"name": "Estonia",
+		"prevod": "Estonija"
+	},
+	{
+		"name": "Ethiopia",
+		"prevod": "Etiopija"
+	},
+	{
+		"name": "Faeroe Islands",
+		"prevod": "Ferski otoki"
+	},
+	{
+		"name": "Fiji",
+		"prevod": "Fidži"
+	},
+	{
+		"name": "Philippines",
+		"prevod": "Filipini"
+	},
+	{
+		"name": "Finland",
+		"prevod": "Finska"
+	},
+	{
+		"name": "France",
+		"prevod": "Francija"
+	},
+	{
+		"name": "French Guiana",
+		"prevod": "Francoska Gvajana"
+	},
+	{
+		"name": "French Polynesia",
+		"prevod": "Francoska Polinezija"
+	},
+	{
+		"name": "Gabon",
+		"prevod": "Gabon"
+	},
+	{
+		"name": "Gambia",
+		"prevod": "Gambija"
+	},
+	{
+		"name": "Ghana",
+		"prevod": "Gana"
+	},
+	{
+		"name": "Gibraltar",
+		"prevod": "Gibraltar"
+	},
+	{
+		"name": "Grenada",
+		"prevod": "Grenada"
+	},
+	{
+		"name": "Greenland",
+		"prevod": "Grenlandija"
+	},
+	{
+		"name": "Georgia",
+		"prevod": "Gruzija"
+	},
+	{
+		"name": "Greece",
+		"prevod": "Grčija"
+	},
+	{
+		"name": "Guadeloupe",
+		"prevod": "Gvadelupe"
+	},
+	{
+		"name": "Guyana",
+		"prevod": "Gvajana"
+	},
+	{
+		"name": "Guatemala",
+		"prevod": "Gvatemala"
+	},
+	{
+		"name": "Guinea",
+		"prevod": "Gvineja"
+	},
+	{
+		"name": "Guinea-Bissau",
+		"prevod": "Gvineja Bissau"
+	},
+	{
+		"name": "Haiti",
+		"prevod": "Haiti"
+	},
+	{
+		"name": "Honduras",
+		"prevod": "Honduras"
+	},
+	{
+		"name": "Hong Kong",
+		"prevod": "Hong Kong"
+	},
+	{
+		"name": "Croatia",
+		"prevod": "Hrvaška"
+	},
+	{
+		"name": "India",
+		"prevod": "Indija"
+	},
+	{
+		"name": "Indonesia",
+		"prevod": "Indonezija"
+	},
+	{
+		"name": "Iraq",
+		"prevod": "Irak"
+	},
+	{
+		"name": "Iran",
+		"prevod": "Iran"
+	},
+	{
+		"name": "Ireland",
+		"prevod": "Irska"
+	},
+	{
+		"name": "Iceland",
+		"prevod": "Islandija"
+	},
+	{
+		"name": "Italy",
+		"prevod": "Italija"
+	},
+	{
+		"name": "Israel",
+		"prevod": "Izrael"
+	},
+	{
+		"name": "Jamaica",
+		"prevod": "Jamajka"
+	},
+	{
+		"name": "Japan",
+		"prevod": "Japonska"
+	},
+	{
+		"name": "Jordan",
+		"prevod": "Jordanija"
+	},
+	{
+		"name": "South Africa",
+		"prevod": "Južna Afrika"
+	},
+	{
+		"name": "Cayman Islands",
+		"prevod": "Kajmanski otoki"
+	},
+	{
+		"name": "Cambodia",
+		"prevod": "Kambodža"
+	},
+	{
+		"name": "Cameroon",
+		"prevod": "Kamerun"
+	},
+	{
+		"name": "Canada",
+		"prevod": "Kanada"
+	},
+	{
+		"name": "Channel Islands",
+		"prevod": "Kanalski otoki"
+	},
+	{
+		"name": "Cabo Verde",
+		"prevod": "Kapverdski otoki"
+	},
+	{
+		"name": "Qatar",
+		"prevod": "Katar"
+	},
+	{
+		"name": "Kazakhstan",
+		"prevod": "Kazahstan"
+	},
+	{
+		"name": "Kenya",
+		"prevod": "Kenija"
+	},
+	{
+		"name": "Kyrgyzstan",
+		"prevod": "Kirgizistan"
+	},
+	{
+		"name": "China",
+		"prevod": "Kitajska"
+	},
+	{
+		"name": "Colombia",
+		"prevod": "Kolumbija"
+	},
+	{
+		"name": "Congo",
+		"prevod": "Kongo"
+	},
+	{
+		"name": "Costa Rica",
+		"prevod": "Kostarika"
+	},
+	{
+		"name": "Cuba",
+		"prevod": "Kuba"
+	},
+	{
+		"name": "Kuwait",
+		"prevod": "Kuvajt"
+	},
+	{
+		"name": "Laos",
+		"prevod": "Laos"
+	},
+	{
+		"name": "Latvia",
+		"prevod": "Latvija"
+	},
+	{
+		"name": "Lebanon",
+		"prevod": "Lebanon"
+	},
+	{
+		"name": "Liberia",
+		"prevod": "Liberija"
+	},
+	{
+		"name": "Libya",
+		"prevod": "Libija"
+	},
+	{
+		"name": "Liechtenstein",
+		"prevod": "Lihtenštajn"
+	},
+	{
+		"name": "Lithuania",
+		"prevod": "Litva"
+	},
+	{
+		"name": "Luxembourg",
+		"prevod": "Luksemburg"
+	},
+	{
+		"name": "MS Zaandam",
+		"prevod": "MS Zaandam"
+	},
+	{
+		"name": "Macao",
+		"prevod": "Macao"
+	},
+	{
+		"name": "Madagascar",
+		"prevod": "Madagaskar"
+	},
+	{
+		"name": "Hungary",
+		"prevod": "Madžarska"
+	},
+	{
+		"name": "Maldives",
+		"prevod": "Maldivi"
+	},
+	{
+		"name": "Malaysia",
+		"prevod": "Malezija"
+	},
+	{
+		"name": "Mali",
+		"prevod": "Mali"
+	},
+	{
+		"name": "Malta",
+		"prevod": "Malta"
+	},
+	{
+		"name": "Morocco",
+		"prevod": "Maroko"
+	},
+	{
+		"name": "Martinique",
+		"prevod": "Martinik"
+	},
+	{
+		"name": "Mauritius",
+		"prevod": "Mauritius"
+	},
+	{
+		"name": "Mauritania",
+		"prevod": "Mavretanija"
+	},
+	{
+		"name": "Mayotte",
+		"prevod": "Mayotte"
+	},
+	{
+		"name": "Mexico",
+		"prevod": "Mehika"
+	},
+	{
+		"name": "Myanmar",
+		"prevod": "Mjanmar"
+	},
+	{
+		"name": "Moldova",
+		"prevod": "Moldavija"
+	},
+	{
+		"name": "Monaco",
+		"prevod": "Monako"
+	},
+	{
+		"name": "Mongolia",
+		"prevod": "Mongolija"
+	},
+	{
+		"name": "Montserrat",
+		"prevod": "Montserrat"
+	},
+	{
+		"name": "Mozambique",
+		"prevod": "Mozambik"
+	},
+	{
+		"name": "Namibia",
+		"prevod": "Namibija"
+	},
+	{
+		"name": "Germany",
+		"prevod": "Nemčija"
+	},
+	{
+		"name": "Nepal",
+		"prevod": "Nepal"
+	},
+	{
+		"name": "Niger",
+		"prevod": "Niger"
+	},
+	{
+		"name": "Nigeria",
+		"prevod": "Nigerija"
+	},
+	{
+		"name": "Nicaragua",
+		"prevod": "Nikaragva"
+	},
+	{
+		"name": "Netherlands",
+		"prevod": "Nizozemska"
+	},
+	{
+		"name": "Norway",
+		"prevod": "Norveška"
+	},
+	{
+		"name": "New Caledonia",
+		"prevod": "Nova Kaledonija"
+	},
+	{
+		"name": "New Zealand",
+		"prevod": "Nova Zelandija"
+	},
+	{
+		"name": "Oman",
+		"prevod": "Oman"
+	},
+	{
+		"name": "Isle of Man",
+		"prevod": "Otok Man"
+	},
+	{
+		"name": "Turks and Caicos",
+		"prevod": "Otoki Turks in Caicos"
+	},
+	{
+		"name": "Pakistan",
+		"prevod": "Pakistan"
+	},
+	{
+		"name": "Palestine",
+		"prevod": "Palestina"
+	},
+	{
+		"name": "Panama",
+		"prevod": "Panama"
+	},
+	{
+		"name": "Papua New Guinea",
+		"prevod": "Papua Nova Gvineja"
+	},
+	{
+		"name": "Paraguay",
+		"prevod": "Paragvaj"
+	},
+	{
+		"name": "Peru",
+		"prevod": "Peru"
+	},
+	{
+		"name": "Poland",
+		"prevod": "Polska"
+	},
+	{
+		"name": "Portugal",
+		"prevod": "Portugalska"
+	},
+	{
+		"name": "Réunion",
+		"prevod": "Reunion"
+	},
+	{
+		"name": "Romania",
+		"prevod": "Romunija"
+	},
+	{
+		"name": "Rwanda",
+		"prevod": "Ruanda"
+	},
+	{
+		"name": "Russia",
+		"prevod": "Rusija"
+	},
+	{
+		"name": "Saint Kitts and Nevis",
+		"prevod": "Saint Kitts in Nevis"
+	},
+	{
+		"name": "El Salvador",
+		"prevod": "Salvador"
+	},
+	{
+		"name": "San Marino",
+		"prevod": "San Marino"
+	},
+	{
+		"name": "Saudi Arabia",
+		"prevod": "Savdska Arabija"
+	},
+	{
+		"name": "Seychelles",
+		"prevod": "Sejšeli"
+	},
+	{
+		"name": "Senegal",
+		"prevod": "Senegal"
+	},
+	{
+		"name": "S. Korea",
+		"prevod": "Severna Koreja"
+	},
+	{
+		"name": "North Macedonia",
+		"prevod": "Severna Makedonija"
+	},
+	{
+		"name": "Singapore",
+		"prevod": "Singapur"
+	},
+	{
+		"name": "Syria",
+		"prevod": "Sirija"
+	},
+	{
+		"name": "Ivory Coast",
+		"prevod": "Slonokoščena obala"
+	},
+	{
+		"name": "Slovakia",
+		"prevod": "Slovaška"
+	},
+	{
+		"name": "Slovenia",
+		"prevod": "Slovenija"
+	},
+	{
+		"name": "Somalia",
+		"prevod": "Somalija"
+	},
+	{
+		"name": "Serbia",
+		"prevod": "Srbija"
+	},
+	{
+		"name": "Sudan",
+		"prevod": "Sudan"
+	},
+	{
+		"name": "Suriname",
+		"prevod": "Surinam"
+	},
+	{
+		"name": "St. Barth",
+		"prevod": "Sv. Barthélemy"
+	},
+	{
+		"name": "Saint Lucia",
+		"prevod": "Sv. Lucia"
+	},
+	{
+		"name": "Sint Maarten",
+		"prevod": "Sv. Maarten"
+	},
+	{
+		"name": "St. Vincent Grenadines",
+		"prevod": "Sv. Vincent Grenadines"
+	},
+	{
+		"name": "Eswatini",
+		"prevod": "Svazi"
+	},
+	{
+		"name": "Saint Martin",
+		"prevod": "Sveti Martin"
+	},
+	{
+		"name": "Thailand",
+		"prevod": "Tajska"
+	},
+	{
+		"name": "Tanzania",
+		"prevod": "Tanzanija"
+	},
+	{
+		"name": "Timor-Leste",
+		"prevod": "Timor-Leste"
+	},
+	{
+		"name": "Togo",
+		"prevod": "Togo"
+	},
+	{
+		"name": "Trinidad and Tobago",
+		"prevod": "Trinidad in Tobago"
+	},
+	{
+		"name": "Tunisia",
+		"prevod": "Tunizija"
+	},
+	{
+		"name": "Turkey",
+		"prevod": "Turčija"
+	},
+	{
+		"name": "Uganda",
+		"prevod": "Uganda"
+	},
+	{
+		"name": "Ukraine",
+		"prevod": "Ukrajina"
+	},
+	{
+		"name": "Uruguay",
+		"prevod": "Urugvaj"
+	},
+	{
+		"name": "Uzbekistan",
+		"prevod": "Uzbekistan"
+	},
+	{
+		"name": "Vatican City",
+		"prevod": "Vatikan"
+	},
+	{
+		"name": "Venezuela",
+		"prevod": "Venezuela"
+	},
+	{
+		"name": "Vietnam",
+		"prevod": "Vietnam"
+	},
+	{
+		"name": "Zambia",
+		"prevod": "Zambija"
+	},
+	{
+		"name": "USA",
+		"prevod": "Združene države Amerike"
+	},
+	{
+		"name": "UAE",
+		"prevod": "Združeni Arabski Emirati"
+	},
+	{
+		"name": "UK",
+		"prevod": "Združeno kraljestvo"
+	},
+	{
+		"name": "Zimbabwe",
+		"prevod": "Zimbabve"
+	},
+	{
+		"name": "Taiwan",
+		"prevod": "tajvan"
+	},
+	{
+		"name": "Chad",
+		"prevod": "Čad"
+	},
+	{
+		"name": "Czechia",
+		"prevod": "Češka"
+	},
+	{
+		"name": "Chile",
+		"prevod": "Čile"
+	},
+	{
+		"name": "Montenegro",
+		"prevod": "Črna gora"
+	},
+	{
+		"name": "Spain",
+		"prevod": "Španija"
+	},
+	{
+		"name": "Sri Lanka",
+		"prevod": "Šrilanka"
+	},
+	{
+		"name": "Sweden",
+		"prevod": "Švedska"
+	},
+	{
+		"name": "Switzerland",
+		"prevod": "Švica"
+	}
 ]
