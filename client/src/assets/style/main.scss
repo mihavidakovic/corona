@@ -470,6 +470,15 @@ html {
 						}
 					}
 
+					.item__state--flag {
+						width: 20px;
+						margin-right: 0.3rem;
+						
+						@include breakpoint(sm, max) {
+							display: none;
+						}
+					}
+
 					span {
 
 						&:first-child {

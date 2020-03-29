@@ -9,6 +9,7 @@ import Header from './Components/Header.js';
 import List from './List/List.js';
 import All from './Components/All.js';
 import Graph from './Graph/Graph.js';
+import Mini from './Graph/Mini.js';
 
 
 class App extends React.Component {

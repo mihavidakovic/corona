@@ -204,7 +204,7 @@ export default class List extends React.Component {
 						</div>
 						<div className="items">
 							{this.state.data.map((item, index) => 
-								<ListItem key={index}  id={item.id} country={item.country} cases={item.cases} todayCases={item.todayCases} deaths={item.deaths} todayDeaths={item.todayDeaths} recovered={item.recovered} critical={item.critical} />
+								<ListItem key={index}  id={item.id} country={item.country} flag={item.countryInfo.flag} cases={item.cases} todayCases={item.todayCases} deaths={item.deaths} todayDeaths={item.todayDeaths} recovered={item.recovered} critical={item.critical} />
 							)}
 						</div>
 					</div>
