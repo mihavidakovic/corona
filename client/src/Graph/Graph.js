@@ -1,11 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import moment from 'react-moment';
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
 } from 'recharts';
 var dateFormat = require('dateformat');
-
 const tooltip = {
 	background: '#fff',
 	padding: '0.5rem 1rem',
@@ -41,14 +39,19 @@ const toPercent = (decimal, fixed = 0) => {
 	return `${(decimal * 100).toFixed(fixed)}%`;
 };
 
+const countries = require('./countries.json');
+
+
 export default class Graph extends React.Component {
 	state = {
 		loading: true,
 		data: [],
 		cases: {},
-		casesDates: {}
+		casesDates: {},
+		selectedCountry: "slovenia"
 
 	}
+
 
 	toObject(names, values) {
 		var result = {};
@@ -57,10 +60,9 @@ export default class Graph extends React.Component {
 		return result;
 	}
 
-
-
-	componentWillMount() {
-		axios.get('https://corona.lmao.ninja/v2/historical/slovenia')
+	getGraph(country) {
+		let url = "https://corona.lmao.ninja/v2/historical/" + country;
+		axios.get(url)
 		.then(res => {
 			const getData = res.data;
 			const casesKeys = Object.keys(res.data.timeline.cases);
@@ -76,24 +78,47 @@ export default class Graph extends React.Component {
 
 			}
 
-		    for (var b = 0; b < cases[0].length; b++) {
+			var allCases = cases.slice(40)
 
-
-		    }
-			    console.log(cases)
+			console.log(allCases)
 	    	
 			this.setState({data: res.data});
-			this.setState({cases: cases});
+			this.setState({cases: allCases});
 			this.setState({casesDates: casesKeys});
 			this.setState({loading: false});
 		});
+	}
+
+     change = (event) => {
+		this.setState({selectedCountry: event.target.value});
+		this.getGraph(event.target.value)
+     }
+
+
+	componentWillMount() {
+		this.getGraph("slovenia")
 	}
 
 	render() {
 		return (
 		<>
 				<header className="section__header">
-					<h2>Graf potrjenih primerov v Sloveniji</h2>
+					<div class="header__select">
+						<h2>Graf primerov v</h2>
+						<div className="select_country">
+							<select className="select_country--select" onChange={this.change} value={this.state.selectedCountry}>
+								<option value="slovenia">Slovenia</option>
+							{Object.keys(countries).map(function(i) {
+								var country = countries[i];
+									return (<option value={country.name}>{country.name}</option>)
+								} 
+								)}
+							</select>
+							<div className="select_country--icon">
+								<i className="fa fa-chevron-down"></i>
+							</div>
+						</div>
+					</div>
 				</header>
 				<div style={{width: '100%', height: 210}}>
 					<ResponsiveContainer>

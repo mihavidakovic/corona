@@ -605,23 +605,91 @@ html {
 		}
 
 		.section__header {
-			padding: 0 2rem;
+			padding: 0 1.5rem 0 2rem;
 			display: flex;
 			flex-flow: column;
 			
+			@include breakpoint(md, max) {
+				padding: 0 2rem;
+			}
+
 			@include breakpoint(sm, max) {
 				padding: 0 1rem;
 			}
 
-			h2 {
-				color: #FFF;
-				font-size: 1.2rem;
+			.header__select {
 				margin: 0 0 1.5rem 0;
+				display: flex;
+				flex-flow: row;
+				align-items: center;
 				
-				@include breakpoint(sm, max) {
-					font-size: 1rem;
+
+				h2 {
+					color: #FFF;
+					font-size: 1.2rem;
+					font-weight: 600;
+					white-space: nowrap;					
+					@include breakpoint(sm, max) {
+						font-size: 1rem;
+					}
 				}
+
+				.select_country {
+					width: 100%;
+					display: flex;
+					position: relative;
+					background: lighten($black, 4%);
+					margin-left: 1rem;
+					
+					&:hover {
+						background: lighten($black, 5%);
+
+						.select_country--icon {
+							opacity: 1;
+						}
+					}
+
+					.select_country--select {
+						width: 100%;
+						background: transparent;
+						border: none;
+						color: #FFF;
+						font-size: 1.2rem;
+						font-weight: 900;
+						outline-style: none;
+						-webkit-appearance: none;
+						-moz-appearance: none;
+						text-indent: 1px;
+						text-overflow: '';
+						padding: 0 1rem;
+						height: 40px;
+						border-radius: 4px;
+						position: relative;
+						z-index: 2;
+						cursor: pointer;
+						transition: 200ms all ease-in-out;
+					}
+
+					.select_country--icon {
+						position: absolute;
+						top: 50%;
+						right: 0;
+						height: 100%;
+						transform: translateY(-50%);
+						cursor: pointer;
+						padding: 0rem 1rem;
+						color: #FFF;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						z-index: 1;
+						opacity: 0.8;
+						transition: 200ms all ease-in-out;
+					}
+				}
+
 			}
+
 		}
 
 		.custom-tooltip {
@@ -645,6 +713,14 @@ html {
 		
 		@include breakpoint(md, max) {
 			padding: 0 1rem;
+		}
+
+		@include breakpoint(md, min) {
+			padding: 0 1rem;
+		}
+
+		@include breakpoint(sm, min) {
+			padding: 0 2rem;
 		}
 		
 		.all-data__header {
