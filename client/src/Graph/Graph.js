@@ -131,20 +131,20 @@ export default class Graph extends React.Component {
 						>
 						  <defs>
 						    <linearGradient id="colorSmrti" x1="0" y1="0" x2="0" y2="1">
-						      <stop offset="5%" stopColor="red" stopOpacity={0.3}/>
-						      <stop offset="95%" stopColor="red" stopOpacity={0}/>
+						      <stop offset="0%" stopColor="red" stopOpacity={0.3}/>
+						      <stop offset="100%" stopColor="red" stopOpacity={0}/>
 						    </linearGradient>
 						    <linearGradient id="colorPrimerov" x1="0" y1="0" x2="0" y2="1">
-						      <stop offset="5%" stopColor="rgba(255, 255, 255, 0.3)" stopOpacity={1}/>
-						      <stop offset="95%" stopColor="rgba(255, 255, 255, 1)" stopOpacity={0}/>
+						      <stop offset="0%" stopColor="rgba(255, 255, 255, 0.3)" stopOpacity={1}/>
+						      <stop offset="100%" stopColor="rgba(255, 255, 255, 1)" stopOpacity={0}/>
 						    </linearGradient>
 						  </defs>
 							<CartesianGrid stroke='rgba(255, 255, 255, 0.2)'/>
-							<XAxis dataKey="date" stroke='rgba(255, 255, 255, 0)' tickFormatter={toPercent} />
-							<YAxis stroke='rgba(255, 255, 255, 0.2)' />
+							<XAxis dataKey="date" stroke='rgba(255, 255, 255, 0)' tickFormatter={toPercent} tick={{fontSize: 0}}  />
+							<YAxis stroke='rgba(255, 255, 255, 0.2)' tick={{fontSize: 10}}  />
 	        				<Tooltip content={<CustomTooltip />} />
-							<Area type="monotoneX" isAnimationActive={false}  dataKey="smrti" stroke="rgba(239, 57, 57, 0.8)" fill="rgba(239, 57, 57, 0.8)" fillOpacity={1} fill="url(#colorSmrti)" />
-							<Area type="monotoneX" isAnimationActive={false}  dataKey="Primerov" stroke="rgba(255, 255, 255, 1)" fill="rgba(255, 255, 255, 0.7)" fillOpacity={1} fill="url(#colorPrimerov)" />
+							<Area type="monotone" isAnimationActive={true} animationDuration={900}  dataKey="smrti" stroke="rgba(239, 57, 57, 0.8)" fill="rgba(239, 57, 57, 0.8)" fillOpacity={1} fill="url(#colorSmrti)" />
+							<Area type="monotone" isAnimationActive={true} animationDuration={900}  dataKey="Primerov" stroke="rgba(255, 255, 255, 1)" fill="rgba(255, 255, 255, 0.7)" fillOpacity={1} fill="url(#colorPrimerov)" />
 						</AreaChart>
 					</ResponsiveContainer>
 				</div>
