@@ -41,7 +41,7 @@ function Header() {
 			<>
 				<header className="main__header">
 					<div className="logo">
-						<h1>Koronavirus</h1>
+						<h1>Covid19.si</h1>
 						<h2>Podrobni podatki o posledicah virusa</h2>
 					</div>
 					<div className="share_div">
