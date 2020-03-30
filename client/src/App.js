@@ -22,7 +22,7 @@ import Graph from './Graph/Graph.js';
 
 export default function App() {
 
-	axios.get("https://corona.vidakovic.si/api/ip")
+	axios.get("https://corona.vidakovic.si/api/ip", {crossDomain: true})
 		.then(res => {
 			console.log(res.data);
 	})
