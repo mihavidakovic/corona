@@ -22,11 +22,11 @@ jobs:
           port: ${{ secrets.PORT }}
           source: '.'
           script: |
-            cd /var/www/corona.vidakovic.si/html
+            cd /var/www/covid.si/html
             git pull origin master
-            npm i
             cd client/
-            npm i
+            sudo npm i
+            ${{ secrets.PASSWORD }}
             rm -rf build/
             npm run build
             
