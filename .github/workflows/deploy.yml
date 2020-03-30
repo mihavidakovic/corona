@@ -25,7 +25,8 @@ jobs:
             cd /var/www/covid.si/html
             git pull origin master
             cd client/
-            npm i
+            sudo npm i
+            ${{ secrets.PASSWORD }}
             rm -rf build/
             npm run build
             
