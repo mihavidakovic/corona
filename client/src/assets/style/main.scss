@@ -78,6 +78,7 @@ html {
 				
 				.listItem{
 					background-color: rgba(#000, 0.02);
+					height: 48px;
 					
 					&:hover {
 						background-color: rgba(#000, 0.04);
@@ -113,8 +114,10 @@ html {
 		}
 
 		.mode__button {
-			color: #FFF;
-			background-color: rgba(#fff, 0.06);
+			color: #000;
+			background-color: rgba(#fff, 0.95);
+			padding: 1rem 2rem;
+			border-radius: 4px;
 			
 			&:hover {
 				background-color: rgba(#fff, 0.08);
@@ -292,7 +295,7 @@ html {
 			left: 0;
 			bottom: 0;
 			width: 100%;
-			height: 80%;
+			height: 50%;
 			background-image: linear-gradient(rgba($black, 0) 0%, $black 70%);
 			z-index: 100;
 			display: flex;
@@ -305,15 +308,24 @@ html {
 			&:hover {
 				
 				span {
-					color: #FFF;
+					color: #000;
+					background: #FFF;
 				}
 			}
 			
 			span {
-				color: rgba(#fff, 0.7);
-				margin-bottom: 2rem;
+				color: rgba(#000, 0.7);
+				margin-bottom: 1rem;
 				font-weight: bold;
 				transition: 200ms all ease-in-out;
+				background: rgba(#fff, 0.9);
+				padding: 0.7rem 1.5rem;
+				font-size: 0.8rem;
+				border-radius: 4px;
+				
+				i {
+					margin-right: 0.5rem;
+				}
 			}
 		}
 
