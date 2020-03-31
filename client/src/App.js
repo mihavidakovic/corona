@@ -3,7 +3,8 @@ import {
   BrowserRouter,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom";
 
 
@@ -33,7 +34,7 @@ export default function App() {
 				<Header />
 
 				<Switch>
-					<Route path="/">
+					<Route exact path="/">
 						<section>
 							<div className="two">
 								<div className="graf">
@@ -48,9 +49,9 @@ export default function App() {
 							</div>
 						</section>
 					</Route>
-					<Route path="/admin">
-						<p>lol</p>
-					</Route>
+					<Route path="/admin" component={admin} />
+					<Route path="/404" component={notFound} />
+					<Redirect to="/404" />
 				</Switch>
 
 			</div>
@@ -75,6 +76,19 @@ function Home() {
 		</section>
 	);
 }
-function Admin() {
-	return (<h2>Admin</h2>);
+
+function admin() {
+	return (
+		<div className="admin">
+			<h1>Admin</h1>
+		</div>
+	);
+}
+
+function notFound() {
+	return (
+		<div className="notFound">
+			<h1>Ta stran ni bila najdena :(</h1>
+		</div>
+	);
 }
