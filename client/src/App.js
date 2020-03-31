@@ -20,13 +20,20 @@ import List from './List/List.js';
 import All from './Components/All.js';
 import Graph from './Graph/Graph.js';
 
+import AdminPage from './Pages/Admin/AdminPage.js';
+import AdminPageIp from './Pages/Admin/AdminPageIp.js';
+
 
 export default function App() {
+	if (process.env.NODE_ENV !== "development") {
 
-	axios.get("https://corona.vidakovic.si/api/ip", {crossDomain: true})
-		.then(res => {
-			console.log(res.data);
-	})
+		axios.get("https://corona.vidakovic.si/api/ip", {crossDomain: true})
+			.then(res => {
+				console.log("logged");
+
+		})
+
+	}
 
 	return (
 		<BrowserRouter>
@@ -49,7 +56,10 @@ export default function App() {
 							</div>
 						</section>
 					</Route>
-					<Route path="/admin" component={admin} />
+					<Route exact path="/admin">
+	 			 		<AdminPage />
+					 </Route>
+
 					<Route path="/404" component={notFound} />
 					<Redirect to="/404" />
 				</Switch>
@@ -74,14 +84,6 @@ function Home() {
 				<List />
 			</div>
 		</section>
-	);
-}
-
-function admin() {
-	return (
-		<div className="admin">
-			<h1>Admin</h1>
-		</div>
 	);
 }
 

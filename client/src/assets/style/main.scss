@@ -2,6 +2,9 @@
 @import "./loader/loaders.scss";
 @import "./util/breakpoints.scss";
 
+// pages
+@import "./pages/admin.scss";
+
 $black: #121212;
 
 
@@ -25,6 +28,10 @@ html {
 	flex-flow: column;
 	position: relative;
 	transition: 200ms all ease-in-out;
+	
+	a {
+		text-decoration: none;
+	}
 		
 	&.light {
 
