@@ -57,7 +57,7 @@ function Header() {
 					</div>
 					<div className="share_div">
 						<FacebookShareButton className="share_div__fb" url={location.pathname === "/" ? "https://covid19.si/" : ("https://covid19.si" + location.pathname)}>
-							<img src={"https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/ukA9EwJquLE.png"} alt="share" />
+							<img src={process.env.REACT_APP_BASE_URL + "/img/fb.png} alt="share" />
 							<span>Deli z drugimi</span>
 							<FacebookShareCount className="share_div__fb--count" url={"https://covid19.si/"} />
 						</FacebookShareButton>
