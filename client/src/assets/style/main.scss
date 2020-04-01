@@ -726,6 +726,10 @@ html {
 		@include breakpoint(md, max) {
 			flex-direction: column-reverse;
 		}
+
+		@include breakpoint(sm, max) {
+			margin-bottom: 4rem;
+		}
 	}
 
 	.graf {
