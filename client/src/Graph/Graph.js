@@ -128,7 +128,7 @@ export default class Graph extends React.Component {
 								<optgroup label="_______________________________" style={{textAlign: 'center'}}>
 									{Object.keys(countries).map(function(i) {
 										var country = countries[i];
-											return (<option value={country.name}>{country.prevod}</option>)
+											return (<option key={country.name} value={country.name}>{country.prevod}</option>)
 										} 
 									)}
 								</optgroup>

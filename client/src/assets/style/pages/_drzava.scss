@@ -1,5 +1,36 @@
 .Subpage-country {
 
+	.Subpage-country__back {
+		color: #FFF;
+		display: flex;
+		flex-flow: row;
+		align-items: center;
+		opacity: 0.8;
+		cursor: pointer;
+		transition: 200ms all ease-in-out;
+		
+		&:hover {
+			opacity: 1;
+			
+			.fa {
+				transform: translateX(-2px);
+			}
+		}
+		
+		.fa {
+			font-size: 0.7rem;
+			margin-right: 0.3rem;
+			transition: 200ms all ease-in-out;
+		}
+
+		span {
+			font-size: 0.8rem;
+			font-weight: bold;
+			line-height: 0;
+			margin-top: 1px;
+		}
+	}
+
 	.Subpage-country__title {
 		color: #FFF;
 	}

@@ -11,20 +11,32 @@ import {
 import axios from 'axios';
 import Moment from 'react-moment';
 import 'moment-timezone';
+import ReactGA from 'react-ga';
 
+
+// Style
 import './assets/style/main.scss';
 
+// Layout
 import Header from './Components/Header.js';
 
+
+//Compontents
 import List from './List/List.js';
 import All from './Components/All.js';
 import Graph from './Graph/Graph.js';
 
+
+// Pages
 import AdminPage from './Pages/Admin/AdminPage.js';
 import AdminPageIp from './Pages/Admin/AdminPageIp.js';
 
 import Drzava from './Pages/Drzava.js';
 
+ReactGA.initialize('UA-133841417-2');
+if(process.env.NODE_ENV === "development") {
+	ReactGA.pageview(window.location.pathname + window.location.search)
+}
 
 export default function App() {
 	if (process.env.NODE_ENV !== "development") {

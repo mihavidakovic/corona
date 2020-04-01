@@ -88,6 +88,10 @@ const  Drzava = (props) => {
 	return (
 		<div className="Subpage">
 			<div className="Subpage-country">
+				<Link to="/" className="Subpage-country__back">
+					<i className="fa fa-arrow-left"></i>
+					<span>Nazaj</span>
+				</Link>
 				<h2 className="Subpage-country__title">
 					{countrySlo}
 				</h2>

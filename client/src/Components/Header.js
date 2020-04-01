@@ -1,13 +1,24 @@
 import React from 'react';
 import {
-  Link
+  Link,
+  useLocation
 } from "react-router-dom";
+
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  FacebookShareCount,
+  TwitterShareButton,
+} from "react-share";
+import MessengerSendToMessenger from 'react-messenger-send-to-messenger';
 
 
 function Header() {
 	
 	const [darkMode, setDarkMode] = React.useState(getInitialMode());
+	let location = useLocation();
 
+ 
 
 	React.useEffect(() => {
 		localStorage.setItem('dark', JSON.stringify(darkMode));
@@ -45,12 +56,17 @@ function Header() {
 						<h2>Podrobni podatki o posledicah virusa</h2>
 					</div>
 					<div className="share_div">
-						<div class="fb-share-button" data-href="https://corona.vidakovic.si/" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcorona.vidakovic.si%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
-						<a class="twitter-share-button"
-							href="https://twitter.com/intent/tweet?text=Podrobni podatki o koronavirusu"
-							data-size="large">
-							Tweet
-						</a>
+						<FacebookShareButton className="share_div__fb" url={location.pathname === "/" ? "https://covid19.si/" : ("https://covid19.si" + location.pathname)}>
+							<img src={"https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/ukA9EwJquLE.png"} alt="share" />
+							<span>Deli z drugimi</span>
+							<FacebookShareCount className="share_div__fb--count" url={"https://covid19.si/"} />
+						</FacebookShareButton>
+
+						<TwitterShareButton className="share_div__tw" url={location.pathname === '/' ? 'https://covid19.si/' : ('https://covid19.si' + location.pathname)}>
+							<i className="fa fa-twitter"></i>
+							<span>Tweet</span>
+						</TwitterShareButton>
+
 					</div>
 				</header>
 			</>

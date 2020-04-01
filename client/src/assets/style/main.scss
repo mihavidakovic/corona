@@ -235,10 +235,11 @@ html {
 		}
 
 		.share_div {
-			padding: 0 rem;
+			padding: 0 0em;
 			display: flex;
 			align-items: center;
 			justify-content: flex-end;
+			flex-shrink: 0;
 			
 			@include breakpoint(sm, max) {
 				margin-bottom: 1rem;
@@ -250,6 +251,77 @@ html {
 				&:first-child {
 					margin-right: 1rem;
 				}
+			}
+
+			.share_div__fb {
+				background-color: #1777f2 !important;
+				border-radius: 3px;
+				height: 20px;
+				font-size: 11px;
+				color: #FFF;
+				width: 118px;
+				display: flex;
+				flex-flow: row;
+				align-items: center;
+				justify-content: center;
+				padding: 0 0px !important;
+				margin-right: 1rem;
+				
+				&:hover {
+					background-color: lighten(#1777f2, 5%) !important;
+				}
+				
+				img {
+					width: 12px;
+					height: 12px;
+					margin-right: 5px;
+				}
+
+				span {
+					font-size: 11px;
+					color: #FFF;
+					font-weight: 800;
+					margin-right: 4px;
+				}
+
+				.share_div__fb--count {
+					width: 10px;
+					font-size: 10px !important;
+					font-weight: 400;
+				}
+			}
+
+			.share_div__tw {
+				background-color: #1b95df !important;
+				border-radius: 3px;
+				font-size: 11px;
+				color: #FFF;
+				width: 76px;
+				height: 28px;
+				display: flex;
+				flex-flow: row;
+				align-items: center;
+				justify-content: center;
+				padding: 0 0px !important;
+				margin-right: 1rem;
+				
+				&:hover {
+					background-color: lighten(#1b95df, 5%) !important;
+				}
+				
+				i {
+					color: #FFF;
+					font-size: 15px;
+					margin-right: 5px;
+				}
+
+				span {
+					font-size: 11px;
+					color: #FFF;
+					font-weight: 800;
+					margin-right: 4px;
+				}
+
 			}
 		}
 
@@ -477,7 +549,29 @@ html {
 				.item__state {
 					width: 20%;
 					position: relative;
-					padding: 0 calc(1rem) 0 calc(1rem + 20px);
+					padding: 0;
+					
+					&:hover {
+						background-color: rgba(#fff, 0.03);
+					}
+					
+					a {
+						display: flex;
+						flex-flow: row;
+						align-items: center;
+						justify-content: center;
+						color: #FFF;
+						width: 100%;
+						height: 100%;
+						padding: 0 calc(1rem) 0 calc(1rem + 20px);
+						
+						&:hover {
+
+							span {
+								border-color: #fff;
+							}
+						}
+					}
 					
 					@include breakpoint(sm, max) {
 						width: 30%;
@@ -515,6 +609,8 @@ html {
 					}
 
 					span {
+						border-bottom: 1px solid rgba(#fff, 0);
+						transition: 200ms all ease-in-out;
 
 						&:first-child {
 							font-weight: bold;
