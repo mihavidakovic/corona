@@ -11,7 +11,6 @@ import {
 import axios from 'axios';
 import Moment from 'react-moment';
 import 'moment-timezone';
-import ReactGA from 'react-ga';
 
 
 // Style
@@ -32,11 +31,6 @@ import AdminPage from './Pages/Admin/AdminPage.js';
 import AdminPageIp from './Pages/Admin/AdminPageIp.js';
 
 import Drzava from './Pages/Drzava.js';
-
-ReactGA.initialize('UA-133841417-2');
-if(process.env.NODE_ENV === "development") {
-	ReactGA.pageview(window.location.pathname + window.location.search)
-}
 
 export default function App() {
 	if (process.env.NODE_ENV !== "development") {
