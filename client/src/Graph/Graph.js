@@ -123,7 +123,7 @@ export default class Graph extends React.Component {
 						<div className="select_country">
 							<select className="select_country--select" onChange={this.change} value={this.state.selectedCountry}>
 								<optgroup>
-									<option value="slovenia">Slovenija</option>
+									<option value="Slovenia">Slovenija</option>
 								</optgroup>
 								<optgroup label="_______________________________" style={{textAlign: 'center'}}>
 									{Object.keys(countries).map(function(i) {
