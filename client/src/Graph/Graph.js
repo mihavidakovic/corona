@@ -1,8 +1,16 @@
 import React from 'react';
 import axios from 'axios';
 import {
+  Link
+} from "react-router-dom";
+import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
 } from 'recharts';
+import _ from 'lodash';
+
+
+
+
 var dateFormat = require('dateformat');
 const tooltip = {
 	background: '#fff',
@@ -48,7 +56,8 @@ export default class Graph extends React.Component {
 		data: [],
 		cases: {},
 		casesDates: {},
-		selectedCountry: "slovenia"
+		selectedCountry: "slovenia",
+		selectedCountrySlo: "Slovenija"
 
 	}
 
@@ -89,7 +98,14 @@ export default class Graph extends React.Component {
 	}
 
      change = (event) => {
-		this.setState({selectedCountry: event.target.value});
+     	let selected = {"name": event.target.value};
+
+		let selectedSlo = _.find(countries, _.matches(selected));
+
+		this.setState({
+			selectedCountry: event.target.value,
+			selectedCountrySlo: selectedSlo.prevod
+		});
 		this.getGraph(event.target.value)
      }
 
@@ -150,6 +166,11 @@ export default class Graph extends React.Component {
 							<Area type="monotone" isAnimationActive={true} animationDuration={900}  dataKey="Primerov" stroke="rgba(255, 255, 255, 1)" fill="rgba(255, 255, 255, 0.7)" fillOpacity={1} fill="url(#colorPrimerov)" />
 						</AreaChart>
 					</ResponsiveContainer>
+					<Link className="more-link" to={{
+						pathname: '/drzava/' + this.state.selectedCountry,
+					}}>
+						Več podatkov za <span>{this.state.selectedCountrySlo}</span><i className="fa fa-chevron-right"></i>
+					</Link>
 				</div>
 			</>
 		);

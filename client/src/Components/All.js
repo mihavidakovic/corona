@@ -45,15 +45,15 @@ class All extends React.Component {
 				<div className="data-points">
 					<div className="data-point">
 						<h3>{this.state.data.cases.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</h3>
-						<span>Primerov</span>
+						<span className="data-point__title">Primerov</span>
 					</div>
 					<div className="data-point">
 						<h3>{this.state.data.deaths.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</h3>
-						<span>Smrti</span>
+						<span className="data-point__title">Smrti</span>
 					</div>
 					<div className="data-point">
 						<h3>{this.state.data.recovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</h3>
-						<span>Okrevanih</span>
+						<span className="data-point__title">Okrevanih</span>
 					</div>
 				</div>
 			</div>
