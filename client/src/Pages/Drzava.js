@@ -77,9 +77,13 @@ const  Drzava = (props) => {
 
 	}, 500)
 
-	const selectedName = {"name": name}
-	const getPrevod = _.find(countries, _.matches(selectedName))
-	countrySlo = getPrevod.prevod;
+	if (name !== "slovenia") {
+		const selectedName = {"name": name}
+		const getPrevod = _.find(countries, _.matches(selectedName))
+		countrySlo = getPrevod.prevod;
+	} else {
+		countrySlo = "Slovenija";
+	}
 
 	return (
 		<div className="Subpage">
