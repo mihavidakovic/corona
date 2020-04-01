@@ -23,6 +23,8 @@ import Graph from './Graph/Graph.js';
 import AdminPage from './Pages/Admin/AdminPage.js';
 import AdminPageIp from './Pages/Admin/AdminPageIp.js';
 
+import Drzava from './Pages/Drzava.js';
+
 
 export default function App() {
 	if (process.env.NODE_ENV !== "development") {
@@ -56,10 +58,8 @@ export default function App() {
 							</div>
 						</section>
 					</Route>
-					<Route exact path="/admin">
-	 			 		<AdminPage />
-					 </Route>
-
+					<Route path="/drzava/:name" render={() => <Drzava />} />
+					<Route path="/admin" render={() => <AdminPage />} />
 					<Route path="/404" component={notFound} />
 					<Redirect to="/404" />
 				</Switch>

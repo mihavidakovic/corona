@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Moment from 'react-moment';
 import 'moment-timezone';
@@ -19,13 +19,23 @@ import AdminPageIp from './AdminPageIp.js';
 
 export default function AdminPage() {
 	let { path, url } = useRouteMatch();
-	const [ips, setIps] = useState({ips: []});
+	const [IpsRequest, setIpsRequst] = useState({
+		ips: []
+	});
 
-	axios.get("https://corona.vidakovic.si/api/ip/all")
-		.then(res => {
-			console.log(res.data.ips)
-			setIps(res.data.ips);
-		});
+	useEffect(() => {
+		axios.get("https://corona.vidakovic.si/api/ip/all")
+			.then(res => {
+				setIpsRequst({ips: res.data.ips})
+			})
+			.catch(err => {
+				console.log(err)
+			})
+			.then(() => {
+			});
+	}, [])
+
+  	const { ips } = IpsRequest;
 
 	return (
 		<div className="AdminPage">
@@ -35,7 +45,11 @@ export default function AdminPage() {
 					<div class="AdminPage__ips">
 						{_.map(ips, function(ip) {
 							return(
-								<Link to={`${url}`+ '/ip/' + ip.ip}>
+								<Link key={ip.id} to={{
+									pathname:  `${url}`+ '/ip/' + ip.ip,
+									ipInfo: ip
+																	
+								}}>
 									<div className="AdminPage__ips--ip">
 										<span className="ip__address">
 											{ip.ip}
@@ -49,9 +63,7 @@ export default function AdminPage() {
 						})}
 					</div>
 				</Route>
-		        <Route exact path={`${path}/ip/:ip`}>
-		          <AdminPageIp />
-		        </Route>
+	          	<Route exact path={`${path}/ip/:ip`} render={() => <AdminPageIp /> } />
 			</Switch>
 		</div>
 	);
