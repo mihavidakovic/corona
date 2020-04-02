@@ -35,7 +35,7 @@ import Drzava from './Pages/Drzava.js';
 export default function App() {
 	if (process.env.NODE_ENV !== "development") {
 
-		axios.get("https://corona.vidakovic.si/api/ip", {crossDomain: true})
+		axios.get("https://corona.vidakovic.si/api/ip", {headers: {"Access-Control-Allow-Origin": "*"}})
 			.then(res => {
 				console.log("logged");
 
