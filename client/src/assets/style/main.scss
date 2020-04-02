@@ -164,6 +164,14 @@ html {
 					color: rgba(#000, 0.7);
 				}
 
+				.data-point__new {
+					
+					&:before {
+						background-color: rgba(#000, 0.1);
+						color: rgba(#000, 0.4);
+					}
+				}
+
 				.data-point__title {
 					color: rgba(#000, 0.5);
 				}
