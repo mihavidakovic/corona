@@ -31,6 +31,7 @@ const  Drzava = (props) => {
 	});
 
 	useEffect(() => {
+
 		axios.get("https://corona.lmao.ninja/countries/" + name)
 			.then(res => {
 				setDrzavaRequest({drzava: res.data})
@@ -81,8 +82,10 @@ const  Drzava = (props) => {
 		const selectedName = {"name": name}
 		const getPrevod = _.find(countries, _.matches(selectedName))
 		countrySlo = getPrevod.prevod;
+		document.title = countrySlo + " - Zadnji podatki o posledicah virusa!"
 	} else {
 		countrySlo = "Slovenija";
+		document.title = countrySlo + " - Zadnji podatki o posledicah virusa!"
 	}
 
 	return (

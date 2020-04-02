@@ -139,7 +139,7 @@ export default class Graph extends React.Component {
 						</div>
 					</div>
 				</header>
-				<div style={{width: '100%', height: 210}}>
+				<div style={{width: '100%', height: 210, zIndex: 2, position: 'relative'}}>
 					<ResponsiveContainer>
 						<AreaChart
 							height={100}
@@ -166,7 +166,8 @@ export default class Graph extends React.Component {
 							<Area type="monotone" isAnimationActive={true} animationDuration={900}  dataKey="Primerov" stroke="rgba(255, 255, 255, 1)" fill="rgba(255, 255, 255, 0.7)" fillOpacity={1} fill="url(#colorPrimerov)" />
 						</AreaChart>
 					</ResponsiveContainer>
-					<Link className="more-link" to={{
+					<div className="whiteModeBg"></div>
+					<Link className="more-button" to={{
 						pathname: '/drzava/' + this.state.selectedCountry,
 					}}>
 						Več podatkov za <span>{this.state.selectedCountrySlo}</span><i className="fa fa-chevron-right"></i>

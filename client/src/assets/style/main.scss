@@ -1,12 +1,15 @@
 @import "https://fonts.googleapis.com/css?family=Inter&display=swap";
 @import "./loader/loaders.scss";
-@import "./util/breakpoints.scss";
 
 // pages
 @import "./pages/pages.scss";
 
-// components
-@import "_components.scss";
+// utl
+@import "./util/_animations.scss";
+@import "./util/breakpoints.scss";
+
+//components
+@import "./components/data-points.scss";
 
 $black: #121212;
 
@@ -37,8 +40,17 @@ html {
 	}
 		
 	&.light {
+		background-color: rgba(#000, 0.02);
+		
+		.AdminPage {
+			* {
+				color: #000 !important;
+			}
 
-		background-color: #fff;
+			.AdminPage__ips--ip {
+				border-bottom: 1px solid rgba(#000, 0.1);
+			}
+		}
 		
 		.logo {
 			
@@ -56,7 +68,7 @@ html {
 			background-color: rgba(#000, 0.06);
 			
 			&:hover {
-				background-color: rgba(#000, 0.08);
+				background-color: rgba(#000, 0.095);
 			}
 		}
 
@@ -71,7 +83,118 @@ html {
 			}
 		}
 
+		.graf {
+			position: relative;
+			
+			.section__header {
+				
+				.header__select {
+					
+					h2 {
+						color: rgba(#000, 0.8);
+					}
+
+					.select_country {
+						background-color: rgba(#000, 0.1);
+						color: rgba(#000, 0.8);
+						
+						&:hover {
+							background-color: rgba(#000, 0.15);
+						}
+
+						i {
+							color: rgba(#000, 0.8);
+						}
+						
+						.select_country--select {
+							color: rgba(#000, 0.7);
+						}
+					}
+				}
+			}
+
+			.whiteModeBg {
+				position: absolute;
+				top: -20px;
+				left: 15px;
+				width: calc(100% - 20px);
+				height: calc(100% + 10px);
+				z-index: -2;
+				background-color: rgba(#000, 0.85);
+				border-radius: 4px;
+				box-shadow: 0 5px 20px 0 rgba(#000, 0.5);
+			}
+
+			.more-button {
+				background-color: rgba(#000, 0.8);
+				color: #FFF;
+				margin-top: 0rem;
+				
+				&:hover {
+					background-color: rgba(#000, 0.95);
+				}
+			}
+		}
+
+		.all-data {
+
+			.all-data__header {
+				
+				h2 {
+					color: rgba(#000, 0.8);
+				}
+
+				p {
+					color: rgba(#000, 0.3);
+				}
+			}
+		}
+
+		.data-points {
+			
+			.data-point {
+				background-color: rgba(#000, 0.05);
+				
+				&:hover {
+					background-color: rgba(#000, 0.08);
+					box-shadow: 0 10px 20px 0px rgba(0, 0, 0, 0.03);
+				}
+				
+				h3 {
+					color: rgba(#000, 0.7);
+				}
+
+				.data-point__title {
+					color: rgba(#000, 0.5);
+				}
+			}
+		}
+
 		.list {
+
+			.see-more {
+				background-image: linear-gradient(rgba(#fff, 0) 0%, #fff 70%);
+				
+				&:hover {
+					
+					span {
+						background-color: #000;
+						color: #FFF;
+						box-shadow: 0 5px 15px 0 rgba(#000, 0.15);
+					}
+				}
+				
+				span {
+					background-color: rgba(#000, 0.8);
+					color: #FFF;
+					
+					&:hover {
+						background-color: #000;
+						color: #FFF;
+					}
+					
+				}
+			}
 			
 			.list__head {
 				background-color: #ddd;
@@ -86,25 +209,75 @@ html {
 
 			.items {
 				
-				.listItem{
-					background-color: rgba(#000, 0.02);
-					height: 48px;
+				a {
+					border-bottom: 1px solid rgba(#000, 0.1);
+					color: rgba(#000, 0.8);
 					
 					&:hover {
-						background-color: rgba(#000, 0.04);
-					}
-
-					&:not(:last-child) {
-						border-bottom: 1px solid rgba(#000, 0.09);
-					}
-
-					.listItem__cell {
 						
-						&:not(:last-child) {
-							border-right: 1px solid rgba(#000, 0.09);
+						.listItem {
+							.listItem__cell {
+								&.item__state {
+									span {
+										border-color: rgba(#000, 0.4);
+									}
+								}
+							}
 						}
 					}
+
+					.listItem {
+						background-color: rgba(#000, 0.02);
+						height: 48px;
+						
+						&:hover {
+							background-color: rgba(#000, 0.04);
+						}
+
+						&:not(:last-child) {
+							border-bottom: 1px solid rgba(#000, 0.09);
+						}
+
+						.listItem__cell {
+							
+							&:not(:last-child) {
+								border-right: 1px solid rgba(#000, 0.09);
+							}
+
+							&.item__state {
+								
+								&:before {
+									background-color: rgba(#000, 0.05);
+									color: rgba(#000, 0.7);
+								}
+							}
+						}
+					}
+					
 				}
+			}
+		}
+
+		.Subpage {
+
+			.Subpage-country__back {
+				color: rgba(#000, 0.9);
+			}
+			
+			h2 {
+				color: rgba(#000, 0.8);
+			}
+
+			.whiteModeBg {
+				position: absolute;
+				top: -25px;
+				left: -10px;
+				width: calc(100% + 25px);
+				height: calc(100% + 15px);
+				z-index: -2;
+				background-color: rgba(#000, 0.85);
+				border-radius: 4px;
+				box-shadow: 0 5px 20px 0 rgba(#000, 0.5);
 			}
 		}
 	}
@@ -125,12 +298,12 @@ html {
 
 		.mode__button {
 			color: #000;
-			background-color: rgba(#fff, 0.95);
+			background-color: rgba(#fff, 0.90);
 			padding: 1rem 2rem;
 			border-radius: 4px;
 			
 			&:hover {
-				background-color: rgba(#fff, 0.08);
+				background-color: rgba(#fff, 1);
 			}
 		}
 
@@ -326,10 +499,10 @@ html {
 		}
 
 		.mode {
-			display: none;
+			flex-shrink: 0;
 			
 			.mode__button {
-				width: 10rem;
+				width: 11.5rem;
 				height: 3rem;
 				border-radius: 30px;
 				display: flex;
@@ -337,9 +510,12 @@ html {
 				justify-content: center;
 				cursor: pointer;
 				transition: 200ms all ease-in-out;
+				font-size: 0.9em;
+				font-weight: bold;
 				
 				i {
-					margin-right: 1rem;
+					margin-right: 0.7rem;
+					font-size: 1rem;
 				}
 				
 			}
@@ -505,151 +681,164 @@ html {
 			display: flex;
 			flex-flow: column;
 			counter-reset: section;
-
-			.listItem {
-				display: flex;
-				flex-flow: row;
-				transition: 200ms background-color ease-in-out;
-				counter-increment: section;
+			
+			a {
+				border-bottom: 1px solid rgba(#fff, 0.1);
+				
 				&:hover {
-				}
-
-				.listItem__cell {
 					
-					&:not(:last-child) {
-						border-right: 1px solid rgba(#000, 0.05);
-					}
-				}
-
-				.listItem__cell {
-					width: 25%;
-					padding: 1rem 1rem;
-					font-size: 0.8rem;
-					display: flex;
-					flex-flow: row;
-					justify-content: center;
-					align-items: center;
-					transition: 200ms background-color ease-in-out;
-					
-					.new_cases {
-						margin-left: 0.2rem;
-						font-weight: bold;
-						font-size: 0.7rem;
+					.listItem {
 						
-						&.positive {
-							color: rgba(#f00, 1);
-						}
-
-						&.negative {
-							color: rgba(#4ad71f, 1);
-						}
-					}
-				}
-
-				.item__state {
-					width: 20%;
-					position: relative;
-					padding: 0;
-					
-					&:hover {
-						background-color: rgba(#fff, 0.03);
-					}
-					
-					a {
-						display: flex;
-						flex-flow: row;
-						align-items: center;
-						justify-content: center;
-						color: #FFF;
-						width: 100%;
-						height: 100%;
-						padding: 0 calc(1rem) 0 calc(1rem + 20px);
-						
-						&:hover {
+						.item__state {
 
 							span {
 								border-color: #fff;
 							}
 						}
 					}
-					
-					@include breakpoint(sm, max) {
-						width: 30%;
+				}
+				.listItem {
+					display: flex;
+					flex-flow: row;
+					transition: 200ms background-color ease-in-out;
+					counter-increment: section;
+					&:hover {
 					}
 
-					&:before {
-						content: counter(section);
-						position: absolute;
-						top: 50%;
-						left: 1rem;
-						width: 20px;
-						height: 20px;
-						display: flex;
-						align-items: center;
-						justify-content: center;
-						font-weight: bold;
-						font-size: 0.7rem;
-						color: rgba(#fff, 0.5);
-						background: rgba(#fff, 0.08);
-						transform: translateY(-50%);
-						border-radius: 4px;
+					.listItem__cell {
 						
-						@include breakpoint(sm, max) {
-							left: 0.3rem;
+						&:not(:last-child) {
+							border-right: 1px solid rgba(#000, 0.05);
 						}
 					}
 
-					.item__state--flag {
-						width: 20px;
-						margin-right: 0.3rem;
+					.listItem__cell {
+						width: 25%;
+						padding: 1rem 1rem;
+						font-size: 0.8rem;
+						display: flex;
+						flex-flow: row;
+						justify-content: center;
+						align-items: center;
+						transition: 200ms background-color ease-in-out;
+						
+						.new_cases {
+							margin-left: 0.2rem;
+							font-weight: bold;
+							font-size: 0.7rem;
+							
+							&.positive {
+								color: rgba(#f00, 1);
+							}
+
+							&.negative {
+								color: rgba(#4ad71f, 1);
+							}
+						}
+					}
+
+					.item__state {
+						width: 20%;
+						position: relative;
+						padding: 0;
+												
+						a {
+							display: flex;
+							flex-flow: row;
+							align-items: center;
+							justify-content: center;
+							color: #FFF;
+							width: 100%;
+							height: 100%;
+							padding: 0 calc(1rem) 0 calc(1rem + 20px);
+							
+							&:hover {
+
+								span {
+									border-color: #fff;
+								}
+							}
+						}
 						
 						@include breakpoint(sm, max) {
+							width: 30%;
+						}
+
+						&:before {
+							content: counter(section);
+							position: absolute;
+							top: 50%;
+							left: 1rem;
+							width: 20px;
+							height: 20px;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							font-weight: bold;
+							font-size: 0.7rem;
+							color: rgba(#fff, 0.5);
+							background: rgba(#fff, 0.08);
+							transform: translateY(-50%);
+							border-radius: 4px;
+							
+							@include breakpoint(sm, max) {
+								left: 0.3rem;
+							}
+						}
+
+						.item__state--flag {
+							width: 20px;
+							margin-right: 0.3rem;
+							
+							@include breakpoint(sm, max) {
+								display: none;
+							}
+						}
+
+						span {
+							border-bottom: 1px solid rgba(#fff, 0);
+							transition: 200ms all ease-in-out;
+
+							&:first-child {
+								font-weight: bold;
+								margin-right: 0.2rem;
+							}
+
+							&:last-child {
+							}
+						}
+					}
+
+					.item__confirmed {
+						width: 20%;
+						@include breakpoint(sm, max) {
+							width: 23.333%;
+						}
+					}
+
+					.item__deaths {
+						width: 20%;
+						@include breakpoint(sm, max) {
+							width: 23.333%;
+						}
+					}
+
+					.item__recovered {
+						width: 20%;
+						@include breakpoint(sm, max) {
+							width: 23.333%;
+						}
+					}
+
+					.item__critical {
+						width: 20%;
+						@include breakpoint(sm, max) {
+							width: 23.333%;
 							display: none;
 						}
 					}
-
-					span {
-						border-bottom: 1px solid rgba(#fff, 0);
-						transition: 200ms all ease-in-out;
-
-						&:first-child {
-							font-weight: bold;
-							margin-right: 0.2rem;
-						}
-
-						&:last-child {
-						}
-					}
 				}
-
-				.item__confirmed {
-					width: 20%;
-					@include breakpoint(sm, max) {
-						width: 23.333%;
-					}
-				}
-
-				.item__deaths {
-					width: 20%;
-					@include breakpoint(sm, max) {
-						width: 23.333%;
-					}
-				}
-
-				.item__recovered {
-					width: 20%;
-					@include breakpoint(sm, max) {
-						width: 23.333%;
-					}
-				}
-
-				.item__critical {
-					width: 20%;
-					@include breakpoint(sm, max) {
-						width: 23.333%;
-						display: none;
-					}
-				}
+				
 			}
 		}
 	}
@@ -779,6 +968,7 @@ html {
 					position: relative;
 					background: lighten($black, 4%);
 					margin-left: 1rem;
+					border-radius: 4px;
 					
 					&:hover {
 						background: lighten($black, 5%);
@@ -835,7 +1025,7 @@ html {
 
 		}
 
-		.more-link {
+		.more-button {
 			text-decoration: none;
 			background-color: rgba(#fff, 0.95);
 			color: #000;
@@ -850,6 +1040,8 @@ html {
 			flex-flow: row;
 			align-items: center;
 			justify-content: center;
+			transition: 200ms all ease-in-out;
+			animation: 1.5s pulse ease-in-out infinite;
 			
 			@include breakpoint(sm, max) {
 				width: calc(100% - 2rem);
@@ -859,13 +1051,21 @@ html {
 			
 			&:hover {
 				background-color: #FFF;
+				
+				i {
+					transform: translateX(2px);
+				}
 			}
 
 			span {
 				font-weight: 800;
 				text-transform: capitalize;
-				margin: 0 0.5rem 0 0.2rem;
-				transform: translateY(0.5px);
+				margin: 0 0.3rem 0 0.2rem;
+				transform: translateY(0.7px);
+			}
+
+			i {
+				transition: 200ms all ease-in-out;
 			}
 		}
 	}
@@ -877,25 +1077,32 @@ html {
 			width: 100%;
 		}
 	}
+
 	.all-data {
 		width: 100%;
-		padding: 0 2rem 0 0;
 		display: flex;
 		flex-flow: column;
-		margin: 0 0 2rem 0;
+		margin: 0.8rem 0 2rem 0;
 		
+		@include breakpoint(lg, max) {
+			padding: 0 2rem 0 2rem;
+		}
+
+		@include breakpoint(lg, min) {
+			padding: 0 2rem 0 2rem;
+		}
 		@include breakpoint(md, max) {
-			padding: 0 1rem;
+			padding: 0 2rem;
 		}
 
 		@include breakpoint(md, min) {
+			padding: 0 2rem;
+		}
+
+		@include breakpoint(sm, max) {
 			padding: 0 1rem;
 		}
 
-		@include breakpoint(sm, min) {
-			padding: 0 2rem;
-		}
-		
 		.all-data__header {
 			display: flex;
 			flex-flow: row;

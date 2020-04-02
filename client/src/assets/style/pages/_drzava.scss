@@ -1,4 +1,5 @@
 .Subpage-country {
+	margin-bottom: 2rem;
 
 	.Subpage-country__back {
 		color: #FFF;
@@ -38,5 +39,9 @@
 	.Subpage-country__graph {
 		margin-top: 2rem;
 		color: #FFF;
+		
+		h2 {
+			margin-bottom: 2rem;
+		}
 	}
 }

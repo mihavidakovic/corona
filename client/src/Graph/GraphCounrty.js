@@ -67,7 +67,7 @@ export default class Graph extends React.Component {
 	render() {
 		return (
 		<>
-				<div className="Subpage-country__graph--element" style={{width: '100%', height: 210}}>
+				<div className="Subpage-country__graph--element" style={{width: '100%', height: 210, position: 'relative'}}>
 					<ResponsiveContainer>
 						<AreaChart
 							height={100}
@@ -94,6 +94,7 @@ export default class Graph extends React.Component {
 							<Area type="monotone" isAnimationActive={true} animationDuration={900}  dataKey="smrti" stroke="rgba(239, 57, 57, 0.8)" fill="rgba(239, 57, 57, 0.8)" fillOpacity={1} fill="url(#colorSmrti)" />
 						</AreaChart>
 					</ResponsiveContainer>
+					<div className="whiteModeBg"></div>
 				</div>
 			</>
 		);
