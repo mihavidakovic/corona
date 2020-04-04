@@ -803,7 +803,7 @@ html {
 							display: block;
 							border-bottom: 1px solid rgba(#fff, 0);
 							transition: 200ms all ease-in-out;
-							max-width: 100px;
+							max-width: 70%;
 							white-space: nowrap;
 							text-overflow: ellipsis;
 							overflow: hidden;
@@ -1006,6 +1006,7 @@ html {
 						position: relative;
 						z-index: 2;
 						cursor: pointer;
+						letter-spacing: 1px;
 						transition: 200ms all ease-in-out;
 						
 						option {
