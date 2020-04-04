@@ -5,33 +5,34 @@ import 'moment-timezone';
 
 
 class All extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		this.state = {
 			data: {
 				cases: 0,
+				todayCases: 0,
 				deaths: 0,
+				todayDeaths: 0,
 				recovered: 0,
 				updated: 0
 			},
 		};
 	}
 
-	componentWillMount() {
-		this.fetchAll();
-
-		setInterval(() => {
-			this.fetchAll();
-		}, 30000);		
+	componentDidMount() {
+		setTimeout(() => {
+			this.setState({
+				data: {
+					cases: this.props.data.cases,
+					deaths: this.props.data.deaths,
+					recovered: this.props.data.recovered
+				}
+			})
+		}, 1000)
 	}
 
 	fetchAll() {
-		axios.get("https://corona.lmao.ninja/all")
-			.then(res => {
-				const data = res.data;
-				this.setState({data});
-		})
 	}
 
 

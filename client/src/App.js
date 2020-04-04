@@ -42,6 +42,7 @@ export default function App() {
 
 	useEffect(() => {
 		localStorage.setItem('dark', JSON.stringify(darkMode));
+
 	}, [darkMode]);
 
 	function getInitialMode() {
@@ -70,6 +71,7 @@ export default function App() {
 				console.log("logged");
 		})
 	}
+
 
 	return (
 		<BrowserRouter>

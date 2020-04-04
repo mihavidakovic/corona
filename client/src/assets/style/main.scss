@@ -699,7 +699,7 @@ html {
 						
 						.item__state {
 
-							span {
+							.item__state--name {
 								border-color: #fff;
 							}
 						}
@@ -748,7 +748,8 @@ html {
 					.item__state {
 						width: 20%;
 						position: relative;
-						padding: 0;
+						padding: 0 0 0 3rem;
+						justify-content: start;
 												
 						a {
 							display: flex;
@@ -760,16 +761,11 @@ html {
 							height: 100%;
 							padding: 0 calc(1rem) 0 calc(1rem + 20px);
 							
-							&:hover {
-
-								span {
-									border-color: #fff;
-								}
-							}
 						}
 						
 						@include breakpoint(sm, max) {
 							width: 30%;
+							padding: 0 0 0 2rem;
 						}
 
 						&:before {
@@ -803,9 +799,15 @@ html {
 							}
 						}
 
-						span {
+						.item__state--name {
+							display: block;
 							border-bottom: 1px solid rgba(#fff, 0);
 							transition: 200ms all ease-in-out;
+							max-width: 100px;
+							white-space: nowrap;
+							text-overflow: ellipsis;
+							overflow: hidden;
+							font-weight: bold;
 
 							&:first-child {
 								font-weight: bold;

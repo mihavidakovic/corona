@@ -62,7 +62,7 @@ const  Drzava = (props) => {
 
 				}
 
-				setGraphRequest({graph: cases})
+				setGraphRequest({graph: cases.slice(40)})
 			})
 			.catch(err => {
 				console.log(err)
@@ -113,7 +113,7 @@ const  Drzava = (props) => {
 						</div>
 						<div className="data-point">
 							<h3>{drzava.recovered ? drzava.recovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : ''}</h3>
-							<div className={drzava.todayRecovered > 0 ? 'data-point__new negative' : 'data-point__new positive'}>{drzava.todayRecovered ? '+' + drzava.todayRecovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : '0'}</div>
+							<div className={drzava.todayRecovered > 0 ? 'data-point__new negative' : 'data-point__new positive'}>{drzava.todayRecovered > 0 ? '+' + drzava.todayRecovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : '0'}</div>
 							<span className="data-point__title">Okrevanih</span>
 						</div>
 					</div>

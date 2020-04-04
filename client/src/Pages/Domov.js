@@ -28,28 +28,58 @@ import Graph from '../Graph/Graph.js';
 
 const countries = require('../Graph/countries.json');
 
-const  Domov = (props) => {
+export default class Domov extends React.Component{
+	constructor(props) {
+		super(props);
+		this.state = {
+			all: [],
+			countries: []
+		}
+	}
 
-	useEffect(() => {
-		document.title = "Covid19.si - Zadnji podatki o posledicah virusa!"
-	})
+	componentDidMount() {
+		document.title = "Covid19.si - Zadnji podatki o posledicah virusa!";
 
-	return (
-		<section>
-			<div className="two">
-				<div className="graf">
-					<Graph />
+		let all = "https://corona.lmao.ninja/all";
+		let countries = "https://corona.lmao.ninja/countries";
+
+		const requestAll = axios.get(all);
+		const requestCountries = axios.get(countries);
+
+		axios.all([requestAll, requestCountries], {crossDomain: true})
+			.then(axios.spread((...responses) => {
+				let all = responses[0];
+				let countries = responses[1];
+				
+				this.setState({
+					all: all.data,
+					countries: countries.data
+				})
+			}))
+			.catch(err => {
+				console.log(err)
+			})
+			.then(() => {
+			});
+	}
+
+	render() {
+		return (
+			<section>
+				<div className="two">
+					<div className="graf">
+						<Graph />
+					</div>
+					<div className="all">
+						<All data={this.state.all} />
+					</div>
 				</div>
-				<div className="all">
-					<All />
+				<div className="podatki">
+					<List data={this.state.countries} />
 				</div>
-			</div>
-			<div className="podatki">
-				<List />
-			</div>
-		</section>
+			</section>
 
 	);
-}
 
-export default Domov;
+	}
+}

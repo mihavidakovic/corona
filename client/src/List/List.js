@@ -2,8 +2,10 @@ import React from 'react';
 import axios from 'axios';
 import Moment from 'react-moment';
 import 'moment-timezone';
+import _ from 'lodash';
 
 import ListItem from './ListItem.js';
+import countries from '../Graph/countries.json';
 
 export default class List extends React.Component {
 	constructor(props){
@@ -20,28 +22,28 @@ export default class List extends React.Component {
 		};
 	}
 
-	componentWillMount() {
-		this.fetchData();
+	componentDidMount() {
+		setTimeout(() => {
+			_.map(this.props.data, function(obj) {
 
-		setInterval(() => {
-			this.onSort(this.state.sort.column)
-			this.fetchData();
-		}, 10000);		
-
-	};
-
-	fetchData() {
+			    // add the properties from second array matching the userID
+			    // to the object from first array and return the updated object
+			   return _.assign(obj, _.find(countries, {name: obj.country}));
+			});
 
 
-		axios.get("https://corona.lmao.ninja/countries")
-			.then(res => {
-				const data = res.data;
-				this.setState({data});
-				this.setState({loading: false});
-				this.setState({updated: new Date()});
-				// this.giveDate(new Date( Date.now() - 1000 * 60 ), new Date( Date.now() - 4500 * 60))
-		})
+			this.setState({data: this.props.data})
+			this.setState({loading: false})
+		}, 1000)
+
 	}
+
+	componentDidUpdate(prevProps, prevState) {
+		if (prevState.data !== this.state.data) {
+			this.setState({data: this.props.data})
+			console.log()
+		}
+	};
 
 	onSort = (column) => (e) => {
 	  const direction = this.state.sort.column ? (this.state.sort.direction === 'asc' ? 'desc' : 'asc') : 'desc';
@@ -204,7 +206,7 @@ export default class List extends React.Component {
 						</div>
 						<div className="items">
 							{this.state.data.map((item, index) => 
-								<ListItem key={index}  id={item.id} country={item.country} flag={item.countryInfo.flag} cases={item.cases} todayCases={item.todayCases} deaths={item.deaths} todayDeaths={item.todayDeaths} recovered={item.recovered} critical={item.critical} />
+								<ListItem key={index}  id={item.id} country={item.country} ime={item.prevod} flag={item.countryInfo.flag} cases={item.cases} todayCases={item.todayCases} deaths={item.deaths} todayDeaths={item.todayDeaths} recovered={item.recovered} critical={item.critical} />
 							)}
 						</div>
 					</div>
