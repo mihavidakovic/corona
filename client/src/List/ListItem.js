@@ -2,17 +2,19 @@ import React from 'react';
 import {
   Link
 } from "react-router-dom";
-import _ from 'lodash';
-
-import countries from '../Graph/countries.json';
 
 export default class ListItem extends React.Component {
 
 	render() {
 		return(
-			<Link to={{
-				pathname: '/drzava/' + this.props.country,
-			}}>
+			<Link 
+				to={{
+					pathname: '/drzava/' + this.props.country,
+					state: {
+						flag: "lol"
+					}
+				}}
+			>
 				<div className="listItem">
 					<div className="listItem__cell item__state">
 						<img className="item__state--flag" src={this.props.flag}  alt={this.props.country} />

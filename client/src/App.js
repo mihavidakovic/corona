@@ -7,30 +7,18 @@ import {
   Redirect,
   useLocation
 } from "react-router-dom";
-
-
 import axios from 'axios';
-import Moment from 'react-moment';
-import 'moment-timezone';
-
 import {
   FacebookShareButton,
-  FacebookIcon,
   FacebookShareCount,
   TwitterShareButton,
 } from "react-share";
-import MessengerSendToMessenger from 'react-messenger-send-to-messenger';
-
 
 // Style
 import './assets/style/main.scss';
 
-// Layout
-import Header from './Components/Header.js';
-
 // Pages
 import AdminPage from './Pages/Admin/AdminPage.js';
-import AdminPageIp from './Pages/Admin/AdminPageIp.js';
 
 import Domov from './Pages/Domov.js';
 import Drzava from './Pages/Drzava.js';

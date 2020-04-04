@@ -1,5 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import moment from 'moment';
+import 'moment-timezone';
+import 'moment/locale/sl';
 import {
   Link
 } from "react-router-dom";
@@ -7,11 +10,10 @@ import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
 } from 'recharts';
 import _ from 'lodash';
-
-
-
-
 var dateFormat = require('dateformat');
+
+const countries = require('./countries.json');
+
 const tooltip = {
 	background: '#fff',
 	padding: '0.5rem 1rem',
@@ -21,7 +23,6 @@ const tooltip = {
 	display: 'flex',
 	flexFlow: 'column'
 };
-
 
 const CustomTooltip = ({ active, payload, label }) => {
   	let labelFormated = dateFormat(label, "dd.mm.yyyy")
@@ -37,23 +38,13 @@ const CustomTooltip = ({ active, payload, label }) => {
   return null;
 };
 
-const getPercent = (value, total) => {
-	const ratio = total > 0 ? value / total : 0;
-  
-  return toPercent(ratio, 2);
-};
-
-const toPercent = (decimal, fixed = 0) => {
-	return `${(decimal * 100).toFixed(fixed)}%`;
-};
-
-const countries = require('./countries.json');
 
 
 export default class Graph extends React.Component {
 	state = {
 		loading: true,
 		data: [],
+		updated: "",
 		cases: {},
 		casesDates: {},
 		selectedCountry: "slovenia",
@@ -73,7 +64,6 @@ export default class Graph extends React.Component {
 		let url = "https://corona.lmao.ninja/v2/historical/" + country;
 		axios.get(url)
 		.then(res => {
-			const getData = res.data;
 			const casesKeys = Object.keys(res.data.timeline.cases);
 			const deathsValues = Object.values(res.data.timeline.deaths);
 			var cases = Object.entries(res.data.timeline.cases).map(([date, Primerov]) => ({date,Primerov}));
@@ -89,8 +79,12 @@ export default class Graph extends React.Component {
 
 			var allCases = cases.slice(40)
 
+			let updated = Object.keys(res.data.timeline.cases);
+			updated = _.last(updated)
+
 	    	
 			this.setState({data: res.data});
+			this.setState({updated: updated});
 			this.setState({cases: allCases});
 			this.setState({casesDates: casesKeys});
 			this.setState({loading: false});
@@ -159,7 +153,7 @@ export default class Graph extends React.Component {
 						    </linearGradient>
 						  </defs>
 							<CartesianGrid stroke='rgba(255, 255, 255, 0.2)'/>
-							<XAxis dataKey="date" stroke='rgba(255, 255, 255, 0)' tickFormatter={toPercent} tick={{fontSize: 0}}  />
+							<XAxis dataKey="date" stroke='rgba(255, 255, 255, 0)' tick={{fontSize: 0}}  />
 							<YAxis stroke='rgba(255, 255, 255, 0.2)' tick={{fontSize: 10}}  />
 	        				<Tooltip content={<CustomTooltip />} />
 							<Area type="monotone" isAnimationActive={true} animationDuration={900}  dataKey="smrti" stroke="rgba(239, 57, 57, 0.8)" fill="rgba(239, 57, 57, 0.8)" fillOpacity={1} fill="url(#colorSmrti)" />
@@ -167,11 +161,14 @@ export default class Graph extends React.Component {
 						</AreaChart>
 					</ResponsiveContainer>
 					<div className="whiteModeBg"></div>
-					<Link className="more-button" to={{
-						pathname: '/drzava/' + this.state.selectedCountry,
-					}}>
-						Več podatkov za <span>{this.state.selectedCountrySlo}</span><i className="fa fa-chevron-right"></i>
-					</Link>
+					<div className="below-graph">
+						<p className="below-graph__updated">{this.state.updated ? ('Posodobljeno: ' + moment(new Date(this.state.updated)).add(1, 'd').format("D. MMMM YYYY, ob H:mm")) : ''}</p>
+						<Link className="more-button" to={{
+							pathname: '/drzava/' + this.state.selectedCountry,
+						}}>
+							Več podatkov za <span>{this.state.selectedCountrySlo}</span><i className="fa fa-chevron-right"></i>
+						</Link>
+					</div>
 				</div>
 			</>
 		);

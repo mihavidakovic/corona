@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
 } from 'recharts';
@@ -28,18 +27,6 @@ const CustomTooltip = ({ active, payload, label }) => {
 
   return null;
 };
-
-const getPercent = (value, total) => {
-	const ratio = total > 0 ? value / total : 0;
-  
-  return toPercent(ratio, 2);
-};
-
-const toPercent = (decimal, fixed = 0) => {
-	return `${(decimal * 100).toFixed(fixed)}%`;
-};
-
-
 
 export default class Graph extends React.Component {
 	constructor(props){
@@ -87,7 +74,7 @@ export default class Graph extends React.Component {
 						    </linearGradient>
 						  </defs>
 							<CartesianGrid stroke='rgba(255, 255, 255, 0.2)'/>
-							<XAxis dataKey="date" stroke='rgba(255, 255, 255, 0)' tickFormatter={toPercent} tick={{fontSize: 0}}  />
+							<XAxis dataKey="date" stroke='rgba(255, 255, 255, 0)' tick={{fontSize: 0}}  />
 							<YAxis stroke='rgba(255, 255, 255, 0.2)' tick={{fontSize: 10}}  />
 	        				<Tooltip content={<CustomTooltip />} />
 							<Area type="monotone" isAnimationActive={true} animationDuration={900}  dataKey="Primerov" stroke="rgba(255, 255, 255, 1)" fill="rgba(255, 255, 255, 0.7)" fillOpacity={1} fill="url(#colorPrimerov)" />

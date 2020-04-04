@@ -1,24 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import axios from 'axios';
-import Moment from 'react-moment';
-import 'moment-timezone';
-import 'moment/locale/sl';
-import _ from 'lodash';
-
-import GraphCounrty from '../Graph/GraphCounrty.js';
-
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-  useRouteMatch
-} from "react-router-dom";
-
-// Layout
-import Header from '../Components/Header.js';
-
 
 //Compontents
 import List from '../List/List.js';
@@ -26,7 +7,6 @@ import All from '../Components/All.js';
 import Graph from '../Graph/Graph.js';
 
 
-const countries = require('../Graph/countries.json');
 
 export default class Domov extends React.Component{
 	constructor(props) {

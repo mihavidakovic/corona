@@ -1,24 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Moment from 'react-moment';
-import 'moment-timezone';
-import 'moment/locale/sl';
 import _ from 'lodash';
 
 import GraphCounrty from '../Graph/GraphCounrty.js';
 
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
   Link,
-  useParams,
-  useRouteMatch
+  useParams
 } from "react-router-dom";
 
 const countries = require('../Graph/countries.json');
 
-const  Drzava = (props) => {
+function Drzava(props) {
 	let { name } = useParams();
 	let countrySlo = "";
 
@@ -45,18 +38,12 @@ const  Drzava = (props) => {
 		//data for graph
 		axios.get("https://corona.lmao.ninja/v2/historical/" + name)
 			.then(res => {
-				const final = {};
-
-
-				const casesKeys = Object.keys(res.data.timeline.cases);
 				const deathsValues = Object.values(res.data.timeline.deaths);
 				const cases = Object.entries(res.data.timeline.cases).map(([date, Primerov]) => ({date,Primerov}));
 
 				for (var key in cases) {
 				    // skip loop if the property is from prototype
 				    if (!cases.hasOwnProperty(key)) continue;
-
-
 				    var obj = cases[key];
 				    Object.assign(obj, {smrti: deathsValues[key]})
 
@@ -87,7 +74,6 @@ const  Drzava = (props) => {
 		countrySlo = "Slovenija";
 		document.title = countrySlo + " - Zadnji podatki o posledicah virusa!"
 	}
-
 	return (
 		<div className="Subpage">
 			<div className="Subpage-country">
@@ -98,7 +84,6 @@ const  Drzava = (props) => {
 				<h2 className="Subpage-country__title">
 					{countrySlo}
 				</h2>
-
 				<div className="Subpage-country__data">
 					<div className="data-points">
 						<div className="data-point">

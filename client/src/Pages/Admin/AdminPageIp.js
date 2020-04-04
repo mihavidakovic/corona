@@ -1,15 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Moment from 'react-moment';
-import 'moment-timezone';
-import 'moment/locale/sl';
-import _ from 'lodash';
 
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
   useParams
 } from "react-router-dom";
 
