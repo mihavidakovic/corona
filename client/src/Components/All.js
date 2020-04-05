@@ -28,7 +28,8 @@ class All extends React.Component {
 					deaths: this.props.data.deaths,
 					todayDeaths: this.props.data.todayDeaths,
 					recovered: this.props.data.recovered,
-					todayRecovered: 0
+					todayRecovered: 0,
+					updated: this.props.data.updated
 				}
 			})
 		}, 1000)
