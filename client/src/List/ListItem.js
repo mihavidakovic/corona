@@ -18,7 +18,7 @@ export default class ListItem extends React.Component {
 				<div className="listItem">
 					<div className="listItem__cell item__state">
 						<img className="item__state--flag" src={this.props.flag}  alt={this.props.country} />
-						<div className="item__state--name" title={this.props.ime}>{this.props.country}</div> 
+						<div className="item__state--name" title={this.props.ime}>{this.props.ime}</div> 
 					</div>
 					<div className="listItem__cell item__confirmed">
 						<span>{this.props.cases}</span>
