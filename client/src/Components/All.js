@@ -59,7 +59,6 @@ class All extends React.Component {
 					</div>
 					<div className="data-point">
 						<h3>{this.state.data.recovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</h3>
-						<div className={this.state.data.todayRecovered > 0 ? 'data-point__new negative' : 'data-point__new positive'}>{this.state.data.todayRecovered > 0 ? ('+' + this.state.data.todayRecovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')) : '0'}</div>
 						<span className="data-point__title">Okrevanih</span>
 					</div>
 				</div>
