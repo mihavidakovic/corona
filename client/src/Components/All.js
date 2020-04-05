@@ -1,37 +1,41 @@
 import React from 'react';
-import axios from 'axios';
 import Moment from 'react-moment';
 import 'moment-timezone';
 
 
 class All extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		this.state = {
 			data: {
 				cases: 0,
+				todayCases: 0,
 				deaths: 0,
+				todayDeaths: 0,
 				recovered: 0,
 				updated: 0
 			},
 		};
 	}
 
-	componentWillMount() {
-		this.fetchAll();
-
-		setInterval(() => {
-			this.fetchAll();
-		}, 30000);		
+	componentDidMount() {
+		setTimeout(() => {
+			this.setState({
+				data: {
+					cases: this.props.data.cases,
+					todayCases: this.props.data.todayCases,
+					deaths: this.props.data.deaths,
+					todayDeaths: this.props.data.todayDeaths,
+					recovered: this.props.data.recovered,
+					todayRecovered: 0,
+					updated: this.props.data.updated
+				}
+			})
+		}, 1000)
 	}
 
 	fetchAll() {
-		axios.get("https://corona.lmao.ninja/all")
-			.then(res => {
-				const data = res.data;
-				this.setState({data});
-		})
 	}
 
 
@@ -45,15 +49,18 @@ class All extends React.Component {
 				<div className="data-points">
 					<div className="data-point">
 						<h3>{this.state.data.cases.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</h3>
-						<span>Primerov</span>
+						<div className={this.state.data.todayCases > 0 ? 'data-point__new negative' : 'data-point__new positive'}>{this.state.data.todayCases > 0 ? '+' + this.state.data.todayCases.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : '0'}</div>
+						<span className="data-point__title">Primerov</span>
 					</div>
 					<div className="data-point">
 						<h3>{this.state.data.deaths.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</h3>
-						<span>Smrti</span>
+						<div className={this.state.data.todayDeaths > 0 ? 'data-point__new negative' : 'data-point__new positive'}>{this.state.data.todayDeaths > 0 ? '+' + this.state.data.todayDeaths.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : '0'}</div>
+						<span className="data-point__title">Smrti</span>
 					</div>
 					<div className="data-point">
 						<h3>{this.state.data.recovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</h3>
-						<span>Okrevanih</span>
+						<div className={this.state.data.todayRecovered > 0 ? 'data-point__new negative' : 'data-point__new positive'}>{this.state.data.todayRecovered > 0 ? ('+' + this.state.data.todayRecovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')) : '0'}</div>
+						<span className="data-point__title">Okrevanih</span>
 					</div>
 				</div>
 			</div>

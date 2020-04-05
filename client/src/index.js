@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
-    HashRouter,
-    Route
+    HashRouter
 } from 'react-router-dom';
 
 import './index.css';
