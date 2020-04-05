@@ -23,6 +23,10 @@ function Drzava(props) {
 		graph: []
 	});
 
+	const [RangeRequest, setRangeRequest] = useState({
+		range: 10
+	});
+
 	useEffect(() => {
 
 		axios.get("https://corona.lmao.ninja/countries/" + name)
@@ -35,8 +39,31 @@ function Drzava(props) {
 			.then(() => {
 			});
 
+			getGraphData("all")
+
+	}, [])
+
+
+	const {drzava} = DrzavaRequest;
+	const {range} = RangeRequest;
+	setInterval(() => {
+		const {graph} = GraphRequest;
+
+	}, 500)
+
+	if (name !== "slovenia") {
+		const selectedName = {"name": name}
+		const getPrevod = _.find(countries, _.matches(selectedName))
+		countrySlo = getPrevod.prevod;
+		document.title = countrySlo + " - Zadnji podatki o posledicah virusa!"
+	} else {
+		countrySlo = "Slovenija";
+		document.title = countrySlo + " - Zadnji podatki o posledicah virusa!"
+	}
+
+	function getGraphData(rangeNum) {
 		//data for graph
-		axios.get("https://corona.lmao.ninja/v2/historical/" + name + "/?lastdays=all")
+		axios.get("https://corona.lmao.ninja/v2/historical/" + name + "/?lastdays=" + rangeNum)
 			.then(res => {
 				const deathsValues = Object.values(res.data.timeline.deaths);
 				const cases = Object.entries(res.data.timeline.cases).map(([date, Primerov]) => ({date,Primerov}));
@@ -56,24 +83,14 @@ function Drzava(props) {
 			})
 			.then(() => {
 			});
-	}, [])
-
-	const {drzava} = DrzavaRequest;
-	const {graph} = GraphRequest;
-	setInterval(() => {
-		const {graph} = GraphRequest;
-
-	}, 500)
-
-	if (name !== "slovenia") {
-		const selectedName = {"name": name}
-		const getPrevod = _.find(countries, _.matches(selectedName))
-		countrySlo = getPrevod.prevod;
-		document.title = countrySlo + " - Zadnji podatki o posledicah virusa!"
-	} else {
-		countrySlo = "Slovenija";
-		document.title = countrySlo + " - Zadnji podatki o posledicah virusa!"
 	}
+
+	function change(event) {
+		setRangeRequest({range: event.target.value})
+		getGraphData(event.target.value)
+	}
+	const {graph} = GraphRequest;
+
 	return (
 		<div className="Subpage">
 			<div className="Subpage-country">
@@ -81,11 +98,14 @@ function Drzava(props) {
 					<i className="fa fa-arrow-left"></i>
 					<span>Nazaj</span>
 				</Link>
-				<h2 className="Subpage-country__title">
-					{countrySlo}
-				</h2>
+				<div className="Subpage-country__head">
+					<img src={_.get(drzava, 'countryInfo.flag')} alt={countrySlo} />
+					<h2 className="Subpage-country__title">
+						{countrySlo}
+					</h2>
+				</div>
 				<div className="Subpage-country__data">
-					<div className="data-points">
+					<div className="data-points multiple">
 						<div className="data-point">
 							<h3>{drzava.cases ? drzava.cases.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : ''}</h3>
 							<div className={drzava.todayCases > 0 ? 'data-point__new negative' : 'data-point__new positive'}>{drzava.todayCases > 0 ? '+' + drzava.todayCases.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : '0'}</div>
@@ -101,12 +121,41 @@ function Drzava(props) {
 							<div className={drzava.todayRecovered > 0 ? 'data-point__new negative' : 'data-point__new positive'}>{drzava.todayRecovered > 0 ? '+' + drzava.todayRecovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : '0'}</div>
 							<span className="data-point__title">Okrevanih</span>
 						</div>
+						<div className="data-point">
+							<h3>{drzava.active ? drzava.active.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : ''}</h3>
+							<span className="data-point__title">Aktivnih</span>
+						</div>
+						<div className="data-point">
+							<h3>{drzava.critical ? drzava.critical.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : ''}</h3>
+							<span className="data-point__title">Kritičnih</span>
+						</div>
+						<div className="data-point">
+							<h3>{drzava.deathsPerOneMillion ? drzava.deathsPerOneMillion.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : ''}</h3>
+							<span className="data-point__title">Primerov na miljon ljudi</span>
+						</div>
 					</div>
 				</div>
 
 				<div className="Subpage-country__graph">
-					<h2 className="Graph__title">Graf statistike primerov in smrti</h2>
-					<GraphCounrty data={graph ? graph : ''} />
+					<div className="Graph__head">
+						<h2 className="Graph__head--title">Graf statistike primerov in smrti</h2>
+						<div className="Graph__select" style={{display: 'none'}}>
+							<p>Zadnjih:</p>
+							<div className="select_range">
+								<select className="select_range--select" onChange={change} value="10">
+									<option value="10">10 dni</option>
+									<option value="15">15 dni</option>
+									<option value="20">20 dni</option>
+									<option value="25">25 dni</option>
+									<option value="all">Vse dni</option>
+								</select>
+								<div className="select_range--icon">
+									<i className="fa fa-chevron-down"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+					<GraphCounrty data={graph ? graph : ''} range={range} />
 				</div>
 			</div>
 		</div>

@@ -1,5 +1,6 @@
 @import "https://fonts.googleapis.com/css?family=Inter&display=swap";
 @import "./loader/loaders.scss";
+$black: #121212;
 
 // pages
 @import "./pages/pages.scss";
@@ -10,8 +11,6 @@
 
 //components
 @import "./components/data-points.scss";
-
-$black: #121212;
 
 
 body {
