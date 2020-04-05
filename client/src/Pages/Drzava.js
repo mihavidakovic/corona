@@ -49,7 +49,7 @@ function Drzava(props) {
 
 				}
 
-				setGraphRequest({graph: cases.slice(40)})
+				setGraphRequest({graph: cases})
 			})
 			.catch(err => {
 				console.log(err)
