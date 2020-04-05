@@ -30,6 +30,13 @@ export default class List extends React.Component {
 			   return _.assign(obj, _.find(countries, {name: obj.country}));
 			});
 
+			_.map(this.props.data, function(obj) {
+
+			    // add the properties from second array matching the userID
+			    // to the object from first array and return the updated object
+			   return _.assign(obj, _.find(countries, {url: obj.url}));
+			});
+
 
 			this.setState({data: this.props.data})
 			this.setState({loading: false})
@@ -205,7 +212,7 @@ export default class List extends React.Component {
 						</div>
 						<div className="items">
 							{this.state.data.map((item, index) => 
-								<ListItem key={index}  id={item.id} country={item.country} ime={item.prevod} flag={item.countryInfo.flag} cases={item.cases} todayCases={item.todayCases} deaths={item.deaths} todayDeaths={item.todayDeaths} recovered={item.recovered} critical={item.critical} />
+								<ListItem key={index} id={item.id} country={item.country} url={item.url}  ime={item.prevod} flag={item.countryInfo.flag} cases={item.cases} todayCases={item.todayCases} deaths={item.deaths} todayDeaths={item.todayDeaths} recovered={item.recovered} critical={item.critical} />
 							)}
 						</div>
 					</div>

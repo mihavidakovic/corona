@@ -9,7 +9,7 @@ export default class ListItem extends React.Component {
 		return(
 			<Link 
 				to={{
-					pathname: '/drzava/' + this.props.country,
+					pathname: '/drzava/' + this.props.url,
 					state: {
 						flag: "lol"
 					}

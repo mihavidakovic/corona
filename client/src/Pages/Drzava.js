@@ -12,8 +12,10 @@ import {
 const countries = require('../Graph/countries.json');
 
 function Drzava(props) {
+	window.scrollTo(0, 0);
 	let { name } = useParams();
 	let countrySlo = "";
+	let correctName = _.find(countries, {url: name})
 
 	const [DrzavaRequest, setDrzavaRequest] = useState({
 		drzava: []
@@ -29,7 +31,7 @@ function Drzava(props) {
 
 	useEffect(() => {
 
-		axios.get("https://corona.lmao.ninja/countries/" + name)
+		axios.get("https://corona.lmao.ninja/countries/" + correctName.name)
 			.then(res => {
 				setDrzavaRequest({drzava: res.data})
 			})
@@ -51,8 +53,8 @@ function Drzava(props) {
 
 	}, 500)
 
-	if (name !== "slovenia") {
-		const selectedName = {"name": name}
+	if (name !== "slovenija") {
+		const selectedName = {"url": name}
 		const getPrevod = _.find(countries, _.matches(selectedName))
 		countrySlo = getPrevod.prevod;
 		document.title = countrySlo + " - Zadnji podatki o posledicah virusa!"
@@ -63,7 +65,7 @@ function Drzava(props) {
 
 	function getGraphData(rangeNum) {
 		//data for graph
-		axios.get("https://corona.lmao.ninja/v2/historical/" + name + "/?lastdays=" + rangeNum)
+		axios.get("https://corona.lmao.ninja/v2/historical/" + correctName.name + "/?lastdays=" + rangeNum)
 			.then(res => {
 				const deathsValues = Object.values(res.data.timeline.deaths);
 				const cases = Object.entries(res.data.timeline.cases).map(([date, Primerov]) => ({date,Primerov}));
