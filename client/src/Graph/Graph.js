@@ -82,7 +82,6 @@ export default class Graph extends React.Component {
 			let updated = Object.keys(res.data.timeline.cases);
 			updated = _.last(updated)
 
-			console.log(res.data.timeline.cases)
 
 	    	
 			this.setState({data: res.data});
