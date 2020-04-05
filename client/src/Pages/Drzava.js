@@ -36,7 +36,7 @@ function Drzava(props) {
 			});
 
 		//data for graph
-		axios.get("https://corona.lmao.ninja/v2/historical/" + name)
+		axios.get("https://corona.lmao.ninja/v2/historical/" + name + "/?lastdays=all")
 			.then(res => {
 				const deathsValues = Object.values(res.data.timeline.deaths);
 				const cases = Object.entries(res.data.timeline.cases).map(([date, Primerov]) => ({date,Primerov}));

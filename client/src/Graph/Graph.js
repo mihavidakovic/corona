@@ -61,7 +61,7 @@ export default class Graph extends React.Component {
 	}
 
 	getGraph(country) {
-		let url = "https://corona.lmao.ninja/v2/historical/" + country;
+		let url = "https://corona.lmao.ninja/v2/historical/" + country + "/?lastdays=all";
 		axios.get(url)
 		.then(res => {
 			const casesKeys = Object.keys(res.data.timeline.cases);
