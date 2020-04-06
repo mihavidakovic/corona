@@ -48,7 +48,7 @@ export default class Graph extends React.Component {
 		cases: {},
 		casesDates: {},
 		selectedCountry: "slovenia",
-		selectedCountrySlo: "Slovenija"
+		selectedCountrySlo: "slovenija"
 
 	}
 
@@ -96,16 +96,16 @@ export default class Graph extends React.Component {
      	let selected = {"name": event.target.value};
 
 		let selectedSlo = _.find(countries, _.matches(selected));
-
 		this.setState({
 			selectedCountry: event.target.value,
-			selectedCountrySlo: selectedSlo.prevod
+			selectedCountrySlo: selectedSlo.url
 		});
 		this.getGraph(event.target.value)
      }
 
 
 	componentWillMount() {
+		_.sortBy(countries, ['ime'])
 		this.getGraph("slovenia")
 	}
 
@@ -165,7 +165,7 @@ export default class Graph extends React.Component {
 					<div className="below-graph">
 						<p className="below-graph__updated">{this.state.updated ? ('Posodobljeno: ' + moment(new Date(this.state.updated)).add(1, 'd').format("D. MMMM YYYY, ob H:mm")) : ''}</p>
 						<Link className="more-button" to={{
-							pathname: '/drzava/' + this.state.selectedCountry,
+							pathname: '/drzava/' + this.state.selectedCountrySlo,
 						}}>
 							Več podatkov za <span>{this.state.selectedCountrySlo}</span><i className="fa fa-chevron-right"></i>
 						</Link>

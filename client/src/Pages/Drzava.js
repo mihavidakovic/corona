@@ -56,6 +56,7 @@ function Drzava(props) {
 	if (name !== "slovenija") {
 		const selectedName = {"url": name}
 		const getPrevod = _.find(countries, _.matches(selectedName))
+		console.log(getPrevod)
 		countrySlo = getPrevod.prevod;
 		document.title = countrySlo + " - Zadnji podatki o posledicah virusa!"
 	} else {
