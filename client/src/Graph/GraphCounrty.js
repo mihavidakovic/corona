@@ -2,25 +2,29 @@ import React from 'react';
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
 } from 'recharts';
-var dateFormat = require('dateformat');
+import moment from 'moment';
+import 'moment-timezone';
+import 'moment/locale/sl';
+
 const tooltip = {
 	background: '#fff',
 	padding: '0.5rem 1rem',
 	borderRadius: '3px',
 	color: 'black',
-	fontSize: '0.9rem',
+	fontSize: '0.8rem',
 	display: 'flex',
-	flexFlow: 'column'
+	flexFlow: 'column',
+	lineHeight: 1.5
 };
 
-
 const CustomTooltip = ({ active, payload, label }) => {
-  	let labelFormated = dateFormat(label, "dd.mm.yyyy")
+  let labelFormated = moment(label).format('Do. MMMM')
   if (active && payload) {
     return (
       <div style={tooltip}>
-        <span className="label">{`${labelFormated}:`} <b>{`${payload[0].value}`} potrjenih primerov</b></span>
-        <span className="label">{`${labelFormated}:`} <b>{`${payload[1].value}`} smrti</b></span>
+      	<p style={{padding: 0, margin: 0, fontSize: "0.9rem"}}>{`${labelFormated}:`}</p>
+        <span className="label"><b>{`${payload[0].value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`} primerov</b></span>
+        <span className="label"><b>{`${payload[1].value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`} smrti</b></span>
       </div>
     );
   }
@@ -51,6 +55,12 @@ export default class Graph extends React.Component {
 		}, 1000)
 	}
 
+	formatXAxis(tickItem) {
+		return moment(tickItem).format('Do. MMM')
+	}
+
+
+
 	render() {
 		return (
 			<>
@@ -74,8 +84,8 @@ export default class Graph extends React.Component {
 						    </linearGradient>
 						  </defs>
 							<CartesianGrid stroke='rgba(255, 255, 255, 0.2)'/>
-							<XAxis dataKey="date" stroke='rgba(255, 255, 255, 0)' tick={{fontSize: 0}}  />
-							<YAxis stroke='rgba(255, 255, 255, 0.2)' tick={{fontSize: 10}}  />
+							<XAxis dataKey="date" stroke='rgba(255, 255, 255, 0.6)' tick={{fontSize: 10}}  tickFormatter={this.formatXAxis} />
+							<YAxis stroke='rgba(255, 255, 255, 0.3)' tick={{fontSize: 10}}  />
 	        				<Tooltip content={<CustomTooltip />} />
 							<Area type="monotone" isAnimationActive={true} animationDuration={900}  dataKey="Primerov" stroke="rgba(255, 255, 255, 1)" fill="rgba(255, 255, 255, 0.7)" fillOpacity={1} fill="url(#colorPrimerov)" />
 							<Area type="monotone" isAnimationActive={true} animationDuration={900}  dataKey="smrti" stroke="rgba(239, 57, 57, 0.8)" fill="rgba(239, 57, 57, 0.8)" fillOpacity={1} fill="url(#colorSmrti)" />

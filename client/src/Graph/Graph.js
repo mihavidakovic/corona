@@ -19,18 +19,20 @@ const tooltip = {
 	padding: '0.5rem 1rem',
 	borderRadius: '3px',
 	color: 'black',
-	fontSize: '0.9rem',
+	fontSize: '0.8rem',
 	display: 'flex',
-	flexFlow: 'column'
+	flexFlow: 'column',
+	lineHeight: 1.5
 };
 
 const CustomTooltip = ({ active, payload, label }) => {
-  	let labelFormated = dateFormat(label, "dd.mm.yyyy")
+  let labelFormated = moment(label).format('Do. MMMM')
   if (active && payload) {
     return (
       <div style={tooltip}>
-        <span className="label">{`${labelFormated}:`} <b>{`${payload[1].value}`} potrjenih primerov</b></span>
-        <span className="label">{`${labelFormated}:`} <b>{`${payload[0].value}`} smrti</b></span>
+      	<p style={{padding: 0, margin: 0, fontSize: "0.9rem"}}>{`${labelFormated}:`}</p>
+        <span className="label"><b>{`${payload[1].value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`} primerov</b></span>
+        <span className="label"><b>{`${payload[0].value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`} smrti</b></span>
       </div>
     );
   }
@@ -47,8 +49,8 @@ export default class Graph extends React.Component {
 		updated: "",
 		cases: {},
 		casesDates: {},
-		selectedCountry: "slovenia",
-		selectedCountrySlo: "slovenija"
+		selectedCountry: "All",
+		selectedCountrySlo: "all"
 
 	}
 
@@ -61,52 +63,100 @@ export default class Graph extends React.Component {
 	}
 
 	getGraph(country) {
-		let url = "https://corona.lmao.ninja/v2/historical/" + country + "/?lastdays=all";
-		axios.get(url)
-		.then(res => {
-			const casesKeys = Object.keys(res.data.timeline.cases);
-			const deathsValues = Object.values(res.data.timeline.deaths);
-			var cases = Object.entries(res.data.timeline.cases).map(([date, Primerov]) => ({date,Primerov}));
+		if (country === "All") {
+			console.log("its all")
+			let url = "https://corona.lmao.ninja/v2/historical/all?lastdays=all";
+			axios.get(url)
+			.then(res => {
+				const casesKeys = Object.keys(res.data.cases);
+				const deathsValues = Object.values(res.data.deaths);
+				var cases = Object.entries(res.data.cases).map(([date, Primerov]) => ({date,Primerov}));
 
-			for (var key in cases) {
-			    // skip loop if the property is from prototype
-			    if (!cases.hasOwnProperty(key)) continue;
+				for (var key in cases) {
+				    // skip loop if the property is from prototype
+				    if (!cases.hasOwnProperty(key)) continue;
 
-			    var obj = cases[key];
-			    Object.assign(obj, {smrti: deathsValues[key]})
+				    var obj = cases[key];
+				    Object.assign(obj, {smrti: deathsValues[key]})
 
-			}
+				}
 
-			var allCases = cases
+				var allCases = cases
 
-			let updated = Object.keys(res.data.timeline.cases);
-			updated = _.last(updated)
+				let updated = Object.keys(res.data.cases);
+				updated = _.last(updated)
 
 
-	    	
-			this.setState({data: res.data});
-			this.setState({updated: updated});
-			this.setState({cases: allCases});
-			this.setState({casesDates: casesKeys});
-			this.setState({loading: false});
-		});
+		    	
+				this.setState({data: res.data});
+				this.setState({updated: updated});
+				this.setState({cases: allCases});
+				this.setState({casesDates: casesKeys});
+				this.setState({loading: false});
+			});
+
+		} else {
+			let url = "https://corona.lmao.ninja/v2/historical/" + country + "/?lastdays=all";
+			axios.get(url)
+			.then(res => {
+				const casesKeys = Object.keys(res.data.timeline.cases);
+				const deathsValues = Object.values(res.data.timeline.deaths);
+				var cases = Object.entries(res.data.timeline.cases).map(([date, Primerov]) => ({date,Primerov}));
+
+				for (var key in cases) {
+				    // skip loop if the property is from prototype
+				    if (!cases.hasOwnProperty(key)) continue;
+
+				    var obj = cases[key];
+				    Object.assign(obj, {smrti: deathsValues[key]})
+
+				}
+
+				var allCases = cases
+
+				let updated = Object.keys(res.data.timeline.cases);
+				updated = _.last(updated)
+
+
+		    	
+				this.setState({data: res.data});
+				this.setState({updated: updated});
+				this.setState({cases: allCases});
+				this.setState({casesDates: casesKeys});
+				this.setState({loading: false});
+			});
+
+		}
 	}
 
      change = (event) => {
      	let selected = {"name": event.target.value};
 
-		let selectedSlo = _.find(countries, _.matches(selected));
-		this.setState({
-			selectedCountry: event.target.value,
-			selectedCountrySlo: selectedSlo.url
-		});
+     	if (event.target.value !== "All") {
+			let selectedSlo = _.find(countries, _.matches(selected));
+			this.setState({
+				selectedCountry: event.target.value,
+				selectedCountrySlo: selectedSlo.url
+			});
+
+     	} else {
+			this.setState({
+				selectedCountry: "All",
+				selectedCountrySlo: "all"
+			});
+
+     	}
+
 		this.getGraph(event.target.value)
      }
 
+	formatXAxis(tickItem) {
+		return moment(tickItem).format('Do. MMM')
+	}
 
 	componentWillMount() {
 		_.sortBy(countries, ['ime'])
-		this.getGraph("slovenia")
+		this.getGraph("All")
 	}
 
 	render() {
@@ -118,7 +168,8 @@ export default class Graph extends React.Component {
 						<div className="select_country">
 							<select className="select_country--select" onChange={this.change} value={this.state.selectedCountry}>
 								<optgroup>
-									<option value="Slovenia">Slovenija</option>
+									<option value="All" key="all">Cel svet</option>
+									<option value="Slovenia" key="slovenia">Slovenija</option>
 								</optgroup>
 								<optgroup label="_______________________________" style={{textAlign: 'center'}}>
 									{Object.keys(countries).map(function(i) {
@@ -154,7 +205,7 @@ export default class Graph extends React.Component {
 						    </linearGradient>
 						  </defs>
 							<CartesianGrid stroke='rgba(255, 255, 255, 0.2)'/>
-							<XAxis dataKey="date" stroke='rgba(255, 255, 255, 0)' tick={{fontSize: 0}}  />
+							<XAxis dataKey="date" stroke='rgba(255, 255, 255, 0.6)' tick={{fontSize: 10}}  tickFormatter={this.formatXAxis} />
 							<YAxis stroke='rgba(255, 255, 255, 0.2)' tick={{fontSize: 10}}  />
 	        				<Tooltip content={<CustomTooltip />} />
 							<Area type="monotone" isAnimationActive={true} animationDuration={900}  dataKey="smrti" stroke="rgba(239, 57, 57, 0.8)" fill="rgba(239, 57, 57, 0.8)" fillOpacity={1} fill="url(#colorSmrti)" />
@@ -164,11 +215,12 @@ export default class Graph extends React.Component {
 					<div className="whiteModeBg"></div>
 					<div className="below-graph">
 						<p className="below-graph__updated">{this.state.updated ? ('Posodobljeno: ' + moment(new Date(this.state.updated)).add(1, 'd').format("D. MMMM YYYY, ob H:mm")) : ''}</p>
-						<Link className="more-button" to={{
-							pathname: '/drzava/' + this.state.selectedCountrySlo,
-						}}>
-							Več podatkov za <span>{this.state.selectedCountrySlo}</span><i className="fa fa-chevron-right"></i>
-						</Link>
+						{this.state.selectedCountrySlo === "all" ? '' : <Link className="more-button" to={{
+													pathname: '/drzava/' + this.state.selectedCountrySlo,
+												}}>
+													Več podatkov za <span>{this.state.selectedCountrySlo}</span><i className="fa fa-chevron-right"></i>
+												</Link>
+						}
 					</div>
 				</div>
 			</>
