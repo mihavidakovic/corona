@@ -21,10 +21,10 @@ class Donate extends React.Component {
 		return (
 			<div className="donate">
 		      <PayPalButton
-		        amount="2.00"
+		        amount="5.00"
 		        // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
 		        options={{
-		          clientId: "45DUVZZZUDFFC"
+		          clientId: "45DUVZZZUDFFC",
 		        }}
 		      />
 			</div>
