@@ -541,6 +541,16 @@ html {
 				
 			}
 		}
+
+		.donate {
+			margin-left: 1rem;
+			
+			@include breakpoint(sm, max) {
+				margin-left: 0rem;
+				margin-top: 1rem;
+				justify-content: center;
+			}
+		}
 	}
 	
 

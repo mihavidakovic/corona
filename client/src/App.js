@@ -23,6 +23,9 @@ import AdminPage from './Pages/Admin/AdminPage.js';
 import Domov from './Pages/Domov.js';
 import Drzava from './Pages/Drzava.js';
 
+// Components
+import Donate from './Components/Donate.js';
+
 export default function App() {
 
 	const [darkMode, setDarkMode] = useState(getInitialMode());
@@ -89,6 +92,7 @@ export default function App() {
 							<span>{darkMode ? "Svetli" : "Temni"} način</span>
 						</div>
 					</div>
+				<Donate />
 				</header>
 				<Switch>
 					<Route exact path="/" render={() => <Domov />} />
