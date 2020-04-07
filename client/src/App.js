@@ -92,7 +92,6 @@ export default function App() {
 							<span>{darkMode ? "Svetli" : "Temni"} način</span>
 						</div>
 					</div>
-				<Donate />
 				</header>
 				<Switch>
 					<Route exact path="/" render={() => <Domov />} />
