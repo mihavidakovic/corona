@@ -24,8 +24,7 @@ class Donate extends React.Component {
 		        amount="2.00"
 		        // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
 		        options={{
-		          clientId: "45DUVZZZUDFFC",
-		          currency: "EUR"
+		          clientId: "45DUVZZZUDFFC"
 		        }}
 		      />
 			</div>
