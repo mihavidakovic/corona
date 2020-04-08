@@ -14,6 +14,10 @@ import {
   TwitterShareButton,
 } from "react-share";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSun } from '@fortawesome/free-solid-svg-icons'
+
+
 // Style
 import './assets/style/main.scss';
 
@@ -81,7 +85,7 @@ export default function App() {
 						</FacebookShareButton>
 
 						<TwitterShareButton className="share_div__tw" url={location.pathname === '/' ? 'https://covid19.si/' : ('https://covid19.si' + location.pathname)}>
-							<i className="fa fa-twitter"></i>
+						<FontAwesomeIcon icon="sun" />
 							<span>Tweet</span>
 						</TwitterShareButton>
 					</div>
