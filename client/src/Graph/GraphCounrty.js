@@ -23,8 +23,9 @@ const CustomTooltip = ({ active, payload, label }) => {
     return (
       <div style={tooltip}>
       	<p style={{padding: 0, margin: 0, fontSize: "0.9rem"}}>{`${labelFormated}:`}</p>
-        <span className="label"><b>{`${payload[0].value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`} primerov</b></span>
-        <span className="label"><b>{`${payload[1].value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`} smrti</b></span>
+        <span className="label" style={{color: 'black'}}><b>{`${payload[1].value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`} primerov</b></span>
+        <span className="label" style={{color: 'red'}}><b>{`${payload[0].value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`} smrti</b></span>
+        <span className="label" style={{color: 'green'}}><b>{`${payload[2].value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`} okrevanih</b></span>
       </div>
     );
   }
@@ -82,6 +83,10 @@ export default class Graph extends React.Component {
 						      <stop offset="0%" stopColor="rgba(255, 255, 255, 0.3)" stopOpacity={1}/>
 						      <stop offset="100%" stopColor="rgba(255, 255, 255, 1)" stopOpacity={0}/>
 						    </linearGradient>
+						    <linearGradient id="colorOkrevanih" x1="0" y1="0" x2="0" y2="1">
+						      <stop offset="0%" stopColor="rgba(83, 185, 41, 0.3)" stopOpacity={1}/>
+						      <stop offset="100%" stopColor="rgba(83, 185, 41, 1)" stopOpacity={0}/>
+						    </linearGradient>
 						  </defs>
 							<CartesianGrid stroke='rgba(255, 255, 255, 0.2)'/>
 							<XAxis dataKey="date" stroke='rgba(255, 255, 255, 0.6)' tick={{fontSize: 10}}  tickFormatter={this.formatXAxis} />
@@ -89,6 +94,7 @@ export default class Graph extends React.Component {
 	        				<Tooltip content={<CustomTooltip />} />
 							<Area type="monotone" isAnimationActive={true} animationDuration={900}  dataKey="Primerov" stroke="rgba(255, 255, 255, 1)" fill="rgba(255, 255, 255, 0.7)" fillOpacity={1} fill="url(#colorPrimerov)" />
 							<Area type="monotone" isAnimationActive={true} animationDuration={900}  dataKey="smrti" stroke="rgba(239, 57, 57, 0.8)" fill="rgba(239, 57, 57, 0.8)" fillOpacity={1} fill="url(#colorSmrti)" />
+							<Area type="monotone" isAnimationActive={true} animationDuration={900} dataKey="Okrevanih" stroke="rgba(83, 185, 41, 1)" fill="rgba(83, 185, 41, 0.7)" fillOpacity={1} fill="url(#colorOkrevanih)" />
 						</AreaChart>
 					</ResponsiveContainer>
 					<div className="whiteModeBg"></div>

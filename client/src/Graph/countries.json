@@ -1118,5 +1118,15 @@
       "name":"South Sudan",
       "prevod":"Južni Sudan",
       "url":"juzni-sudan"
+   },
+   {
+      "name": "São Tomé and Príncipe",
+      "prevod": "Sao Tome in Principe",
+      "url": "sao-tome-in-principe"
+   },
+   {
+      "name": "Central African Republic",
+      "prevod": "Centralnoafriška republika",
+      "url": "centralnoafriska-republika"
    }
 ]

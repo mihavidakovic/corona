@@ -31,8 +31,9 @@ const CustomTooltip = ({ active, payload, label }) => {
     return (
       <div style={tooltip}>
       	<p style={{padding: 0, margin: 0, fontSize: "0.9rem"}}>{`${labelFormated}:`}</p>
-        <span className="label"><b>{`${payload[1].value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`} primerov</b></span>
-        <span className="label"><b>{`${payload[0].value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`} smrti</b></span>
+        <span className="label" style={{color: 'black'}}><b>{`${payload[1].value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`} primerov</b></span>
+        <span className="label" style={{color: 'red'}}><b>{`${payload[0].value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`} smrti</b></span>
+        <span className="label" style={{color: 'green'}}><b>{`${payload[2].value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`} okrevanih</b></span>
       </div>
     );
   }
@@ -49,6 +50,8 @@ export default class Graph extends React.Component {
 		updated: "",
 		cases: {},
 		casesDates: {},
+		recovered: {},
+		recoveredDates: {},
 		selectedCountry: "All",
 		selectedCountrySlo: "all"
 
@@ -68,9 +71,12 @@ export default class Graph extends React.Component {
 			let url = "https://corona.lmao.ninja/v2/historical/all?lastdays=all";
 			axios.get(url)
 			.then(res => {
+
+				// cases
 				const casesKeys = Object.keys(res.data.cases);
 				const deathsValues = Object.values(res.data.deaths);
-				var cases = Object.entries(res.data.cases).map(([date, Primerov]) => ({date,Primerov}));
+				const recoveredValues = Object.values(res.data.recovered);
+				var cases = Object.entries(res.data.cases).map(([date, Primerov, Okrevani]) => ({date,Primerov, Okrevani}));
 
 				for (var key in cases) {
 				    // skip loop if the property is from prototype
@@ -78,19 +84,16 @@ export default class Graph extends React.Component {
 
 				    var obj = cases[key];
 				    Object.assign(obj, {smrti: deathsValues[key]})
+				    Object.assign(obj, {Okrevani: deathsValues[key]})
 
 				}
 
-				var allCases = cases
-
 				let updated = Object.keys(res.data.cases);
 				updated = _.last(updated)
-
-
 		    	
 				this.setState({data: res.data});
 				this.setState({updated: updated});
-				this.setState({cases: allCases});
+				this.setState({cases: cases});
 				this.setState({casesDates: casesKeys});
 				this.setState({loading: false});
 			});
@@ -101,7 +104,8 @@ export default class Graph extends React.Component {
 			.then(res => {
 				const casesKeys = Object.keys(res.data.timeline.cases);
 				const deathsValues = Object.values(res.data.timeline.deaths);
-				var cases = Object.entries(res.data.timeline.cases).map(([date, Primerov]) => ({date,Primerov}));
+				const recoveredValues = Object.values(res.data.timeline.recovered);
+				var cases = Object.entries(res.data.timeline.cases).map(([date, Primerov, Okrevani]) => ({date,Primerov, Okrevani}));
 
 				for (var key in cases) {
 				    // skip loop if the property is from prototype
@@ -109,6 +113,7 @@ export default class Graph extends React.Component {
 
 				    var obj = cases[key];
 				    Object.assign(obj, {smrti: deathsValues[key]})
+				    Object.assign(obj, {Okrevani: recoveredValues[key]})
 
 				}
 
@@ -116,7 +121,6 @@ export default class Graph extends React.Component {
 
 				let updated = Object.keys(res.data.timeline.cases);
 				updated = _.last(updated)
-
 
 		    	
 				this.setState({data: res.data});
@@ -185,7 +189,7 @@ export default class Graph extends React.Component {
 						</div>
 					</div>
 				</header>
-				<div style={{width: '100%', height: 210, zIndex: 2, position: 'relative'}}>
+				<div style={{width: '100%', height: 320, zIndex: 2, position: 'relative'}}>
 					<ResponsiveContainer>
 						<AreaChart
 							height={100}
@@ -203,13 +207,18 @@ export default class Graph extends React.Component {
 						      <stop offset="0%" stopColor="rgba(255, 255, 255, 0.3)" stopOpacity={1}/>
 						      <stop offset="100%" stopColor="rgba(255, 255, 255, 1)" stopOpacity={0}/>
 						    </linearGradient>
+						    <linearGradient id="colorOkrevanih" x1="0" y1="0" x2="0" y2="1">
+						      <stop offset="0%" stopColor="rgba(83, 185, 41, 0.3)" stopOpacity={1}/>
+						      <stop offset="100%" stopColor="rgba(83, 185, 41, 1)" stopOpacity={0}/>
+						    </linearGradient>
 						  </defs>
 							<CartesianGrid stroke='rgba(255, 255, 255, 0.2)'/>
 							<XAxis dataKey="date" stroke='rgba(255, 255, 255, 0.6)' tick={{fontSize: 10}}  tickFormatter={this.formatXAxis} />
 							<YAxis stroke='rgba(255, 255, 255, 0.2)' tick={{fontSize: 10}}  />
 	        				<Tooltip content={<CustomTooltip />} />
-							<Area type="monotone" isAnimationActive={true} animationDuration={900}  dataKey="smrti" stroke="rgba(239, 57, 57, 0.8)" fill="rgba(239, 57, 57, 0.8)" fillOpacity={1} fill="url(#colorSmrti)" />
-							<Area type="monotone" isAnimationActive={true} animationDuration={900}  dataKey="Primerov" stroke="rgba(255, 255, 255, 1)" fill="rgba(255, 255, 255, 0.7)" fillOpacity={1} fill="url(#colorPrimerov)" />
+							<Area type="monotone" isAnimationActive={true} animationDuration={900} dataKey="smrti" stroke="rgba(239, 57, 57, 0.8)" fill="rgba(239, 57, 57, 0.8)" fillOpacity={1} fill="url(#colorSmrti)" />
+							<Area type="monotone" isAnimationActive={true} animationDuration={900} dataKey="Primerov" stroke="rgba(255, 255, 255, 1)" fill="rgba(255, 255, 255, 0.7)" fillOpacity={1} fill="url(#colorPrimerov)" />
+							<Area type="monotone" isAnimationActive={true} animationDuration={900} dataKey="Okrevani" stroke="rgba(83, 185, 41, 1)" fill="rgba(83, 185, 41, 0.7)" fillOpacity={1} fill="url(#colorOkrevanih)" />
 						</AreaChart>
 					</ResponsiveContainer>
 					<div className="whiteModeBg"></div>

@@ -4,12 +4,15 @@ import _ from 'lodash';
 
 import GraphCounrty from '../Graph/GraphCounrty.js';
 
+
 import {
   Link,
   useParams
 } from "react-router-dom";
 
 const countries = require('../Graph/countries.json');
+
+
 
 function Drzava(props) {
 	window.scrollTo(0, 0);
@@ -53,10 +56,11 @@ function Drzava(props) {
 
 	}, 500)
 
+	const map = require("../assets/img/countries/si/vector.svg");
+
 	if (name !== "slovenija") {
 		const selectedName = {"url": name}
 		const getPrevod = _.find(countries, _.matches(selectedName))
-		console.log(getPrevod)
 		countrySlo = getPrevod.prevod;
 		document.title = countrySlo + " - Zadnji podatki o posledicah virusa!"
 	} else {
@@ -69,13 +73,15 @@ function Drzava(props) {
 		axios.get("https://corona.lmao.ninja/v2/historical/" + correctName.name + "/?lastdays=" + rangeNum)
 			.then(res => {
 				const deathsValues = Object.values(res.data.timeline.deaths);
-				const cases = Object.entries(res.data.timeline.cases).map(([date, Primerov]) => ({date,Primerov}));
+				const recoveredValues = Object.values(res.data.timeline.recovered);
+				const cases = Object.entries(res.data.timeline.cases).map(([date, Primerov, Okrevanih]) => ({date,Primerov, Okrevanih}));
 
 				for (var key in cases) {
 				    // skip loop if the property is from prototype
 				    if (!cases.hasOwnProperty(key)) continue;
 				    var obj = cases[key];
 				    Object.assign(obj, {smrti: deathsValues[key]})
+				    Object.assign(obj, {Okrevanih: recoveredValues[key]})
 
 				}
 
@@ -125,7 +131,7 @@ function Drzava(props) {
 						</div>
 						<div className="data-point">
 							<h3>{drzava.active ? drzava.active.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : ''}</h3>
-							<span className="data-point__title">Aktivnih</span>
+							<span className="data-point__title">Aktivnih primerov</span>
 						</div>
 						<div className="data-point">
 							<h3>{drzava.critical ? drzava.critical.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : ''}</h3>
@@ -158,6 +164,10 @@ function Drzava(props) {
 						</div>
 					</div>
 					<GraphCounrty data={graph ? graph : ''} range={range} />
+				</div>
+
+				<div className="map">
+					<span dangerouslySetInnerHTML={{__html: ""}} />
 				</div>
 			</div>
 		</div>

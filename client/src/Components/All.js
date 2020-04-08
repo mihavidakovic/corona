@@ -28,7 +28,9 @@ class All extends React.Component {
 					deaths: this.props.data.deaths,
 					todayDeaths: this.props.data.todayDeaths,
 					recovered: this.props.data.recovered,
-					todayRecovered: 0,
+					active: this.props.data.active,
+					tests: this.props.data.tests,
+					deathsPerOneMillion: this.props.data.deathsPerOneMillion,
 					updated: this.props.data.updated
 				}
 			})
@@ -43,10 +45,10 @@ class All extends React.Component {
 		return (
 			<div className="all-data">
 				<div className="all-data__header">
-					<h2>Število vseh primerov po svetu</h2>
+					<h2>Podatki za cel svet</h2>
 					<p><span>Posodobljeno: </span><Moment format="DD.MM.YYYY HH:mm" tz="Europe/Ljubljana">{this.state.updated}</Moment></p>
 				</div>
-				<div className="data-points">
+				<div className="data-points" style={{marginBottom: '1rem'}}>
 					<div className="data-point">
 						<h3>{this.state.data.cases.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</h3>
 						<div className={this.state.data.todayCases > 0 ? 'data-point__new negative' : 'data-point__new positive'}>{this.state.data.todayCases > 0 ? '+' + this.state.data.todayCases.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : '0'}</div>
@@ -60,6 +62,20 @@ class All extends React.Component {
 					<div className="data-point">
 						<h3>{this.state.data.recovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</h3>
 						<span className="data-point__title">Okrevanih</span>
+					</div>
+				</div>
+				<div className="data-points ">
+					<div className="data-point">
+						<h3>{this.state.data.active ? this.state.data.active.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : ""}</h3>
+						<span className="data-point__title">Aktivnih primerov</span>
+					</div>
+					<div className="data-point">
+						<h3>{this.state.data.tests ? this.state.data.tests.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : ""}</h3>
+						<span className="data-point__title">Testiranih</span>
+					</div>
+					<div className="data-point">
+						<h3>{this.state.data.deathsPerOneMillion ? this.state.data.deathsPerOneMillion.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : ""}</h3>
+						<span className="data-point__title">Smrti na miljon ljudi</span>
 					</div>
 				</div>
 			</div>
