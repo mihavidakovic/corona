@@ -84,7 +84,7 @@ export default class Graph extends React.Component {
 
 				    var obj = cases[key];
 				    Object.assign(obj, {smrti: deathsValues[key]})
-				    Object.assign(obj, {Okrevani: deathsValues[key]})
+				    Object.assign(obj, {Okrevani: recoveredValues[key]})
 
 				}
 
