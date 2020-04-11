@@ -3,6 +3,7 @@ import axios from 'axios';
 import _ from 'lodash';
 
 import GraphCounrty from '../Graph/GraphCounrty.js';
+import MapCountry from '../Components/MapCountry.js';
 
 
 import {
@@ -32,11 +33,20 @@ function Drzava(props) {
 		range: 10
 	});
 
+	const [CoordinatesRequest, setCoordinatesRequest] = useState({
+		infoLat: 0,
+		infoLong: 0
+	});
+
 	useEffect(() => {
 
 		axios.get("https://corona.lmao.ninja/countries/" + correctName.name)
 			.then(res => {
 				setDrzavaRequest({drzava: res.data})
+				setCoordinatesRequest({
+					infoLat: res.data.countryInfo.lat,
+					infoLong: res.data.countryInfo.long
+				})
 			})
 			.catch(err => {
 				console.log(err)
@@ -47,26 +57,6 @@ function Drzava(props) {
 			getGraphData("all")
 
 	}, [])
-
-
-	const {drzava} = DrzavaRequest;
-	const {range} = RangeRequest;
-	setInterval(() => {
-		const {graph} = GraphRequest;
-
-	}, 500)
-
-	const map = require("../assets/img/countries/si/vector.svg");
-
-	if (name !== "slovenija") {
-		const selectedName = {"url": name}
-		const getPrevod = _.find(countries, _.matches(selectedName))
-		countrySlo = getPrevod.prevod;
-		document.title = countrySlo + " - Zadnji podatki o posledicah virusa!"
-	} else {
-		countrySlo = "Slovenija";
-		document.title = countrySlo + " - Zadnji podatki o posledicah virusa!"
-	}
 
 	function getGraphData(rangeNum) {
 		//data for graph
@@ -98,6 +88,23 @@ function Drzava(props) {
 		setRangeRequest({range: event.target.value})
 		getGraphData(event.target.value)
 	}
+
+	if (name !== "slovenija") {
+		const selectedName = {"url": name}
+		const getPrevod = _.find(countries, _.matches(selectedName))
+		countrySlo = getPrevod.prevod;
+		document.title = countrySlo + " - Zadnji podatki o posledicah virusa!"
+	} else {
+		countrySlo = "Slovenija";
+		document.title = countrySlo + " - Zadnji podatki o posledicah virusa!"
+	}
+
+	const {drzava} = DrzavaRequest;
+	const {range} = RangeRequest;
+	let {infoLat, infoLong} = CoordinatesRequest;
+	setInterval(() => {
+		const {graph} = GraphRequest;
+	}, 500)
 	const {graph} = GraphRequest;
 
 	return (
@@ -167,7 +174,9 @@ function Drzava(props) {
 				</div>
 
 				<div className="map">
-					<span dangerouslySetInnerHTML={{__html: ""}} />
+					{infoLat}
+					{infoLong}
+					<MapCountry lat={infoLat ? infoLat : '555'} long={infoLong ? infoLong : '55555555'} />
 				</div>
 			</div>
 		</div>

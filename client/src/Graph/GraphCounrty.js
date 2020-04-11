@@ -23,8 +23,8 @@ const CustomTooltip = ({ active, payload, label }) => {
     return (
       <div style={tooltip}>
       	<p style={{padding: 0, margin: 0, fontSize: "0.9rem"}}>{`${labelFormated}:`}</p>
-        <span className="label" style={{color: 'black'}}><b>{`${payload[1].value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`} primerov</b></span>
-        <span className="label" style={{color: 'red'}}><b>{`${payload[0].value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`} smrti</b></span>
+        <span className="label" style={{color: 'black'}}><b>{`${payload[0].value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`} primerov</b></span>
+        <span className="label" style={{color: 'red'}}><b>{`${payload[1].value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`} smrti</b></span>
         <span className="label" style={{color: 'green'}}><b>{`${payload[2].value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`} okrevanih</b></span>
       </div>
     );

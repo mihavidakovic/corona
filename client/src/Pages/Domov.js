@@ -21,7 +21,7 @@ export default class Domov extends React.Component{
 		document.title = "Covid19.si - Zadnji podatki o posledicah virusa!";
 
 		let all = "https://corona.lmao.ninja/all";
-		let countries = "https://corona.lmao.ninja/countries";
+		let countries = "https://corona.lmao.ninja/v2/countries?yesterday=false&sort=deaths";
 
 		const requestAll = axios.get(all);
 		const requestCountries = axios.get(countries);
