@@ -247,7 +247,7 @@ html {
 							.listItem__cell {
 								&.item__state {
 									.item__state--name {
-										border-color: rgba(#000, 0.4);
+										border-bottom: 1px solid rgba(#000, 0.4);
 									}
 								}
 							}
@@ -731,7 +731,7 @@ html {
 						.item__state {
 
 							.item__state--name {
-								border-color: #fff;
+								border-bottom: 1px solid #fff;
 							}
 						}
 					}
@@ -832,7 +832,7 @@ html {
 
 						.item__state--name {
 							display: block;
-							border-bottom: 1px solid rgba(#fff, 0);
+							border-bottom: 0px solid rgba(#fff, 0);
 							transition: 200ms all ease-in-out;
 							max-width: 70%;
 							white-space: nowrap;

@@ -1,61 +1,40 @@
 import React from 'react';
-import OlMap from "ol/Map";
-import OlView from "ol/View";
-import OlLayerTile from "ol/layer/Tile";
-import OlSourceOSM from "ol/source/OSM";
-import * as olProj from 'ol/proj';
+import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 
 
 export default class MapCountry extends React.Component {
   constructor(props) {
 	super(props);
-
-	console.log(this.props)
-
-
-	this.state = { infoLat: 0, infoLong: 0 };
+	this.state = { 
+		infoLat: 50,
+		infoLong: 10,
+		zoom: 5
+	};
 
   }
 
   componentDidMount() {
-  	console.log(this.props)
-	this.olmap = new OlMap({
-	  target: null,
-	  layers: [
-		new OlLayerTile({
-		  source: new OlSourceOSM()
-		})
-	  ],
-	  view: new OlView({
-		center: olProj.fromLonLat([this.props.long, this.props.lat]), 
-		zoom: 5
-	  })
-	});
-	this.olmap.setTarget("map");
-
-	setTimeout(() => {
-		this.olmap.getView().setCenter(olProj.fromLonLat([this.props.long, this.props.lat]))
-		console.log("updated map")
-	}, 2000)
-
-
-	// Listen to map changes
-	this.olmap.on("moveend", () => {
-	  let center = this.olmap.getView().getCenter();
-	  let zoom = this.olmap.getView().getZoom();
-	});
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    let center = this.olmap.getView().getCenter();
-    let zoom = this.olmap.getView().getZoom();
-    if (this.props !== this.state) return false;
   }
 
   render() {
+    const position = [this.props.lat, this.props.long]
 	return (
-	  <div id="map" style={{ width: "100%", height: "360px" }}>
-	  </div>
+	  <div id="map" style={{ width: "100%", height: "520px" }}>
+		  <div class="Subpage-country__head">
+		  	<h2 class="Subpage-country__title">📍🗺️ {this.props.name} na zemljevidu:</h2>
+		  </div>
+	      <Map style={{ width: "100%", height: "450px" }} center={position} zoom={this.state.zoom}>
+	        <TileLayer
+	          attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+	          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+	        />
+	        <Marker position={position}>
+	          <Popup>
+	            {this.props.name}
+	          </Popup>
+	        </Marker>
+	      </Map>
+      </div>
 	);
   }
 

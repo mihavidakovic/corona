@@ -174,9 +174,7 @@ function Drzava(props) {
 				</div>
 
 				<div className="map">
-					{infoLat}
-					{infoLong}
-					<MapCountry lat={infoLat ? infoLat : '555'} long={infoLong ? infoLong : '55555555'} />
+					<MapCountry lat={infoLat ? infoLat : '555'} long={infoLong ? infoLong : '55555555'} name={countrySlo} flag={_.get(drzava, 'countryInfo.flag')} />
 				</div>
 			</div>
 		</div>
