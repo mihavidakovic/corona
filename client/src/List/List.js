@@ -2,6 +2,7 @@ import React from 'react';
 import Moment from 'react-moment';
 import 'moment-timezone';
 import _ from 'lodash';
+import Joyride from 'react-joyride';
 
 import ListItem from './ListItem.js';
 import countries from '../Graph/countries.json';
@@ -18,6 +19,13 @@ export default class List extends React.Component {
 				column: null,
 				direction: 'desc',
 			},
+			steps: [
+				{
+					target: '.see-more__btn',
+					content: 'This is my awesome feature!',
+					disableBeacon: false
+				},
+			]
 		};
 	}
 
@@ -148,6 +156,7 @@ export default class List extends React.Component {
 	}
 
 	render() {
+		const { steps } = this.state;
 
 		if (this.state.loading) {
 			return (
@@ -186,7 +195,7 @@ export default class List extends React.Component {
 
 					<div className={this.state.expanded ? 'list expanded' : 'list'}>
 						<div className="see-more" onClick={() => this.expandList()}>
-							<span><i className="fa fa-plus"></i> Prikaži vse</span>
+							<span className="see-more__btn"><i className="fa fa-plus"></i> Prikaži vse</span>
 						</div>
 						<div className="list__head">
 							<div className="list__head--state" onClick={this.onSort('country')}>

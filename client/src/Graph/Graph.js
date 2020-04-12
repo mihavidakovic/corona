@@ -10,6 +10,7 @@ import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
 } from 'recharts';
 import _ from 'lodash';
+import Joyride from 'react-joyride';
 var dateFormat = require('dateformat');
 
 const countries = require('./countries.json');
@@ -53,8 +54,14 @@ export default class Graph extends React.Component {
 		recovered: {},
 		recoveredDates: {},
 		selectedCountry: "All",
-		selectedCountrySlo: "all"
-
+		selectedCountrySlo: "all",
+		steps: [
+			{
+				target: '.select_country',
+				content: 'Izberi državo iz seznama in si poglej graf potrjenih primerov, smrti in okrevanih!',
+				disableBeacon: false
+			},
+		]
 	}
 
 
@@ -164,9 +171,14 @@ export default class Graph extends React.Component {
 	}
 
 	render() {
+		const { steps } = this.state;
 		return (
 		<>
 				<header className="section__header">
+			        <Joyride
+			          steps={steps}
+			          locale={{close: 'Zapri'}}
+			        />
 					<div class="header__select">
 						<h2>Graf primerov v</h2>
 						<div className="select_country">
