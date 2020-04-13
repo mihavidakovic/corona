@@ -1128,5 +1128,15 @@
       "name": "Central African Republic",
       "prevod": "Centralnoafriška republika",
       "url": "centralnoafriska-republika"
+   },
+   {
+      "name": "Yemen",
+      "prevod": "Jemen",
+      "url": "jemen"
+   },
+   {
+      "name": "Sao Tome and Principe",
+      "prevod": "Sao Tome in Principe",
+      "url": "sao-tome-in-principe"
    }
 ]
