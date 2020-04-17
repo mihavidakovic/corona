@@ -20,7 +20,7 @@ export default class Domov extends React.Component{
 	componentDidMount() {
 		document.title = "Covid19.si - Zadnji podatki o posledicah virusa!";
 
-		let all = "https://corona.lmao.ninja/all";
+		let all = "https://corona.lmao.ninja/v2/all";
 		let countries = "https://corona.lmao.ninja/v2/countries?yesterday=false&sort=deaths";
 
 		const requestAll = axios.get(all);
@@ -48,7 +48,7 @@ export default class Domov extends React.Component{
 			<section>
 				<div className="two">
 					<div className="graf">
-						<Graph />
+						<Graph isDarkMode={this.props.isDarkMode} />
 					</div>
 					<div className="all">
 						<All data={this.state.all} />
