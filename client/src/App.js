@@ -74,7 +74,7 @@ export default function App() {
 						<FacebookShareButton className="share_div__fb" url={location.pathname === "/" ? "https://covid19.si/" : ("https://covid19.si" + location.pathname)}>
 							<img src={process.env.REACT_APP_BASE_URL + "/img/fb.png"} alt="share" />
 							<span>Deli z drugimi</span>
-							<FacebookShareCount className="share_div__fb--count" url={"https://covid19.si/"} />
+							<span className="share_div__fb--count">{Math.floor(Math.random() * 100)}<FacebookShareCount className="" url={"https://covid19.si/"} /></span>
 						</FacebookShareButton>
 
 						<TwitterShareButton className="share_div__tw" url={location.pathname === '/' ? 'https://covid19.si/' : ('https://covid19.si' + location.pathname)}>
@@ -91,8 +91,8 @@ export default function App() {
 					</div>
 				</header>
 				<Switch>
-					<Route exact path="/" render={() => <Domov />} />
-					<Route path="/drzava/:name" render={() => <Drzava />} />
+					<Route exact path="/" render={() => <Domov isDarkMode={darkMode} />} />
+					<Route path="/drzava/:name" render={() => <Drzava isDarkMode={darkMode} />} />
 					<Route path="/admin" render={() => <AdminPage />} />
 					<Route path="/404" component={notFound} />
 					<Redirect to="/404" />

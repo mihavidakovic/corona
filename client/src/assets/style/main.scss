@@ -135,6 +135,10 @@ html {
 				background-color: rgba(#000, 0.85);
 				border-radius: 4px;
 				box-shadow: 0 5px 20px 0 rgba(#000, 0.5);
+				
+				&.hidden {
+					display: none;
+				}
 			}
 
 			.below-graph {
@@ -460,7 +464,7 @@ html {
 				height: 20px;
 				font-size: 11px;
 				color: #FFF;
-				width: 118px;
+				width: 124px;
 				display: flex;
 				flex-flow: row;
 				align-items: center;
@@ -486,9 +490,14 @@ html {
 				}
 
 				.share_div__fb--count {
-					width: 10px;
+					width: 15px;
 					font-size: 10px !important;
-					font-weight: 400;
+					font-weight: 400 !important;
+					
+					span {
+						font-size: 10px !important;
+						font-weight: 400;
+					}
 				}
 			}
 
