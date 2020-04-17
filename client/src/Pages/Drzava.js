@@ -40,7 +40,7 @@ function Drzava(props) {
 
 	useEffect(() => {
 
-		axios.get("https://corona.lmao.ninja/countries/" + correctName.name)
+		axios.get("https://corona.lmao.ninja/v2/countries/" + correctName.name)
 			.then(res => {
 				setDrzavaRequest({drzava: res.data})
 				setCoordinatesRequest({
@@ -170,7 +170,10 @@ function Drzava(props) {
 							</div>
 						</div>
 					</div>
-					<GraphCounrty data={graph ? graph : ''} range={range} />
+					<div className={"Subpage-country__graph--empty" + (graph.length > 0 ? '' : ' visible')}>
+						<span><i className="fa fa-info"></i> Za {countrySlo} ni na voljo dovolj podatkov, zato izris grafa ni mogoč.</span>
+					</div>
+					<GraphCounrty data={graph ? graph : ''} name={countrySlo} range={range} isDarkMode={props.isDarkMode} />
 				</div>
 
 				<div className="Subpage-country__map">
