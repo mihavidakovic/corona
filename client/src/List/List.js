@@ -31,6 +31,7 @@ export default class List extends React.Component {
 
 	componentDidMount() {
 		setTimeout(() => {
+			console.log(this.props.data)
 			_.map(this.props.data, function(obj) {
 
 			    // add the properties from second array matching the userID
@@ -48,7 +49,7 @@ export default class List extends React.Component {
 
 			this.setState({data: this.props.data})
 			this.setState({loading: false})
-		}, 1000)
+		}, 3000)
 
 	}
 
