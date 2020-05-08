@@ -10,7 +10,8 @@ $black: #121212;
 @import "./util/breakpoints.scss";
 
 //components
-@import "./components/data-points.scss";
+@import "./components/data-points.scss",
+		"./components/loader.scss";
 
 
 body {
@@ -1169,6 +1170,7 @@ html {
 		display: flex;
 		flex-flow: column;
 		margin: 0.8rem 0 2rem 0;
+		position: relative;
 		
 		@include breakpoint(lg, max) {
 			padding: 0 2rem 0 2rem;
@@ -1222,6 +1224,26 @@ html {
 				}
 			}
 		
+		}
+
+		.all-data__loading {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: absolute;
+			top: 3rem;
+			left: 2rem;
+			width: calc(100% - 4rem);
+			height: calc(100% - 3rem);
+			border-radius: 4px;
+			transition: 200ms all ease-in-out;
+			
+			span {
+				font-size: 0.7rem;
+				font-weight: bold;
+				text-transform: uppercase;
+				color: #FFF;
+			}
 		}
 	}
 }

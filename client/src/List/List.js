@@ -194,10 +194,7 @@ export default class List extends React.Component {
 						</div>
 					</header>
 
-					<div className={this.state.expanded ? 'list expanded' : 'list'}>
-						<div className="see-more" onClick={() => this.expandList()}>
-							<span className="see-more__btn"><i className="fa fa-plus"></i> Prikaži vse</span>
-						</div>
+					<div className='list expanded'>
 						<div className="list__head">
 							<div className="list__head--state" onClick={this.onSort('country')}>
 								<span>Država</span>

@@ -8,13 +8,7 @@ export default class ListItem extends React.Component {
 	render() {
 		return(
 			<Link 
-				to={{
-					pathname: '/drzava/' + this.props.url,
-					state: {
-						flag: "lol"
-					}
-				}}
-			>
+				to={{pathname: '/drzava/' + this.props.url}}>
 				<div className="listItem">
 					<div className="listItem__cell item__state">
 						<img className="item__state--flag" src={this.props.flag}  alt={this.props.country} />

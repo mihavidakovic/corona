@@ -6,7 +6,9 @@
 		flex-flow: column;
 	}
 
-
+	&.data-points__loading {
+		opacity: 0.3;
+	}
 
 	.data-point {
 		width: 33.333%;
@@ -44,7 +46,7 @@
 
 		h3 {
 			margin: 0;
-			font-size: 1.8rem;
+			font-size: 1.7rem;
 			color: #FFF;
 			
 			@include breakpoint(sm, max) {
