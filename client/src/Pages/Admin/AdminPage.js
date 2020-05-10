@@ -13,57 +13,43 @@ import {
   useParams,
   useRouteMatch
 } from "react-router-dom";
+import editJsonFile from "edit-json-file";
 
 import AdminPageIp from './AdminPageIp.js';
-
+const countries = require('./countries.json');
 
 export default function AdminPage() {
 	let { path, url } = useRouteMatch();
-	const [IpsRequest, setIpsRequst] = useState({
-		ips: []
-	});
+	const [DeleteCountry, setDeleteCountry] = useState();
 
 	useEffect(() => {
-		axios.get("https://corona.vidakovic.si/api/ip/all")
-			.then(res => {
-				setIpsRequst({ips: res.data.ips})
-			})
-			.catch(err => {
-				console.log(err)
-			})
-			.then(() => {
-			});
+
+
 	}, [])
 
-  	const { ips } = IpsRequest;
 
 	return (
 		<div className="AdminPage">
 			<Switch>
 				<Route exact path={path}>
-					<h2>IP-ji</h2>
-					<div class="AdminPage__ips">
-						{_.map(ips, function(ip) {
+					<h2>Admin</h2>
+					<div className="AdminPage-drzave">
+						{countries.map(el => {
 							return(
-								<Link key={ip.id} to={{
-									pathname:  `${url}`+ '/ip/' + ip.ip,
-									ipInfo: ip
-																	
-								}}>
-									<div className="AdminPage__ips--ip">
-										<span className="ip__address">
-											{ip.ip}
-										</span>
-										<span class="ip__time">
-											<Moment  timezone="Europe/Ljubljana" locale="si" fromNow>{ip.created_at}</Moment>
-										</span>
+								<div className="AdminPage-drzave__drzava">
+									<div className="drzava-ime">
+										<span>{el.name}</span>
+										<small>{el.prevod}</small>
 									</div>
-								</Link>
+									<div className="drzava-actions">
+										<span className="drzava-uredi">Uredi</span>
+										<span className="drzava-izbrisi">Izbriši</span>
+									</div>
+								</div>
 							)
 						})}
 					</div>
 				</Route>
-	          	<Route exact path={`${path}/ip/:ip`} render={() => <AdminPageIp /> } />
 			</Switch>
 		</div>
 	);

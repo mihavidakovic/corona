@@ -1,0 +1,1147 @@
+[
+   {
+      "name":"Afghanistan",
+      "prevod":"Afganistan",
+      "url":"afganistan"
+   },
+   {
+      "name":"Albania",
+      "prevod":"Albanija",
+      "url":"albanija"
+   },
+   {
+      "name":"Algeria",
+      "prevod":"Alžirija",
+      "url":"alzirija"
+   },
+   {
+      "name":"Andorra",
+      "prevod":"Andora",
+      "url":"andora"
+   },
+   {
+      "name":"Angola",
+      "prevod":"Angola",
+      "url":"angola"
+   },
+   {
+      "name":"Anguilla",
+      "prevod":"Angvila",
+      "url":"angvila"
+   },
+   {
+      "name":"Antigua and Barbuda",
+      "prevod":"Antigva in Barbuda",
+      "url":"antigva-in-barbuda"
+   },
+   {
+      "name":"Argentina",
+      "prevod":"Argentina",
+      "url":"argentina"
+   },
+   {
+      "name":"Armenia",
+      "prevod":"Armenija",
+      "url":"armenija"
+   },
+   {
+      "name":"Aruba",
+      "prevod":"Aruba",
+      "url":"aruba"
+   },
+   {
+      "name":"Australia",
+      "prevod":"Avstralija",
+      "url":"avstralija"
+   },
+   {
+      "name":"Austria",
+      "prevod":"Avstrija",
+      "url":"avstrija"
+   },
+   {
+      "name":"Azerbaijan",
+      "prevod":"Azerbajdžan",
+      "url":"azerbajdzan"
+   },
+   {
+      "name":"Bahamas",
+      "prevod":"Bahami",
+      "url":"bahami"
+   },
+   {
+      "name":"Bahrain",
+      "prevod":"Bahrajn",
+      "url":"bahrajn"
+   },
+   {
+      "name":"Bangladesh",
+      "prevod":"Bangladeš",
+      "url":"banglades"
+   },
+   {
+      "name":"Barbados",
+      "prevod":"Barbados",
+      "url":"barbados"
+   },
+   {
+      "name":"Belgium",
+      "prevod":"Belgija",
+      "url":"belgija"
+   },
+   {
+      "name":"Belize",
+      "prevod":"Belize",
+      "url":"belize"
+   },
+   {
+      "name":"Belarus",
+      "prevod":"Belorusija",
+      "url":"belorusija"
+   },
+   {
+      "name":"Benin",
+      "prevod":"Benin",
+      "url":"benin"
+   },
+   {
+      "name":"Bermuda",
+      "prevod":"Bermuda",
+      "url":"bermuda"
+   },
+   {
+      "name":"Bosnia and Herzegovina",
+      "prevod":"BiH",
+      "url":"bih"
+   },
+   {
+      "name":"Bolivia",
+      "prevod":"Bolivija",
+      "url":"bolivija"
+   },
+   {
+      "name":"Brazil",
+      "prevod":"Brazilija",
+      "url":"brazilija"
+   },
+   {
+      "name":"British Virgin Islands",
+      "prevod":"Britanski Deviški otoki",
+      "url":"britanski-deviski-otoki"
+   },
+   {
+      "name":"Brunei",
+      "prevod":"Brunej",
+      "url":"brunej"
+   },
+   {
+      "name":"Bulgaria",
+      "prevod":"Bulgarija",
+      "url":"bulgarija"
+   },
+   {
+      "name":"Burkina Faso",
+      "prevod":"Burkina Faso",
+      "url":"burkina-faso"
+   },
+   {
+      "name":"Bhutan",
+      "prevod":"Butan",
+      "url":"butan"
+   },
+   {
+      "name":"CAR",
+      "prevod":"Centralnoafriška republika",
+      "url":"centralnoafriska-republika"
+   },
+   {
+      "name":"Cyprus",
+      "prevod":"Ciper",
+      "url":"ciper"
+   },
+   {
+      "name":"Curaçao",
+      "prevod":"Curaçao",
+      "url":"curacao"
+   },
+   {
+      "name":"Denmark",
+      "prevod":"Danska",
+      "url":"danska"
+   },
+   {
+      "name":"DRC",
+      "prevod":"Demokratična republika Kongo",
+      "url":"demokraticna-republika-kongo"
+   },
+   {
+      "name":"Diamond Princess",
+      "prevod":"Diamond Princess",
+      "url":"diamond-princess"
+   },
+   {
+      "name":"Dominica",
+      "prevod":"Dominika",
+      "url":"dominika"
+   },
+   {
+      "name":"Dominican Republic",
+      "prevod":"Dominikanska Republika",
+      "url":"dominikanska-republika"
+   },
+   {
+      "name":"Djibouti",
+      "prevod":"Džibuti",
+      "url":"dzibuti"
+   },
+   {
+      "name":"Egypt",
+      "prevod":"Egipt",
+      "url":"egipt"
+   },
+   {
+      "name":"Ecuador",
+      "prevod":"Ekvador",
+      "url":"ekvador"
+   },
+   {
+      "name":"Equatorial Guinea",
+      "prevod":"Ekvatorialna Gvineja",
+      "url":"ekvatorialna-gvineja"
+   },
+   {
+      "name":"Eritrea",
+      "prevod":"Eritreja",
+      "url":"eritreja"
+   },
+   {
+      "name":"Estonia",
+      "prevod":"Estonija",
+      "url":"estonija"
+   },
+   {
+      "name":"Ethiopia",
+      "prevod":"Etiopija",
+      "url":"etiopija"
+   },
+   {
+      "name":"Faeroe Islands",
+      "prevod":"Ferski otoki",
+      "url":"ferski-otoki"
+   },
+   {
+      "name":"Fiji",
+      "prevod":"Fidži",
+      "url":"fidzi"
+   },
+   {
+      "name":"Philippines",
+      "prevod":"Filipini",
+      "url":"filipini"
+   },
+   {
+      "name":"Finland",
+      "prevod":"Finska",
+      "url":"finska"
+   },
+   {
+      "name":"France",
+      "prevod":"Francija",
+      "url":"francija"
+   },
+   {
+      "name":"French Guiana",
+      "prevod":"Francoska Gvajana",
+      "url":"francoska-gvajana"
+   },
+   {
+      "name":"French Polynesia",
+      "prevod":"Francoska Polinezija",
+      "url":"francoska-polinezija"
+   },
+   {
+      "name":"Gabon",
+      "prevod":"Gabon",
+      "url":"gabon"
+   },
+   {
+      "name":"Gambia",
+      "prevod":"Gambija",
+      "url":"gambija"
+   },
+   {
+      "name":"Ghana",
+      "prevod":"Gana",
+      "url":"gana"
+   },
+   {
+      "name":"Gibraltar",
+      "prevod":"Gibraltar",
+      "url":"gibraltar"
+   },
+   {
+      "name":"Grenada",
+      "prevod":"Grenada",
+      "url":"grenada"
+   },
+   {
+      "name":"Greenland",
+      "prevod":"Grenlandija",
+      "url":"grenlandija"
+   },
+   {
+      "name":"Georgia",
+      "prevod":"Gruzija",
+      "url":"gruzija"
+   },
+   {
+      "name":"Greece",
+      "prevod":"Grčija",
+      "url":"grcija"
+   },
+   {
+      "name":"Guadeloupe",
+      "prevod":"Gvadelupe",
+      "url":"gvadelupe"
+   },
+   {
+      "name":"Guyana",
+      "prevod":"Gvajana",
+      "url":"gvajana"
+   },
+   {
+      "name":"Guatemala",
+      "prevod":"Gvatemala",
+      "url":"gvatemala"
+   },
+   {
+      "name":"Guinea",
+      "prevod":"Gvineja",
+      "url":"gvineja"
+   },
+   {
+      "name":"Guinea-Bissau",
+      "prevod":"Gvineja Bissau",
+      "url":"gvineja-bissau"
+   },
+   {
+      "name":"Haiti",
+      "prevod":"Haiti",
+      "url":"haiti"
+   },
+   {
+      "name":"Honduras",
+      "prevod":"Honduras",
+      "url":"honduras"
+   },
+   {
+      "name":"Hong Kong",
+      "prevod":"Hong Kong",
+      "url":"hong-kong"
+   },
+   {
+      "name":"Croatia",
+      "prevod":"Hrvaška",
+      "url":"hrvaska"
+   },
+   {
+      "name":"India",
+      "prevod":"Indija",
+      "url":"indija"
+   },
+   {
+      "name":"Indonesia",
+      "prevod":"Indonezija",
+      "url":"indonezija"
+   },
+   {
+      "name":"Iraq",
+      "prevod":"Irak",
+      "url":"irak"
+   },
+   {
+      "name":"Iran",
+      "prevod":"Iran",
+      "url":"iran"
+   },
+   {
+      "name":"Ireland",
+      "prevod":"Irska",
+      "url":"irska"
+   },
+   {
+      "name":"Iceland",
+      "prevod":"Islandija",
+      "url":"islandija"
+   },
+   {
+      "name":"Italy",
+      "prevod":"Italija",
+      "url":"italija"
+   },
+   {
+      "name":"Israel",
+      "prevod":"Izrael",
+      "url":"izrael"
+   },
+   {
+      "name":"Jamaica",
+      "prevod":"Jamajka",
+      "url":"jamajka"
+   },
+   {
+      "name":"Japan",
+      "prevod":"Japonska",
+      "url":"japonska"
+   },
+   {
+      "name":"Jordan",
+      "prevod":"Jordanija",
+      "url":"jordanija"
+   },
+   {
+      "name":"South Africa",
+      "prevod":"Južna Afrika",
+      "url":"juzna-afrika"
+   },
+   {
+      "name":"Cayman Islands",
+      "prevod":"Kajmanski otoki",
+      "url":"kajmanski-otoki"
+   },
+   {
+      "name":"Cambodia",
+      "prevod":"Kambodža",
+      "url":"kambodza"
+   },
+   {
+      "name":"Cameroon",
+      "prevod":"Kamerun",
+      "url":"kamerun"
+   },
+   {
+      "name":"Canada",
+      "prevod":"Kanada",
+      "url":"kanada"
+   },
+   {
+      "name":"Channel Islands",
+      "prevod":"Kanalski otoki",
+      "url":"kanalski-otoki"
+   },
+   {
+      "name":"Cabo Verde",
+      "prevod":"Kapverdski otoki",
+      "url":"kapverdski-otoki"
+   },
+   {
+      "name":"Qatar",
+      "prevod":"Katar",
+      "url":"katar"
+   },
+   {
+      "name":"Kazakhstan",
+      "prevod":"Kazahstan",
+      "url":"kazahstan"
+   },
+   {
+      "name":"Kenya",
+      "prevod":"Kenija",
+      "url":"kenija"
+   },
+   {
+      "name":"Kyrgyzstan",
+      "prevod":"Kirgizistan",
+      "url":"kirgizistan"
+   },
+   {
+      "name":"China",
+      "prevod":"Kitajska",
+      "url":"kitajska"
+   },
+   {
+      "name":"Colombia",
+      "prevod":"Kolumbija",
+      "url":"kolumbija"
+   },
+   {
+      "name":"Congo",
+      "prevod":"Kongo",
+      "url":"kongo"
+   },
+   {
+      "name":"Costa Rica",
+      "prevod":"Kostarika",
+      "url":"kostarika"
+   },
+   {
+      "name":"Cuba",
+      "prevod":"Kuba",
+      "url":"kuba"
+   },
+   {
+      "name":"Kuwait",
+      "prevod":"Kuvajt",
+      "url":"kuvajt"
+   },
+   {
+      "name":"Laos",
+      "prevod":"Laos",
+      "url":"laos"
+   },
+   {
+      "name":"Latvia",
+      "prevod":"Latvija",
+      "url":"latvija"
+   },
+   {
+      "name":"Lebanon",
+      "prevod":"Lebanon",
+      "url":"lebanon"
+   },
+   {
+      "name":"Liberia",
+      "prevod":"Liberija",
+      "url":"liberija"
+   },
+   {
+      "name":"Libya",
+      "prevod":"Libija",
+      "url":"libija"
+   },
+   {
+      "name":"Liechtenstein",
+      "prevod":"Lihtenštajn",
+      "url":"lihtenstajn"
+   },
+   {
+      "name":"Lithuania",
+      "prevod":"Litva",
+      "url":"litva"
+   },
+   {
+      "name":"Luxembourg",
+      "prevod":"Luksemburg",
+      "url":"luksemburg"
+   },
+   {
+      "name":"MS Zaandam",
+      "prevod":"MS Zaandam",
+      "url":"ms-zaandam"
+   },
+   {
+      "name":"Macao",
+      "prevod":"Macao",
+      "url":"macao"
+   },
+   {
+      "name":"Madagascar",
+      "prevod":"Madagaskar",
+      "url":"madagaskar"
+   },
+   {
+      "name":"Hungary",
+      "prevod":"Madžarska",
+      "url":"madzarska"
+   },
+   {
+      "name":"Maldives",
+      "prevod":"Maldivi",
+      "url":"maldivi"
+   },
+   {
+      "name":"Malaysia",
+      "prevod":"Malezija",
+      "url":"malezija"
+   },
+   {
+      "name":"Mali",
+      "prevod":"Mali",
+      "url":"mali"
+   },
+   {
+      "name":"Malta",
+      "prevod":"Malta",
+      "url":"malta"
+   },
+   {
+      "name":"Morocco",
+      "prevod":"Maroko",
+      "url":"maroko"
+   },
+   {
+      "name":"Martinique",
+      "prevod":"Martinik",
+      "url":"martinik"
+   },
+   {
+      "name":"Mauritius",
+      "prevod":"Mauritius",
+      "url":"mauritius"
+   },
+   {
+      "name":"Mauritania",
+      "prevod":"Mavretanija",
+      "url":"mavretanija"
+   },
+   {
+      "name":"Mayotte",
+      "prevod":"Mayotte",
+      "url":"mayotte"
+   },
+   {
+      "name":"Mexico",
+      "prevod":"Mehika",
+      "url":"mehika"
+   },
+   {
+      "name":"Myanmar",
+      "prevod":"Mjanmar",
+      "url":"mjanmar"
+   },
+   {
+      "name":"Moldova",
+      "prevod":"Moldavija",
+      "url":"moldavija"
+   },
+   {
+      "name":"Monaco",
+      "prevod":"Monako",
+      "url":"monako"
+   },
+   {
+      "name":"Mongolia",
+      "prevod":"Mongolija",
+      "url":"mongolija"
+   },
+   {
+      "name":"Montserrat",
+      "prevod":"Montserrat",
+      "url":"montserrat"
+   },
+   {
+      "name":"Mozambique",
+      "prevod":"Mozambik",
+      "url":"mozambik"
+   },
+   {
+      "name":"Namibia",
+      "prevod":"Namibija",
+      "url":"namibija"
+   },
+   {
+      "name":"Germany",
+      "prevod":"Nemčija",
+      "url":"nemcija"
+   },
+   {
+      "name":"Nepal",
+      "prevod":"Nepal",
+      "url":"nepal"
+   },
+   {
+      "name":"Niger",
+      "prevod":"Niger",
+      "url":"niger"
+   },
+   {
+      "name":"Nigeria",
+      "prevod":"Nigerija",
+      "url":"nigerija"
+   },
+   {
+      "name":"Nicaragua",
+      "prevod":"Nikaragva",
+      "url":"nikaragva"
+   },
+   {
+      "name":"Netherlands",
+      "prevod":"Nizozemska",
+      "url":"nizozemska"
+   },
+   {
+      "name":"Norway",
+      "prevod":"Norveška",
+      "url":"norveska"
+   },
+   {
+      "name":"New Caledonia",
+      "prevod":"Nova Kaledonija",
+      "url":"nova-kaledonija"
+   },
+   {
+      "name":"New Zealand",
+      "prevod":"Nova Zelandija",
+      "url":"nova-zelandija"
+   },
+   {
+      "name":"Oman",
+      "prevod":"Oman",
+      "url":"oman"
+   },
+   {
+      "name":"Isle of Man",
+      "prevod":"Otok Man",
+      "url":"otok-man"
+   },
+   {
+      "name":"Turks and Caicos",
+      "prevod":"Otoki Turks in Caicos",
+      "url":"otoki-turks-in-caicos"
+   },
+   {
+      "name":"Pakistan",
+      "prevod":"Pakistan",
+      "url":"pakistan"
+   },
+   {
+      "name":"Palestine",
+      "prevod":"Palestina",
+      "url":"palestina"
+   },
+   {
+      "name":"Palestinian Territory, Occupied",
+      "prevod":"Palestinski teritoriji",
+      "url":"palestinski-teritoriji"
+   },
+   {
+      "name":"Panama",
+      "prevod":"Panama",
+      "url":"panama"
+   },
+   {
+      "name":"Papua New Guinea",
+      "prevod":"Papua Nova Gvineja",
+      "url":"papua-nova-gvineja"
+   },
+   {
+      "name":"Paraguay",
+      "prevod":"Paragvaj",
+      "url":"paragvaj"
+   },
+   {
+      "name":"Peru",
+      "prevod":"Peru",
+      "url":"peru"
+   },
+   {
+      "name":"Poland",
+      "prevod":"Poljska",
+      "url":"poljska"
+   },
+   {
+      "name":"Portugal",
+      "prevod":"Portugalska",
+      "url":"portugalska"
+   },
+   {
+      "name":"Réunion",
+      "prevod":"Reunion",
+      "url":"reunion"
+   },
+   {
+      "name":"Romania",
+      "prevod":"Romunija",
+      "url":"romunija"
+   },
+   {
+      "name":"Rwanda",
+      "prevod":"Ruanda",
+      "url":"ruanda"
+   },
+   {
+      "name":"Russia",
+      "prevod":"Rusija",
+      "url":"rusija"
+   },
+   {
+      "name":"Saint Kitts and Nevis",
+      "prevod":"Saint Kitts in Nevis",
+      "url":"saint-kitts-in-nevis"
+   },
+   {
+      "name":"El Salvador",
+      "prevod":"Salvador",
+      "url":"salvador"
+   },
+   {
+      "name":"San Marino",
+      "prevod":"San Marino",
+      "url":"san-marino"
+   },
+   {
+      "name":"Saudi Arabia",
+      "prevod":"Savdska Arabija",
+      "url":"savdska-arabija"
+   },
+   {
+      "name":"Seychelles",
+      "prevod":"Sejšeli",
+      "url":"sejseli"
+   },
+   {
+      "name":"Senegal",
+      "prevod":"Senegal",
+      "url":"senegal"
+   },
+   {
+      "name":"S. Korea",
+      "prevod":"Severna Koreja",
+      "url":"severna-koreja"
+   },
+   {
+      "name":"North Macedonia",
+      "prevod":"Severna Makedonija",
+      "url":"severna-makedonija"
+   },
+   {
+      "name":"Singapore",
+      "prevod":"Singapur",
+      "url":"singapur"
+   },
+   {
+      "name":"Syria",
+      "prevod":"Sirija",
+      "url":"sirija"
+   },
+   {
+      "name":"Ivory Coast",
+      "prevod":"Slonokoščena obala",
+      "url":"slonokoscena-obala"
+   },
+   {
+      "name":"Slovakia",
+      "prevod":"Slovaška",
+      "url":"slovaska"
+   },
+   {
+      "name":"Slovenia",
+      "prevod":"Slovenija",
+      "url":"slovenija"
+   },
+   {
+      "name":"Somalia",
+      "prevod":"Somalija",
+      "url":"somalija"
+   },
+   {
+      "name":"Serbia",
+      "prevod":"Srbija",
+      "url":"srbija"
+   },
+   {
+      "name":"Sudan",
+      "prevod":"Sudan",
+      "url":"sudan"
+   },
+   {
+      "name":"Suriname",
+      "prevod":"Surinam",
+      "url":"surinam"
+   },
+   {
+      "name":"St. Barth",
+      "prevod":"Sv. Barthélemy",
+      "url":"sv-barthelemy"
+   },
+   {
+      "name":"Saint Lucia",
+      "prevod":"Sv. Lucia",
+      "url":"sv-lucia"
+   },
+   {
+      "name":"Sint Maarten",
+      "prevod":"Sv. Maarten",
+      "url":"sv-maarten"
+   },
+   {
+      "name":"St. Vincent Grenadines",
+      "prevod":"Sv. Vincent Grenadines",
+      "url":"sv-vincent-grenadines"
+   },
+   {
+      "name":"Eswatini",
+      "prevod":"Svazi",
+      "url":"svazi"
+   },
+   {
+      "name":"Saint Martin",
+      "prevod":"Sveti Martin",
+      "url":"sveti-martin"
+   },
+   {
+      "name":"Thailand",
+      "prevod":"Tajska",
+      "url":"tajska"
+   },
+   {
+      "name":"Tanzania",
+      "prevod":"Tanzanija",
+      "url":"tanzanija"
+   },
+   {
+      "name":"Timor-Leste",
+      "prevod":"Timor-Leste",
+      "url":"timor-leste"
+   },
+   {
+      "name":"Togo",
+      "prevod":"Togo",
+      "url":"togo"
+   },
+   {
+      "name":"Trinidad and Tobago",
+      "prevod":"Trinidad in Tobago",
+      "url":"trinidad-in-tobago"
+   },
+   {
+      "name":"Tunisia",
+      "prevod":"Tunizija",
+      "url":"tunizija"
+   },
+   {
+      "name":"Turkey",
+      "prevod":"Turčija",
+      "url":"turcija"
+   },
+   {
+      "name":"Uganda",
+      "prevod":"Uganda",
+      "url":"uganda"
+   },
+   {
+      "name":"Ukraine",
+      "prevod":"Ukrajina",
+      "url":"ukrajina"
+   },
+   {
+      "name":"Uruguay",
+      "prevod":"Urugvaj",
+      "url":"urugvaj"
+   },
+   {
+      "name":"Uzbekistan",
+      "prevod":"Uzbekistan",
+      "url":"uzbekistan"
+   },
+   {
+      "name":"Vatican City",
+      "prevod":"Vatikan",
+      "url":"vatikan"
+   },
+   {
+      "name":"Venezuela",
+      "prevod":"Venezuela",
+      "url":"venezuela"
+   },
+   {
+      "name":"Vietnam",
+      "prevod":"Vietnam",
+      "url":"vietnam"
+   },
+   {
+      "name":"Zambia",
+      "prevod":"Zambija",
+      "url":"zambija"
+   },
+   {
+      "name":"USA",
+      "prevod":"ZDA",
+      "url":"zda"
+   },
+   {
+      "name":"UAE",
+      "prevod":"ZAE",
+      "url":"zae"
+   },
+   {
+      "name":"UK",
+      "prevod":"Združeno kraljestvo",
+      "url":"zdruzeno-kraljestvo"
+   },
+   {
+      "name":"Zimbabwe",
+      "prevod":"Zimbabve",
+      "url":"zimbabve"
+   },
+   {
+      "name":"Taiwan",
+      "prevod":"Tajvan",
+      "url":"tajvan"
+   },
+   {
+      "name":"Chad",
+      "prevod":"Čad",
+      "url":"cad"
+   },
+   {
+      "name":"Czechia",
+      "prevod":"Češka",
+      "url":"ceska"
+   },
+   {
+      "name":"Chile",
+      "prevod":"Čile",
+      "url":"cile"
+   },
+   {
+      "name":"Montenegro",
+      "prevod":"Črna gora",
+      "url":"crna-gora"
+   },
+   {
+      "name":"Spain",
+      "prevod":"Španija",
+      "url":"spanija"
+   },
+   {
+      "name":"Sri Lanka",
+      "prevod":"Šrilanka",
+      "url":"srilanka"
+   },
+   {
+      "name":"Sweden",
+      "prevod":"Švedska",
+      "url":"svedska"
+   },
+   {
+      "name":"Switzerland",
+      "prevod":"Švica",
+      "url":"svica"
+   },
+   {
+      "name":"Bosnia",
+      "prevod":"Bosna",
+      "url":"bosna"
+   },
+   {
+      "name":"Moldova, Republic of",
+      "prevod":"Moldavija",
+      "url":"moldavija"
+   },
+   {
+      "name":"Macedonia",
+      "prevod":"Makedonija",
+      "url":"makedonija"
+   },
+   {
+      "name":"Côte d'Ivoire",
+      "prevod":"Slonokoščena obala",
+      "url":"slonokoscena-obala"
+   },
+   {
+      "name":"Faroe Islands",
+      "prevod":"Ferski otoki",
+      "url":"ferski-otoki"
+   },
+   {
+      "name":"Tanzania, United Republic of",
+      "prevod":"Tanzanija",
+      "url":"tanzanija"
+   },
+   {
+      "name":"Syrian Arab Republic",
+      "prevod":"Sirija",
+      "url":"sirija"
+   },
+   {
+      "name":"Libyan Arab Jamahiriya",
+      "prevod":"Libija",
+      "url":"libija"
+   },
+   {
+      "name":"Lao People's Democratic Republic",
+      "prevod":"Laos",
+      "url":"laos"
+   },
+   {
+      "name":"Swaziland",
+      "prevod":"Svazi",
+      "url":"svazi"
+   },
+   {
+      "name":"Holy See (Vatican City State)",
+      "prevod":"Vatikan",
+      "url":"vatikan"
+   },
+   {
+      "name":"Saint Vincent and the Grenadines",
+      "prevod":"Saint Vincent in Grenadine",
+      "url":"sv-vincent-grenadines"
+   },
+   {
+      "name":"Botswana",
+      "prevod":"Bocvana",
+      "url":"bocvana"
+   },
+   {
+      "name":"Sierra Leone",
+      "prevod":"Sierra Leone",
+      "url":"sierra-leone"
+   },
+   {
+      "name":"Turks and Caicos Islands",
+      "prevod":"Otoki Turks in Caicos",
+      "url":"otoki-turks-in-caicos"
+   },
+   {
+      "name":"Malawi",
+      "prevod":"Malavi",
+      "url":"malavi"
+   },
+   {
+      "name":"Western Sahara",
+      "prevod":"Zahodna Sahara",
+      "url":"zahodna-sahara"
+   },
+   {
+      "name":"Burundi",
+      "prevod":"Burundi",
+      "url":"burundi"
+   },
+   {
+      "name":"Caribbean Netherlands",
+      "prevod":"Nizozemski Karibi",
+      "url":"nizozemski-karibi"
+   },
+   {
+      "name":"Falkland Islands (Malvinas)",
+      "prevod":"Falklandski otoki (Malvini)",
+      "url":"falklandski-otoki"
+   },
+   {
+      "name":"Saint Pierre Miquelon",
+      "prevod":"Saint Pierre in Miquelon",
+      "url":"saint-pierre-in-miquelon"
+   },
+   {
+      "name":"South Sudan",
+      "prevod":"Južni Sudan",
+      "url":"juzni-sudan"
+   },
+   {
+      "name": "São Tomé and Príncipe",
+      "prevod": "Sao Tome in Principe",
+      "url": "sao-tome-in-principe"
+   },
+   {
+      "name": "Central African Republic",
+      "prevod": "Centralnoafriška republika",
+      "url": "centralnoafriska-republika"
+   },
+   {
+      "name": "Yemen",
+      "prevod": "Jemen",
+      "url": "jemen"
+   },
+   {
+      "name": "Sao Tome and Principe",
+      "prevod": "Sao Tome in Principe",
+      "url": "sao-tome-in-principe"
+   },
+   {
+      "name": "Comoros",
+      "prevod": "Comoros",
+      "url": "comoros"
+   }
+]

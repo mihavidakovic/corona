@@ -58,10 +58,12 @@ class All extends React.Component {
 					<div className="data-points data-points__loading" style={{marginBottom: '1rem'}}>
 						<div className="data-point">
 							<h3>0</h3>
+							<div className='data-point__new negative'>+0</div>
 							<span className="data-point__title">Primerov</span>
 						</div>
 						<div className="data-point">
 							<h3>0</h3>
+							<div className='data-point__new negative'>+0</div>
 							<span className="data-point__title">Smrti</span>
 						</div>
 						<div className="data-point">

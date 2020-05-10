@@ -15,15 +15,15 @@ export default class ListItem extends React.Component {
 						<div className="item__state--name" title={this.props.ime}>{this.props.ime}</div> 
 					</div>
 					<div className="listItem__cell item__confirmed">
-						<span>{this.props.cases}</span>
-						<span className={ this.props.todayCases > 0 ? 'new_cases positive' : 'new_cases negative' }>{ this.props.todayCases > 0 ? '+' + this.props.todayCases : '' }</span>
+						<span>{this.props.cases.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span>
+						<span className={ this.props.todayCases > 0 ? 'new_cases positive' : 'new_cases negative' }>{ this.props.todayCases > 0 ? '+' + this.props.todayCases.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : '' }</span>
 					</div>
 					<div className="listItem__cell item__deaths">
-						<span>{this.props.deaths}</span>
-						<span className={ this.props.todayDeaths > 0 ? 'new_cases positive' : 'new_cases negative' }>{ this.props.todayDeaths > 0 ? '+' + this.props.todayDeaths : '' }</span>
+						<span>{this.props.deaths.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span>
+						<span className={ this.props.todayDeaths > 0 ? 'new_cases positive' : 'new_cases negative' }>{ this.props.todayDeaths > 0 ? '+' + this.props.todayDeaths.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : '' }</span>
 					</div>
-					<div className="listItem__cell item__recovered">{this.props.recovered}</div>
-					<div className="listItem__cell item__critical">{this.props.critical}</div>
+					<div className="listItem__cell item__recovered">{this.props.recovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</div>
+					<div className="listItem__cell item__critical">{this.props.critical.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</div>
 				</div>
 			</Link>
 		)
