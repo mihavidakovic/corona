@@ -49,7 +49,7 @@ export default class List extends React.Component {
 
 			this.setState({data: this.props.data})
 			this.setState({loading: false})
-		}, 3000)
+		}, 1000)
 
 	}
 

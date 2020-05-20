@@ -1,0 +1,228 @@
+.graf {
+	display: flex;
+	flex-flow: column;
+	position: relative;
+	width: 50%;
+	margin-bottom: 2rem;
+
+	
+	@include breakpoint(md, max) {
+		width: 100%;
+		margin-bottom: 2rem;
+		padding-top: 2rem;
+		margin-top: 1rem;
+		border-top: 1px solid rgba(#fff, 0.1);
+	}
+
+	.section__header {
+		padding: 0 1.5rem 0 2rem;
+		display: flex;
+		flex-flow: column;
+		
+		@include breakpoint(md, max) {
+			padding: 0 2rem;
+		}
+
+		@include breakpoint(sm, max) {
+			padding: 0 1rem;
+			margin-bottom: 0.5rem;
+		}
+
+		.header__select {
+			margin: 0 0 1.5rem 0;
+			display: flex;
+			flex-flow: row;
+			align-items: center;
+			
+
+			h2 {
+				color: #FFF;
+				font-size: 1.2rem;
+				font-weight: 600;
+				white-space: nowrap;					
+				@include breakpoint(sm, max) {
+					font-size: 1rem;
+				}
+			}
+
+			.select_country {
+				width: 100%;
+				display: flex;
+				position: relative;
+				background: lighten($black, 4%);
+				margin-left: 1rem;
+				border-radius: 4px;
+				transition: 200ms ease-in-out all;
+				cursor: pointer;
+				
+				&:hover {
+					background: lighten($black, 5%);
+
+					.select_country--icon {
+					}
+				}
+
+				.select_country--select {
+					width: 100%;
+					background: transparent;
+					border: none;
+					color: #FFF;
+					font-size: 1.2rem;
+					font-weight: 900;
+					outline-style: none;
+					-webkit-appearance: none;
+					-moz-appearance: none;
+					text-indent: 1px;
+					text-overflow: '';
+					padding: 0 1rem;
+					height: 40px;
+					border-radius: 4px;
+					position: relative;
+					z-index: 2;
+					cursor: pointer;
+					letter-spacing: 1px;
+					transition: 200ms all ease-in-out;
+					cursor: pointer;
+					
+					option {
+						color: #000;
+					}
+				}
+
+				.select_country--icon {
+					position: absolute;
+					top: 50%;
+					right: 0;
+					height: 100%;
+					transform: translateY(-50%);
+					cursor: pointer;
+					padding: 0rem 1rem;
+					color: #FFF;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					z-index: 100;
+					transition: 200ms all ease-in-out;
+					background: rgb(28,28,28);
+					background: -moz-linear-gradient(90deg, rgba(28,28,28,0) 0%, rgba(28,28,28,1) 50%);
+					background: -webkit-linear-gradient(90deg, rgba(28,28,28,0) 0%, rgba(28,28,28,1) 50%);
+					background: linear-gradient(90deg, rgba(28,28,28,0) 0%, rgba(28,28,28,1) 50%);
+					filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1c1c1c",endColorstr="#1c1c1c",GradientType=1);
+				}
+			}
+
+		}
+
+	}
+
+	.graf__empty {
+		background-color: rgba(red, 0.6);
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 10;
+		padding: 1.5rem 3rem;
+		color: #FFF;
+		border-radius: 3px;
+		text-transform: uppercase;
+		font-size: 0.7rem;
+		opacity: 0;
+		transition: 200ms ease-in-out all;
+		overflow: hidden;
+		user-select: none;
+		box-shadow: 
+			0 4px 8px 0 rgba(#000, 0.1),
+			0 0 2px 0 rgba(#000, 0.06),
+			0 0 1px 0 rgba(#000, 0.04);
+“		
+		i {
+			position: absolute;
+			top: 50%;
+			left: -0.5rem;
+			font-size: 5rem;
+			transform: translateY(-50%);
+			z-index: 1;
+			opacity: 0.1;
+		}
+
+		span {
+			position: relative;
+			z-index: 20;
+			white-space: nowrap;
+		}
+		
+		&.visible {
+			opacity: 1;
+		}
+	}
+
+	.below-graph {
+		width: 100%;
+		margin: 0rem;
+		padding: 0 1.5rem;
+		display: flex;
+		flex-flow: row;
+		justify-content: space-between;
+		align-items: center;
+
+		@include breakpoint(md, max) {
+			flex-flow: column;
+			width: calc(100% - 2rem);
+			margin: -0.2rem 0rem 0rem 1rem;
+			padding: 0 0.5rem;
+		}
+
+		@include breakpoint(sm, max) {
+			flex-flow: column;
+			width: calc(100% - 2rem);
+			margin: -0.2rem 0rem 0 1rem;
+			padding: 0 0.5rem;
+		}
+		
+		.below-graph__updated {
+			color: rgba(#fff, 0.6);
+			font-size: 0.7rem;
+		}
+
+		.more-button {
+			text-decoration: none;
+			background-color: rgba(#fff, 0.95);
+			color: #000;
+			padding: 0.5rem 1rem;
+			border-radius: 3px;
+			font-weight: 500;
+			font-size: 0.7rem;
+			float: right;
+			display: flex;
+			flex-flow: row;
+			align-items: center;
+			justify-content: center;
+			transition: 200ms all ease-in-out;
+			animation: 1.5s pulse ease-in-out infinite;
+			
+			@include breakpoint(sm, max) {
+				
+			}
+			
+			&:hover {
+				background-color: #FFF;
+				
+				i {
+					transform: translateX(2px);
+				}
+			}
+
+			span {
+				font-weight: 800;
+				text-transform: capitalize;
+				margin: 0 0.3rem 0 0.2rem;
+				transform: translateY(0.7px);
+			}
+
+			i {
+				transition: 200ms all ease-in-out;
+			}
+		}
+	}
+}

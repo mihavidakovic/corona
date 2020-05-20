@@ -7,7 +7,7 @@ import {
   Link
 } from "react-router-dom";
 import {
-  AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
+  AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Bar
 } from 'recharts';
 import _ from 'lodash';
 import Joyride from 'react-joyride';
@@ -34,7 +34,6 @@ const CustomTooltip = ({ active, payload, label }) => {
       	<p style={{padding: 0, margin: 0, fontSize: "0.9rem"}}>{`${labelFormated}:`}</p>
         <span className="label" style={{color: 'black'}}><b>{`${payload[1].value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`} primerov</b></span>
         <span className="label" style={{color: 'red'}}><b>{`${payload[0].value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`} smrti</b></span>
-        <span className="label" style={{color: 'green'}}><b>{`${payload[2].value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`} okrevanih</b></span>
       </div>
     );
   }
@@ -43,18 +42,39 @@ const CustomTooltip = ({ active, payload, label }) => {
 };
 
 
+function CustomLabel({ x, y, stroke, value, width }) {
+  if(value) {
+    // No label if there is a value. Let the cell handle it.
+    return null;
+  }
+
+   return (
+    <text 
+      x={x}
+      y={y}
+      // Move slightly above axis
+      dy={-10}
+      // Center text
+      dx={width/2}
+      fill={stroke}
+      fontSize={15}
+      textAnchor="middle"
+    >
+        ooksodskodsoodo
+    </text>
+  )
+}
+
+
 
 export default class Graph extends React.Component {
 	state = {
 		loading: true,
-		data: [],
 		updated: "",
 		cases: {},
-		casesDates: {},
-		recovered: {},
-		recoveredDates: {},
 		selectedCountry: "All",
 		selectedCountrySlo: "all",
+		isGraphEmpty: false,
 		steps: [
 			{
 				target: '.select_country',
@@ -75,67 +95,90 @@ export default class Graph extends React.Component {
 	getGraph(country) {
 		if (country === "All") {
 			console.log("its all")
-			let url = "https://corona.lmao.ninja/v2/historical/all?lastdays=all";
-			axios.get(url)
-			.then(res => {
+			let url = "https://disease.sh/v2/historical/all?lastdays=all";
+			fetch(url)
+				.then((res) => {
+					if (res.status == 200) {
+						return res.json()
+					} else {
+						 throw new Error('Something went wrong');
+					}
+				})
+				.then((result) => {
 
-				// cases
-				const casesKeys = Object.keys(res.data.cases);
-				const deathsValues = Object.values(res.data.deaths);
-				const recoveredValues = Object.values(res.data.recovered);
-				var cases = Object.entries(res.data.cases).map(([date, Primerov, Okrevani]) => ({date,Primerov, Okrevani}));
+					// cases
+					const casesKeys = Object.keys(result.cases);
+					const deathsValues = Object.values(result.deaths);
+					const recoveredValues = Object.values(result.recovered);
+					var cases = Object.entries(result.cases).map(([date, Primerov, Okrevani]) => ({date,Primerov, Okrevani}));
 
-				for (var key in cases) {
-				    // skip loop if the property is from prototype
-				    if (!cases.hasOwnProperty(key)) continue;
+					for (var key in cases) {
+					    // skip loop if the property is from prototype
+					    if (!cases.hasOwnProperty(key)) continue;
 
-				    var obj = cases[key];
-				    Object.assign(obj, {smrti: deathsValues[key]})
-				    Object.assign(obj, {Okrevani: recoveredValues[key]})
+					    var obj = cases[key];
+					    Object.assign(obj, {smrti: deathsValues[key]})
+					    Object.assign(obj, {Okrevani: recoveredValues[key]})
 
-				}
+					}
 
-				let updated = Object.keys(res.data.cases);
-				updated = _.last(updated)
-		    	
-				this.setState({data: res.data});
-				this.setState({updated: updated});
-				this.setState({cases: cases});
-				this.setState({casesDates: casesKeys});
-				this.setState({loading: false});
-			});
+					let updated = Object.keys(result.cases);
+					updated = _.last(updated)
+			    	
+					this.setState({updated: updated});
+					this.setState({cases: cases});
+					this.setState({casesDates: casesKeys});
+					this.setState({isGraphEmpty: false});
+				},
+				(error) => {
+					this.setState({isGraphEmpty: true});
+				});
+
+
 
 		} else {
-			let url = "https://corona.lmao.ninja/v2/historical/" + country + "/?lastdays=all";
-			axios.get(url)
-			.then(res => {
-				const casesKeys = Object.keys(res.data.timeline.cases);
-				const deathsValues = Object.values(res.data.timeline.deaths);
-				const recoveredValues = Object.values(res.data.timeline.recovered);
-				var cases = Object.entries(res.data.timeline.cases).map(([date, Primerov, Okrevani]) => ({date,Primerov, Okrevani}));
+			let url = "https://disease.sh/v2/historical/" + country + "/?lastdays=all";
+			fetch(url)
+				.then((res) => {
+					if (res.status == 200) {
+						return res.json()
+					} else {
+						 throw new Error('Something went wrong');
+					}
+				})
+				.then((result) => {
+					const casesKeys = Object.keys(result.timeline.cases);
+					const deathsValues = Object.values(result.timeline.deaths);
+					const recoveredValues = Object.values(result.timeline.recovered);
+					var cases = Object.entries(result.timeline.cases).map(([date, Primerov, Okrevani]) => ({date,Primerov, Okrevani}));
 
-				for (var key in cases) {
-				    // skip loop if the property is from prototype
-				    if (!cases.hasOwnProperty(key)) continue;
+					for (var key in cases) {
+					    // skip loop if the property is from prototype
+					    if (!cases.hasOwnProperty(key)) continue;
 
-				    var obj = cases[key];
-				    Object.assign(obj, {smrti: deathsValues[key]})
-				    Object.assign(obj, {Okrevani: recoveredValues[key]})
+					    var obj = cases[key];
+					    Object.assign(obj, {smrti: deathsValues[key]})
+					    Object.assign(obj, {Okrevani: recoveredValues[key]})
 
-				}
+					}
 
-				var allCases = cases
+					var allCases = cases
 
-				let updated = Object.keys(res.data.timeline.cases);
-				updated = _.last(updated)
+					let updated = Object.keys(result.timeline.cases);
+					updated = _.last(updated)
 
-		    	
-				this.setState({data: res.data});
-				this.setState({updated: updated});
-				this.setState({cases: allCases});
-				this.setState({casesDates: casesKeys});
-				this.setState({loading: false});
-			});
+			    	
+					this.setState({isGraphEmpty: false});
+					this.setState({data: result});
+					this.setState({updated: updated});
+					this.setState({cases: allCases});
+					this.setState({casesDates: casesKeys});
+					this.setState({loading: false});
+				},
+				(error) => {
+					this.setState({isGraphEmpty: true});
+					this.setState({cases: 0});
+				});
 
 		}
 	}
@@ -159,6 +202,7 @@ export default class Graph extends React.Component {
      	}
 
 		this.getGraph(event.target.value)
+
      }
 
 	formatXAxis(tickItem) {
@@ -201,6 +245,10 @@ export default class Graph extends React.Component {
 						</div>
 					</div>
 				</header>
+				<div className={(this.state.isGraphEmpty && (this.state.loading == false)) ? 'graf__empty visible' : 'graf__empty'}>
+					<i className="fa fa-frown"></i>
+					<span>Ni podatkov za <b>{this.state.selectedCountrySlo}</b></span>
+				</div>
 				<div style={{width: '100%', height: 320, zIndex: 2, position: 'relative'}}>
 					<ResponsiveContainer>
 						<AreaChart
@@ -209,6 +257,7 @@ export default class Graph extends React.Component {
 							margin={{
 							top: 0, right: 25, left: -15, bottom: 0,
 							}}
+							label={<CustomLabel />}
 						>
 						  <defs>
 						    <linearGradient id="colorSmrti" x1="0" y1="0" x2="0" y2="1">
@@ -231,6 +280,9 @@ export default class Graph extends React.Component {
 							<Area type="monotone" isAnimationActive={true} animationDuration={900} dataKey="smrti" stroke="rgba(239, 57, 57, 0.8)" fill="rgba(239, 57, 57, 0.8)" fillOpacity={1} fill="url(#colorSmrti)" />
 							<Area type="monotone" isAnimationActive={true} animationDuration={900} dataKey="Primerov" stroke="rgba(255, 255, 255, 1)" fill="rgba(255, 255, 255, 0.7)" fillOpacity={1} fill="url(#colorPrimerov)" />
 							<Area type="monotone" isAnimationActive={true} animationDuration={900} dataKey="Okrevani" stroke="rgba(83, 185, 41, 1)" fill="rgba(83, 185, 41, 0.7)" fillOpacity={1} fill="url(#colorOkrevanih)" />
+							<Bar dataKey="rating" label={<CustomLabel />}>
+							</Bar>
+
 						</AreaChart>
 					</ResponsiveContainer>
 					<div className="whiteModeBg"></div>

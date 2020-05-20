@@ -11,7 +11,8 @@ $black: #121212;
 
 //components
 @import "./components/data-points.scss",
-		"./components/loader.scss";
+		"./components/loader.scss",
+		"./components/graph.scss";
 
 
 body {
@@ -76,7 +77,11 @@ html {
 			background-color: rgba(#000, 0.06);
 			
 			&:hover {
-				background-color: rgba(#000, 0.095);
+				background-color: rgba(#000, 0.065);
+			}
+
+			&:active {
+				background-color: rgba(#000, 0.15);
 			}
 		}
 
@@ -95,71 +100,6 @@ html {
 			border-color: rgba(#000, 0.1);
 		}
 
-		.graf {
-			position: relative;
-			border-color: rgba(#000, 0.1);
-			
-			.section__header {
-				
-				.header__select {
-					
-					h2 {
-						color: rgba(#000, 0.8);
-					}
-
-					.select_country {
-						background-color: rgba(#000, 0.1);
-						color: rgba(#000, 0.8);
-						
-						&:hover {
-							background-color: rgba(#000, 0.15);
-						}
-
-						i {
-							color: rgba(#000, 0.8);
-						}
-						
-						.select_country--select {
-							color: rgba(#000, 0.7);
-						}
-					}
-				}
-			}
-
-			.whiteModeBg {
-				position: absolute;
-				top: -20px;
-				left: 15px;
-				width: calc(100% - 25px);
-				height: calc(100% + 10px);
-				z-index: -2;
-				background-color: rgba(#000, 0.85);
-				border-radius: 4px;
-				box-shadow: 0 5px 20px 0 rgba(#000, 0.5);
-				
-				&.hidden {
-					display: none;
-				}
-			}
-
-			.below-graph {
-
-				.below-graph__updated {
-					color: rgba(#000, 0.3);
-				}
-
-				.more-button {
-					background-color: rgba(#000, 0.8);
-					color: #FFF;
-					margin-top: 0rem;
-					
-					&:hover {
-						background-color: rgba(#000, 0.95);
-					}
-				}
-			}
-
-		}
 
 		.all-data {
 
@@ -199,6 +139,36 @@ html {
 
 				.data-point__title {
 					color: rgba(#000, 0.5);
+				}
+			}
+		}
+
+		.graf {
+			
+			.section__header {
+				
+				h2 {
+					color: rgba(#000, 0.7);
+				}
+
+				.select_country {
+					background-color: rgba(#000, 0.05);
+					
+					&:hover {
+						background-color: rgba(#000, 0.065);
+					}
+					
+					&:active {
+						background-color: rgba(#000, 0.1);
+					}
+					
+					.select_country--select {
+						color: rgba(#000, 0.9);
+					}
+
+					.select_country--icon {
+						color: #000;
+					}
 				}
 			}
 		}
@@ -551,6 +521,13 @@ html {
 				font-size: 0.9em;
 				font-weight: bold;
 				
+				&:hover {
+					box-shadow: 
+						0 4px 8px 0 rgba(#000, 0.05),
+						0 0 2px 0 rgba(#000, 0.03),
+						0 0 1px 0 rgba(#000, 0.02);	
+				}
+
 				i {
 					margin-right: 0.7rem;
 					font-size: 1rem;
@@ -973,187 +950,6 @@ html {
 
 		@include breakpoint(sm, max) {
 			margin-bottom: 4rem;
-		}
-	}
-
-	.graf {
-		display: flex;
-		flex-flow: column;
-		position: relative;
-		width: 50%;
-		margin-bottom: 2rem;
-
-		
-		@include breakpoint(md, max) {
-			width: 100%;
-			margin-bottom: 2rem;
-			padding-top: 2rem;
-			margin-top: 1rem;
-			border-top: 1px solid rgba(#fff, 0.1);
-		}
-
-		.section__header {
-			padding: 0 1.5rem 0 2rem;
-			display: flex;
-			flex-flow: column;
-			
-			@include breakpoint(md, max) {
-				padding: 0 2rem;
-			}
-
-			@include breakpoint(sm, max) {
-				padding: 0 1rem;
-				margin-bottom: 0.5rem;
-			}
-
-			.header__select {
-				margin: 0 0 1.5rem 0;
-				display: flex;
-				flex-flow: row;
-				align-items: center;
-				
-
-				h2 {
-					color: #FFF;
-					font-size: 1.2rem;
-					font-weight: 600;
-					white-space: nowrap;					
-					@include breakpoint(sm, max) {
-						font-size: 1rem;
-					}
-				}
-
-				.select_country {
-					width: 100%;
-					display: flex;
-					position: relative;
-					background: lighten($black, 4%);
-					margin-left: 1rem;
-					border-radius: 4px;
-					
-					&:hover {
-						background: lighten($black, 5%);
-
-						.select_country--icon {
-							opacity: 1;
-						}
-					}
-
-					.select_country--select {
-						width: 100%;
-						background: transparent;
-						border: none;
-						color: #FFF;
-						font-size: 1.2rem;
-						font-weight: 900;
-						outline-style: none;
-						-webkit-appearance: none;
-						-moz-appearance: none;
-						text-indent: 1px;
-						text-overflow: '';
-						padding: 0 1rem;
-						height: 40px;
-						border-radius: 4px;
-						position: relative;
-						z-index: 2;
-						cursor: pointer;
-						letter-spacing: 1px;
-						transition: 200ms all ease-in-out;
-						
-						option {
-							color: #000;
-						}
-					}
-
-					.select_country--icon {
-						position: absolute;
-						top: 50%;
-						right: 0;
-						height: 100%;
-						transform: translateY(-50%);
-						cursor: pointer;
-						padding: 0rem 1rem;
-						color: #FFF;
-						display: flex;
-						align-items: center;
-						justify-content: center;
-						z-index: 1;
-						opacity: 0.8;
-						transition: 200ms all ease-in-out;
-					}
-				}
-
-			}
-
-		}
-
-		.below-graph {
-			width: 100%;
-			margin: 0rem;
-			padding: 0 1.5rem;
-			display: flex;
-			flex-flow: row;
-			justify-content: space-between;
-			align-items: center;
-
-			@include breakpoint(md, max) {
-				flex-flow: column;
-				width: calc(100% - 2rem);
-				margin: -0.2rem 0rem 0rem 1rem;
-				padding: 0 0.5rem;
-			}
-
-			@include breakpoint(sm, max) {
-				flex-flow: column;
-				width: calc(100% - 2rem);
-				margin: -0.2rem 0rem 0 1rem;
-				padding: 0 0.5rem;
-			}
-			
-			.below-graph__updated {
-				color: rgba(#fff, 0.6);
-				font-size: 0.7rem;
-			}
-
-			.more-button {
-				text-decoration: none;
-				background-color: rgba(#fff, 0.95);
-				color: #000;
-				padding: 0.5rem 1rem;
-				border-radius: 3px;
-				font-weight: 500;
-				font-size: 0.7rem;
-				float: right;
-				display: flex;
-				flex-flow: row;
-				align-items: center;
-				justify-content: center;
-				transition: 200ms all ease-in-out;
-				animation: 1.5s pulse ease-in-out infinite;
-				
-				@include breakpoint(sm, max) {
-					
-				}
-				
-				&:hover {
-					background-color: #FFF;
-					
-					i {
-						transform: translateX(2px);
-					}
-				}
-
-				span {
-					font-weight: 800;
-					text-transform: capitalize;
-					margin: 0 0.3rem 0 0.2rem;
-					transform: translateY(0.7px);
-				}
-
-				i {
-					transition: 200ms all ease-in-out;
-				}
-			}
 		}
 	}
 
