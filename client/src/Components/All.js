@@ -10,11 +10,15 @@ class All extends React.Component {
 		this.state = {
 			isLoading: true,
 			data: {
+				name: "",
 				cases: 0,
 				todayCases: 0,
 				deaths: 0,
 				todayDeaths: 0,
 				recovered: 0,
+				critical: 0,
+				active: 0,
+				tests: 0,
 				updated: 0
 			},
 		};
@@ -24,15 +28,16 @@ class All extends React.Component {
 		this.setState({
 			isLoading: false,
 			data: {
+				name: data.name,
 				cases: data.cases,
 				todayCases: data.todayCases,
 				deaths: data.deaths,
 				todayDeaths: data.todayDeaths,
 				recovered: data.recovered,
+				critical: data.critical,
 				active: data.active,
 				tests: data.tests,
-				deathsPerOneMillion: data.deathsPerOneMillion,
-				updated: data.updated,
+				updated: data.updated
 			}
 		})
 	}
@@ -47,7 +52,8 @@ class All extends React.Component {
 			return (
 				<div className="all-data">
 					<div className="all-data__header">
-						<h2>Podatki za cel svet</h2>
+
+						<h2>Podatki za <span>{this.props.data.name ? this.props.data.name :  "ves svet"}</span></h2>
 						<p><span>Posodobljeno: </span><Moment format="DD.MM.YYYY HH:mm" tz="Europe/Ljubljana">{this.state.updated}</Moment></p>
 					</div>
 					{this.state.isLoading ? 
@@ -67,11 +73,15 @@ class All extends React.Component {
 							<span className="data-point__title">Smrti</span>
 						</div>
 						<div className="data-point">
-							<h3>{this.state.data.recovered > 0 ? this.state.data.recovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : "0"}</h3>
-							<span className="data-point__title">Okrevanih</span>
+							<h3>{this.state.data.critical > 0 ? this.state.data.critical.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : "0"}</h3>
+							<span className="data-point__title">Kritičnih</span>
 						</div>
 					</div>
 					<div className={this.state.isLoading ? 'data-points data-points__loading' : 'data-points'}>
+						<div className="data-point">
+							<h3>{this.state.data.recovered > 0 ? this.state.data.recovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : "0"}</h3>
+							<span className="data-point__title">Okrevanih</span>
+						</div>
 						<div className="data-point">
 							<h3>{this.state.data.active > 0 ? this.state.data.active.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : "0"}</h3>
 							<span className="data-point__title">Aktivnih primerov</span>
@@ -79,10 +89,6 @@ class All extends React.Component {
 						<div className="data-point">
 							<h3>{this.state.data.tests > 0 ? this.state.data.tests.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : "0"}</h3>
 							<span className="data-point__title">Testiranih</span>
-						</div>
-						<div className="data-point">
-							<h3>{this.state.data.deathsPerOneMillion > 0 ? this.state.data.deathsPerOneMillion.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : "0"}</h3>
-							<span className="data-point__title">Smrti na miljon ljudi</span>
 						</div>
 					</div>
 				</div>

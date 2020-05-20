@@ -13,9 +13,6 @@ export default class MapCountry extends React.Component {
 
   }
 
-  componentDidMount() {
-  }
-
   render() {
     const position = [this.props.lat, this.props.long]
 	return (

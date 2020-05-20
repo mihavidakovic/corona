@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import moment from 'moment';
 import 'moment-timezone';
 import 'moment/locale/sl';
@@ -10,8 +9,6 @@ import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Bar
 } from 'recharts';
 import _ from 'lodash';
-import Joyride from 'react-joyride';
-var dateFormat = require('dateformat');
 
 const countries = require('./countries.json');
 
@@ -27,7 +24,7 @@ const tooltip = {
 };
 
 const CustomTooltip = ({ active, payload, label }) => {
-  let labelFormated = moment(label).format('Do. MMMM')
+  let labelFormated = moment(label).locale("sl").format('Do MMMM')
   if (active && payload) {
     return (
       <div style={tooltip}>
@@ -75,13 +72,6 @@ export default class Graph extends React.Component {
 		selectedCountry: "All",
 		selectedCountrySlo: "all",
 		isGraphEmpty: false,
-		steps: [
-			{
-				target: '.select_country',
-				content: 'Izberi državo iz seznama in si poglej graf potrjenih primerov, smrti in okrevanih!',
-				disableBeacon: false
-			},
-		]
 	}
 
 
@@ -98,7 +88,7 @@ export default class Graph extends React.Component {
 			let url = "https://disease.sh/v2/historical/all?lastdays=all";
 			fetch(url)
 				.then((res) => {
-					if (res.status == 200) {
+					if (res.status === 200) {
 						return res.json()
 					} else {
 						 throw new Error('Something went wrong');
@@ -140,7 +130,7 @@ export default class Graph extends React.Component {
 			let url = "https://disease.sh/v2/historical/" + country + "/?lastdays=all";
 			fetch(url)
 				.then((res) => {
-					if (res.status == 200) {
+					if (res.status === 200) {
 						return res.json()
 					} else {
 						 throw new Error('Something went wrong');
@@ -193,42 +183,40 @@ export default class Graph extends React.Component {
 				selectedCountrySlo: selectedSlo.url
 			});
 
+			this.props.handler(event.target.value, selectedSlo.url);
+
      	} else {
 			this.setState({
 				selectedCountry: "All",
 				selectedCountrySlo: "all"
 			});
 
+			this.props.handler(event.target.value, "cel svet");
+
      	}
 
 		this.getGraph(event.target.value)
-
      }
 
 	formatXAxis(tickItem) {
-		return moment(tickItem).format('Do. MMM')
+		return moment(tickItem).locale("sl").format('Do MMM')
 	}
 
-	componentWillMount() {
+	UNSAFE_componentWillMount() {
 		_.sortBy(countries, ['ime'])
 		this.getGraph("All")
 	}
 
 	render() {
-		const { steps } = this.state;
 		return (
 		<>
 				<header className="section__header">
-			        <Joyride
-			          steps={steps}
-			          locale={{close: 'Zapri'}}
-			        />
 					<div class="header__select">
 						<h2>Graf primerov v</h2>
 						<div className="select_country">
 							<select className="select_country--select" onChange={this.change} value={this.state.selectedCountry}>
 								<optgroup>
-									<option value="All" key="all">Cel svet</option>
+									<option value="All" key="all">Ves svet</option>
 									<option value="Slovenia" key="slovenia">Slovenija</option>
 								</optgroup>
 								<optgroup label="_______________________________" style={{textAlign: 'center'}}>
@@ -245,9 +233,9 @@ export default class Graph extends React.Component {
 						</div>
 					</div>
 				</header>
-				<div className={(this.state.isGraphEmpty && (this.state.loading == false)) ? 'graf__empty visible' : 'graf__empty'}>
+				<div className={(this.state.isGraphEmpty && (this.state.loading === false)) ? 'graf__empty visible' : 'graf__empty'}>
 					<i className="fa fa-frown"></i>
-					<span>Ni podatkov za <b>{this.state.selectedCountrySlo}</b></span>
+					<span>Ni podatkov za prikaz grafa države <b>{this.state.selectedCountrySlo}</b></span>
 				</div>
 				<div style={{width: '100%', height: 320, zIndex: 2, position: 'relative'}}>
 					<ResponsiveContainer>
@@ -280,8 +268,6 @@ export default class Graph extends React.Component {
 							<Area type="monotone" isAnimationActive={true} animationDuration={900} dataKey="smrti" stroke="rgba(239, 57, 57, 0.8)" fill="rgba(239, 57, 57, 0.8)" fillOpacity={1} fill="url(#colorSmrti)" />
 							<Area type="monotone" isAnimationActive={true} animationDuration={900} dataKey="Primerov" stroke="rgba(255, 255, 255, 1)" fill="rgba(255, 255, 255, 0.7)" fillOpacity={1} fill="url(#colorPrimerov)" />
 							<Area type="monotone" isAnimationActive={true} animationDuration={900} dataKey="Okrevani" stroke="rgba(83, 185, 41, 1)" fill="rgba(83, 185, 41, 0.7)" fillOpacity={1} fill="url(#colorOkrevanih)" />
-							<Bar dataKey="rating" label={<CustomLabel />}>
-							</Bar>
 
 						</AreaChart>
 					</ResponsiveContainer>
