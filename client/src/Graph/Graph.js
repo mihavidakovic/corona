@@ -183,7 +183,7 @@ export default class Graph extends React.Component {
 				selectedCountrySlo: selectedSlo.url
 			});
 
-			this.props.handler(event.target.value, selectedSlo.url);
+			this.props.handler(event.target.value, selectedSlo.prevod);
 
      	} else {
 			this.setState({
