@@ -29,36 +29,33 @@ export default class List extends React.Component {
 		};
 	}
 
-	componentDidMount() {
-		setTimeout(() => {
-			console.log(this.props.data)
-			_.map(this.props.data, function(obj) {
+	updateProps(data) {
+		_.map(data, function(obj) {
 
-			    // add the properties from second array matching the userID
-			    // to the object from first array and return the updated object
-			   return _.assign(obj, _.find(countries, {name: obj.country}));
-			});
+		    // add the properties from second array matching the userID
+		    // to the object from first array and return the updated object
+		   return _.assign(obj, _.find(countries, {name: obj.country}));
+		});
 
-			_.map(this.props.data, function(obj) {
+		_.map(data, function(obj) {
 
-			    // add the properties from second array matching the userID
-			    // to the object from first array and return the updated object
-			   return _.assign(obj, _.find(countries, {url: obj.url}));
-			});
+		    // add the properties from second array matching the userID
+		    // to the object from first array and return the updated object
+		   return _.assign(obj, _.find(countries, {url: obj.url}));
+		});
 
 
-			this.setState({data: this.props.data})
-			this.setState({loading: false})
-		}, 1000)
-
+		this.setState({data: data})
+		this.setState({loading: false})
 	}
 
-	componentDidUpdate(prevProps, prevState) {
-		if (prevState.data !== this.state.data) {
-			this.setState({data: this.props.data})
-			console.log()
-		}
-	};
+
+
+	componentDidUpdate(prevProps) {
+	  if (prevProps.data !== this.props.data) {
+	    this.updateProps(this.props.data)
+	  }
+	}
 
 	onSort = (column) => (e) => {
 	  const direction = this.state.sort.column ? (this.state.sort.direction === 'asc' ? 'desc' : 'asc') : 'desc';

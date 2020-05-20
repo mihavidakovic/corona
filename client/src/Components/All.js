@@ -20,23 +20,27 @@ class All extends React.Component {
 		};
 	}
 
-	componentDidMount() {
-		setTimeout(() => {
-			this.setState({
-				isLoading: false,
-				data: {
-					cases: this.props.data.cases,
-					todayCases: this.props.data.todayCases,
-					deaths: this.props.data.deaths,
-					todayDeaths: this.props.data.todayDeaths,
-					recovered: this.props.data.recovered,
-					active: this.props.data.active,
-					tests: this.props.data.tests,
-					deathsPerOneMillion: this.props.data.deathsPerOneMillion,
-					updated: this.props.data.updated,
-				}
-			})
-		}, 1000)
+	updateProps(data) {
+		this.setState({
+			isLoading: false,
+			data: {
+				cases: data.cases,
+				todayCases: data.todayCases,
+				deaths: data.deaths,
+				todayDeaths: data.todayDeaths,
+				recovered: data.recovered,
+				active: data.active,
+				tests: data.tests,
+				deathsPerOneMillion: data.deathsPerOneMillion,
+				updated: data.updated,
+			}
+		})
+	}
+
+	componentDidUpdate(prevProps) {
+	  if (prevProps.data !== this.props.data) {
+	    this.updateProps(this.props.data)
+	  }
 	}
 
 	render() {
