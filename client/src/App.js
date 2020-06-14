@@ -17,6 +17,9 @@ import {
 // Style
 import './assets/style/main.scss';
 
+// Google Analytics
+import { initGA, PageView, Event } from './Components/Tracking';
+
 // Pages
 import AdminPage from './Pages/Admin/AdminPage.js';
 
@@ -30,6 +33,9 @@ export default function App() {
 
 	useEffect(() => {
 		localStorage.setItem('dark', JSON.stringify(darkMode));
+
+	    initGA('UA-133841417-2');
+	    PageView();
 
 	}, [darkMode]);
 
@@ -84,7 +90,12 @@ export default function App() {
 					</div>
 					
 					<div className="mode">
-						<div className="mode__button" onClick={() => setDarkMode(prevMode => !prevMode)}>
+						<div className="mode__button" onClick={() => 
+							{
+								setDarkMode(prevMode => !prevMode);
+								Event("MODE", "Changed color mode " + getInitialMode(), "MODE_CHANGED");
+							}
+						}>
 							<i className={darkMode ? "fa fa-sun" : "fa fa-moon"}></i>
 							<span>{darkMode ? "Svetli" : "Temni"} način</span>
 						</div>

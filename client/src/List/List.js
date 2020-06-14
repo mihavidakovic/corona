@@ -2,7 +2,6 @@ import React from 'react';
 import Moment from 'react-moment';
 import 'moment-timezone';
 import _ from 'lodash';
-import Joyride from 'react-joyride';
 
 import ListItem from './ListItem.js';
 import countries from '../Graph/countries.json';
@@ -18,14 +17,7 @@ export default class List extends React.Component {
 			sort: {
 				column: null,
 				direction: 'desc',
-			},
-			steps: [
-				{
-					target: '.see-more__btn',
-					content: 'This is my awesome feature!',
-					disableBeacon: false
-				},
-			]
+			}
 		};
 	}
 

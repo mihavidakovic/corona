@@ -18,7 +18,7 @@ export default class MapCountry extends React.Component {
 	return (
 	  <div className="map" style={{ width: "100%", height: "520px" }}>
 		  <div className="Subpage-country__head">
-		  	<h2 className="Subpage-country__title">📍🗺️ {this.props.name} na zemljevidu:</h2>
+		  	<h2 className="Subpage-country__title"><span role="img">📍🗺️</span> {this.props.name} na zemljevidu:</h2>
 		  </div>
 	      <Map className="map-element" style={{ width: "100%", height: "450px" }} center={position} zoom={this.state.zoom}>
 	        <TileLayer

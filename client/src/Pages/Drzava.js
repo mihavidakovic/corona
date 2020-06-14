@@ -16,7 +16,6 @@ const countries = require('../Graph/countries.json');
 
 
 function Drzava(props) {
-	window.scrollTo(0, 0);
 	let { name } = useParams();
 	let countrySlo = "";
 	let correctName = _.find(countries, {url: name})
@@ -38,29 +37,24 @@ function Drzava(props) {
 		infoLong: 0
 	});
 
-	useEffect(() => {
-
-		axios.get("https://corona.lmao.ninja/v2/countries/" + correctName.name)
-			.then(res => {
-				setDrzavaRequest({drzava: res.data})
+	const getCountryInfo = async () => {
+		await fetch("https://corona.lmao.ninja/v2/countries/" + correctName.name)
+			.then(res => res.json())
+			.then(response => {
+				setDrzavaRequest({drzava: response})
 				setCoordinatesRequest({
-					infoLat: res.data.countryInfo.lat,
-					infoLong: res.data.countryInfo.long
+					infoLat: response.countryInfo.lat,
+					infoLong: response.countryInfo.long
 				})
 			})
 			.catch(err => {
 				console.log(err)
 			})
-			.then(() => {
-			});
+	}
 
-			getGraphData("all")
-
-	}, [])
-
-	function getGraphData(rangeNum) {
+	let getGraphData = async (name, rangeNum) => {
 		//data for graph
-		axios.get("https://corona.lmao.ninja/v2/historical/" + correctName.name + "/?lastdays=" + rangeNum)
+		await axios.get("https://disease.sh/v2/historical/" + name + "/?lastdays=" + rangeNum)
 			.then(res => {
 				const deathsValues = Object.values(res.data.timeline.deaths);
 				const recoveredValues = Object.values(res.data.timeline.recovered);
@@ -84,7 +78,15 @@ function Drzava(props) {
 			});
 	}
 
-	function change(event) {
+	useEffect(() => {
+
+		getGraphData(correctName.name, "all");
+		getCountryInfo();
+
+	}, [GraphRequest, DrzavaRequest])
+
+
+	function changeRange(event) {
 		setRangeRequest({range: event.target.value})
 		getGraphData(event.target.value)
 	}
@@ -102,9 +104,6 @@ function Drzava(props) {
 	const {drzava} = DrzavaRequest;
 	const {range} = RangeRequest;
 	let {infoLat, infoLong} = CoordinatesRequest;
-	setInterval(() => {
-		const {graph} = GraphRequest;
-	}, 500)
 	const {graph} = GraphRequest;
 
 	return (
@@ -154,10 +153,10 @@ function Drzava(props) {
 				<div className="Subpage-country__graph">
 					<div className="Graph__head">
 						<h2 className="Graph__head--title">Graf statistike primerov in smrti</h2>
-						<div className="Graph__select" style={{display: 'none'}}>
+						<div className="Graph__select">
 							<p>Zadnjih:</p>
 							<div className="select_range">
-								<select className="select_range--select" onChange={change} value="10">
+								<select className="select_range--select">
 									<option value="10">10 dni</option>
 									<option value="15">15 dni</option>
 									<option value="20">20 dni</option>
@@ -170,10 +169,7 @@ function Drzava(props) {
 							</div>
 						</div>
 					</div>
-					<div className={"Subpage-country__graph--empty" + (graph.length > 0 ? '' : ' visible')}>
-						<span><i className="fa fa-info"></i> Za {countrySlo} ni na voljo dovolj podatkov, zato izris grafa ni mogoč.</span>
-					</div>
-					<GraphCounrty data={graph ? graph : ''} name={countrySlo} range={range} isDarkMode={props.isDarkMode} />
+					<GraphCounrty data={graph} name={countrySlo} range={range} isDarkMode={props.isDarkMode} />
 				</div>
 
 				<div className="Subpage-country__map">

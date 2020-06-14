@@ -3,12 +3,15 @@ import {
   Link
 } from "react-router-dom";
 
+import { Event } from '../Components/Tracking';
+
 export default class ListItem extends React.Component {
 
 	render() {
 		return(
 			<Link 
-				to={{pathname: '/drzava/' + this.props.url}}>
+				to={{pathname: '/drzava/' + this.props.url}}
+				onClick={() => Event("LIST", "Clicked on country " + this.props.ime, "COUNTRY")}>
 				<div className="listItem">
 					<div className="listItem__cell item__state">
 						<img className="item__state--flag" src={this.props.flag}  alt={this.props.country} />
