@@ -2,9 +2,6 @@
 @import "./loader/loaders.scss";
 $black: #121212;
 
-// pages
-@import "./pages/pages.scss";
-
 // utl
 @import "./util/_animations.scss";
 @import "./util/breakpoints.scss";
@@ -13,6 +10,9 @@ $black: #121212;
 @import "./components/data-points.scss",
 		"./components/loader.scss",
 		"./components/graph.scss";
+		
+// pages
+@import "./pages/pages.scss";
 
 
 body {
@@ -100,6 +100,18 @@ html {
 			border-color: rgba(#000, 0.1);
 		}
 
+		.below-graph {
+			
+			.below-graph__updated {
+				color: rgba(#000, 0.5);
+			}
+
+			.more-button {
+				background-color: #000;
+				color: #fff;
+			}
+		}
+
 
 		.all-data {
 
@@ -109,8 +121,32 @@ html {
 					color: rgba(#000, 0.8);
 				}
 
+				span {
+					color: #000;
+				}
+
 				p {
 					color: rgba(#000, 0.3);
+				}
+			}
+		}
+
+		.country__info {
+			background-color: rgba(#000, 0.1);
+			
+			.country__info--icon {
+				color: rgba(#000, 0.05);
+			}
+
+			.country__info--title {
+				color: rgba(#000, 0.9);
+			}
+
+			.country__info--item {
+				color: rgba(#000, 0.7);
+				
+				span {
+					color: #000;
 				}
 			}
 		}

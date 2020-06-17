@@ -25,7 +25,10 @@ export default class ListItem extends React.Component {
 						<span>{this.props.deaths.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span>
 						<span className={ this.props.todayDeaths > 0 ? 'new_cases positive' : 'new_cases negative' }>{ this.props.todayDeaths > 0 ? '+' + this.props.todayDeaths.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : '' }</span>
 					</div>
-					<div className="listItem__cell item__recovered">{this.props.recovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</div>
+					<div className="listItem__cell item__recovered">
+						<span>{this.props.recovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span>
+						<span className={ this.props.todayRecovered > 0 ? 'new_cases positive' : 'new_cases negative' }>{ this.props.todayRecovered > 0 ? '+' + this.props.todayRecovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : '' }</span>
+					</div>
 					<div className="listItem__cell item__critical">{this.props.critical.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</div>
 				</div>
 			</Link>

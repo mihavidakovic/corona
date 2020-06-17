@@ -47,6 +47,71 @@
 		}
 	}
 
+	.Subpage-country__data {
+		display: flex;
+		flex-flow: column;
+		align-items: flex-start;
+		
+		@include breakpoint(lg, min) {
+			flex-flow: row;
+		}
+		
+		.data-points {
+			width: 100%;
+			margin-bottom: 1rem;
+			
+			@include breakpoint(lg, min) {
+				width: 70%;
+				margin-right: 1rem;
+			}
+		}
+
+		.country__info {
+			width: 100%;
+			background-color: rgba(#fff, 0.1);
+			padding: 1.5rem;
+			border-radius: 6px;
+			position: relative;
+			
+			@include breakpoint(lg, min) {
+				width: 30%;
+			}
+			
+			* {
+				z-index: 2;
+			}
+			
+			.country__info--icon {
+				position: absolute;
+				width: 160px;
+				height: 160px;
+				top: 50%;
+				right: 1rem;
+				transform: translateY(-50%);
+				z-index: 1;
+				color: rgba(#fff, 0.05);
+			}
+			
+			.country__info--title {
+				font-size: 1.3rem;
+				color: #FFF;
+				margin: 0 0 1rem 0;
+			}
+			
+			.country__info--item {
+				margin: 0 0 0.4rem;
+				padding: 0;
+				color: rgba(#fff, 0.8);
+				font-size: 0.9rem;
+				
+				span {
+					font-weight: bold;
+					color: #FFF;
+				}
+			}
+		}
+	}
+
 	.Graph__head {
 		display: flex;
 		flex-flow: row;

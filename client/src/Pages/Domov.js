@@ -58,6 +58,7 @@ export default class Domov extends React.Component{
 						deaths: response.deaths,
 						todayDeaths: response.todayDeaths,
 						recovered: response.recovered,
+						todayRecovered: response.todayRecovered,
 						critical: response.critical,
 						active: response.active,
 						tests: response.tests,

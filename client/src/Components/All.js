@@ -16,6 +16,7 @@ class All extends React.Component {
 				deaths: 0,
 				todayDeaths: 0,
 				recovered: 0,
+				todayRecovered: 0,
 				critical: 0,
 				active: 0,
 				tests: 0,
@@ -34,6 +35,7 @@ class All extends React.Component {
 				deaths: data.deaths,
 				todayDeaths: data.todayDeaths,
 				recovered: data.recovered,
+				todayRecovered: data.todayRecovered,
 				critical: data.critical,
 				active: data.active,
 				tests: data.tests,
@@ -80,6 +82,7 @@ class All extends React.Component {
 					<div className={this.state.isLoading ? 'data-points data-points__loading' : 'data-points'}>
 						<div className="data-point">
 							<h3>{this.state.data.recovered > 0 ? this.state.data.recovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : "0"}</h3>
+							<div className={this.state.data.todayRecovered > 0 ? 'data-point__new good' : 'data-point__new negative'}>{this.state.data.todayRecovered > 0 ? '+' + this.state.data.todayDeaths.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : '0'}</div>
 							<span className="data-point__title">Okrevanih</span>
 						</div>
 						<div className="data-point">

@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 
 const countries = require('../Graph/countries.json');
+const countriesInfo = require('./countries.json');
 
 
 
@@ -22,6 +23,10 @@ function Drzava(props) {
 
 	const [DrzavaRequest, setDrzavaRequest] = useState({
 		drzava: []
+	});
+
+	const [CountryInfoRequest, setCountryInfoRequest] = useState({
+		countryInfo: []
 	});
 
 	const [GraphRequest, setGraphRequest] = useState({
@@ -46,6 +51,15 @@ function Drzava(props) {
 					infoLat: response.countryInfo.lat,
 					infoLong: response.countryInfo.long
 				})
+			})
+			.catch(err => {
+				console.log(err)
+			})
+
+		await fetch("https://restcountries.eu/rest/v2/name/" + correctName.name)
+			.then(res => res.json())
+			.then(response => {
+				setCountryInfoRequest({countryInfo: response[0]})
 			})
 			.catch(err => {
 				console.log(err)
@@ -79,11 +93,11 @@ function Drzava(props) {
 	}
 
 	useEffect(() => {
-
+		window.scrollTo(0, 0);
 		getGraphData(correctName.name, "all");
 		getCountryInfo();
 
-	}, [GraphRequest, DrzavaRequest])
+	}, [name])
 
 
 	function changeRange(event) {
@@ -105,6 +119,7 @@ function Drzava(props) {
 	const {range} = RangeRequest;
 	let {infoLat, infoLong} = CoordinatesRequest;
 	const {graph} = GraphRequest;
+	const {countryInfo} = CountryInfoRequest;
 
 	return (
 		<div className="Subpage">
@@ -132,7 +147,8 @@ function Drzava(props) {
 							<span className="data-point__title">Smrti</span>
 						</div>
 						<div className="data-point">
-							<h3>{drzava.recovered ? drzava.recovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : ''}</h3>
+							<h3>{drzava.recovered >= 0 ? drzava.recovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : ''}</h3>
+							<div className={drzava.todayRecovered > 0 ? 'data-point__new good' : 'data-point__new positive'}>{drzava.todayRecovered > 0 ? ('+' + drzava.todayRecovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')) : '0'}</div>
 							<span className="data-point__title">Okrevanih</span>
 						</div>
 						<div className="data-point">
@@ -147,6 +163,14 @@ function Drzava(props) {
 							<h3>{drzava.deathsPerOneMillion ? drzava.deathsPerOneMillion.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : ''}</h3>
 							<span className="data-point__title">Primerov na miljon ljudi</span>
 						</div>
+					</div>
+					<div className="country__info">
+						<svg className="country__info--icon" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"></path></svg>
+						<h3 className="country__info--title">Zanimive informacije</h3>
+						<p className="country__info--item">Ime v maternem jeziku: <span>{countryInfo.nativeName}</span></p>
+						<p className="country__info--item">Glavno mesto: <span>{countryInfo.capital}</span></p>
+						<p className="country__info--item">Število prebivalcev: <span>{countryInfo.population ? countryInfo.population.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : ''}</span></p>
+						<p className="country__info--item">Ginijev koeficient: <span>{countryInfo.gini}</span></p>
 					</div>
 				</div>
 
