@@ -148,6 +148,14 @@ html {
 				span {
 					color: #000;
 				}
+
+				.item--question {
+					color: rgba(#000, 0.5);
+					
+					&:hover {
+						color: rgba(#000, 0.8);
+					}
+				}
 			}
 		}
 

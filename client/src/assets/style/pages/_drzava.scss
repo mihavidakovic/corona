@@ -99,14 +99,48 @@
 			}
 			
 			.country__info--item {
-				margin: 0 0 0.4rem;
+				margin: 0 0 0.6rem;
 				padding: 0;
 				color: rgba(#fff, 0.8);
 				font-size: 0.9rem;
+				display: flex;
+				flex-flow: row;
+				align-items: center;
 				
 				span {
 					font-weight: bold;
 					color: #FFF;
+					margin-left: 0.3rem;
+				}
+
+				.item--question__tooltip {
+					width: 100%;
+					font-size: 1rem;
+					line-height: 1.7rem;
+					
+					@include breakpoint(lg, min) {
+						width: 50%;
+					}
+				}
+
+				.item--question {
+					margin-left: 0.5rem;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					color: rgba(#fff, 0.7);
+					border-radius: 100%;
+					cursor: pointer;
+					transition: 200ms all ease-in-out;
+					
+					&:hover {
+						color: #FFF;
+					}
+					
+					.item--question__icon {
+						width: 15px;
+						height: 15px;
+					}
 				}
 			}
 		}
