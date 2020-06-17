@@ -190,21 +190,6 @@ function Drzava(props) {
 				<div className="Subpage-country__graph">
 					<div className="Graph__head">
 						<h2 className="Graph__head--title">Graf statistike primerov in smrti</h2>
-						<div className="Graph__select">
-							<p>Zadnjih:</p>
-							<div className="select_range">
-								<select className="select_range--select">
-									<option value="10">10 dni</option>
-									<option value="15">15 dni</option>
-									<option value="20">20 dni</option>
-									<option value="25">25 dni</option>
-									<option value="all">Vse dni</option>
-								</select>
-								<div className="select_range--icon">
-									<i className="fa fa-chevron-down"></i>
-								</div>
-							</div>
-						</div>
 					</div>
 					<GraphCounrty data={graph} name={countrySlo} range={range} isDarkMode={props.isDarkMode} />
 				</div>
