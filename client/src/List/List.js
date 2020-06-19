@@ -2,6 +2,8 @@ import React from 'react';
 import Moment from 'react-moment';
 import 'moment-timezone';
 import _ from 'lodash';
+import FilterResults from 'react-filter-search';
+
 
 import ListItem from './ListItem.js';
 import countries from '../Graph/countries.json';
@@ -12,12 +14,14 @@ export default class List extends React.Component {
 		this.state = {
 			loading: true,
 			data: [],
+			value: "",
 			expanded: false,
 			updated: new Date(),
 			sort: {
 				column: null,
 				direction: 'desc',
-			}
+			},
+			search: ""
 		};
 	}
 
@@ -136,26 +140,39 @@ export default class List extends React.Component {
 	  });
 	};
 
-	giveDate = (start, end) => {
-		var date = new Date(+start + Math.random() * (end - start));
-		this.setState({updated: date.toString()});
-	}
+	handleChange = event => {
+		const { value } = event.target;
+		this.setState({ value });
+	};
 
-	expandList = () => {
-		this.setState({expanded: !this.state.expanded});
+	searchSpace=(event)=>{
+		let keyword = event.target.value;
+		this.setState({search:keyword})
 	}
 
 	render() {
 		const { steps } = this.state;
+		const { data, value } = this.state;
+	    const items = data.filter((data)=>{
+	      if(this.state.search == null)
+	          return data
+	      else if(data.prevod.toLowerCase().includes(this.state.search.toLowerCase())){
+	      	return data
+	          // if(data.prevod == undefined) {
+	          // 	console.log(data.country)
+	          // }
+	      }
+	    }).map(data=>{
+	      return(
+			<ListItem id={data.id} country={data.country} url={data.url}  ime={data.prevod} flag={data.countryInfo.flag} cases={data.cases} todayCases={data.todayCases} deaths={data.deaths} todayDeaths={data.todayDeaths} recovered={data.recovered} critical={data.critical} />
+	      )
+    	})
 
 		if (this.state.loading) {
 			return (
 				<>
 					<header className="section__header">
 						<h3>Podatki po državah</h3>
-						<div className="date">
-							<i className="fa fa-refresh" onClick={() => this.fetchData}></i>
-						</div>
 					</header>
 					<div className="list">
 						<div className="list__head">
@@ -177,9 +194,9 @@ export default class List extends React.Component {
 				<>
 					<header className="section__header">
 						<h3>Podatki po državah</h3>
-						<div className="date">
-							<i className="fa fa-refresh" onClick={() => this.fetchData()}></i>
-							<p className="data__updated"><Moment format="DD.MM.YYYY HH:mm" tz="Europe/Ljubljana">{this.state.updated}</Moment></p>
+						<div class="search__country">
+							<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>
+							<input type="text" placeholder="Poišči državo" onChange={(e)=>this.searchSpace(e)}  />
 						</div>
 					</header>
 
@@ -207,9 +224,7 @@ export default class List extends React.Component {
 							</div>
 						</div>
 						<div className="items">
-							{this.state.data.map((item, index) => 
-								<ListItem key={index} id={item.id} country={item.country} url={item.url}  ime={item.prevod} flag={item.countryInfo.flag} cases={item.cases} todayCases={item.todayCases} deaths={item.deaths} todayDeaths={item.todayDeaths} recovered={item.recovered} critical={item.critical} />
-							)}
+							{items}
 						</div>
 					</div>
 				</>

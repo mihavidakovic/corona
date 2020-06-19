@@ -66,35 +66,16 @@ export default class Graph extends React.Component {
 			<>
 				<div className="Subpage-country__graph--element" style={{width: '100%', height: 210, position: 'relative'}}>
 					<ResponsiveContainer>
-						<AreaChart
-							height={100}
-							data={this.state.data}
-							margin={{
-							top: 0, right: 1, left: -35, bottom: 0,
-							}}
-						>
-						  <defs>
-						    <linearGradient id="colorSmrti" x1="0" y1="0" x2="0" y2="1">
-						      <stop offset="0%" stopColor="red" stopOpacity={0.3}/>
-						      <stop offset="100%" stopColor="red" stopOpacity={0}/>
-						    </linearGradient>
-						    <linearGradient id="colorPrimerov" x1="0" y1="0" x2="0" y2="1">
-						      <stop offset="0%" stopColor="rgba(255, 255, 255, 0.3)" stopOpacity={1}/>
-						      <stop offset="100%" stopColor="rgba(255, 255, 255, 1)" stopOpacity={0}/>
-						    </linearGradient>
-						    <linearGradient id="colorOkrevanih" x1="0" y1="0" x2="0" y2="1">
-						      <stop offset="0%" stopColor="rgba(83, 185, 41, 0.3)" stopOpacity={1}/>
-						      <stop offset="100%" stopColor="rgba(83, 185, 41, 1)" stopOpacity={0}/>
-						    </linearGradient>
-						  </defs>
-							<CartesianGrid stroke='rgba(255, 255, 255, 0.2)'/>
-							<XAxis dataKey="date" stroke='rgba(255, 255, 255, 0.6)' tick={{fontSize: 10}}  tickFormatter={this.formatXAxis} />
-							<YAxis stroke='rgba(255, 255, 255, 0.3)' tick={{fontSize: 10}}  />
-	        				<Tooltip content={<CustomTooltip />} />
-							<Area type="monotone" isAnimationActive={true} animationDuration={900}  dataKey="Primerov" stroke="rgba(255, 255, 255, 1)" fill="rgba(255, 255, 255, 0.7)" fillOpacity={1} fill="url(#colorPrimerov)" />
-							<Area type="monotone" isAnimationActive={true} animationDuration={900}  dataKey="smrti" stroke="rgba(239, 57, 57, 0.8)" fill="rgba(239, 57, 57, 0.8)" fillOpacity={1} fill="url(#colorSmrti)" />
-							<Area type="monotone" isAnimationActive={true} animationDuration={900} dataKey="Okrevanih" stroke="rgba(83, 185, 41, 1)" fill="rgba(83, 185, 41, 0.7)" fillOpacity={1} fill="url(#colorOkrevanih)" />
-						</AreaChart>
+				    	<AreaChart width={600} height={400} data={this.state.data}
+				            margin={{top: 10, right: 30, left: 0, bottom: 0}}>
+				        <CartesianGrid strokeDasharray="3 3"/>
+				        <XAxis dataKey="name"/>
+				        <YAxis/>
+				        <Tooltip/>
+				        <Area type='monotone' dataKey='uv' stackId="1" stroke='#8884d8' fill='#8884d8' />
+				        <Area type='monotone' dataKey='pv' stackId="1" stroke='#82ca9d' fill='#82ca9d' />
+				        <Area type='monotone' dataKey='amt' stackId="1" stroke='#ffc658' fill='#ffc658' />
+				      </AreaChart>
 					</ResponsiveContainer>
 					<div className="whiteModeBg"></div>
 				</div>

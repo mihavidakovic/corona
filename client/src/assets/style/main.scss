@@ -5,6 +5,7 @@ $black: #121212;
 // utl
 @import "./util/_animations.scss";
 @import "./util/breakpoints.scss";
+@import "./util/mixins.scss";
 
 //components
 @import "./components/data-points.scss",
@@ -592,7 +593,6 @@ html {
 		}
 	}
 	
-
 	.list {
 		min-height: 50vh;
 		max-height: 80vh;
@@ -932,55 +932,78 @@ html {
 			flex-flow: row;
 			justify-content: space-between;
 			align-items: center;
+			margin-bottom: 1rem;
 			
 			@include breakpoint(sm, max) {
+				flex-flow: column;
 				padding: 0 1rem;
+				margin-bottom: 1rem;
 			}
 
 			h3 {
 				transition: 200ms all ease-in-out;
+				font-size: 1.4rem;
 				
 				@include breakpoint(sm, max) {
 					font-size: 1rem;
 				}
 			}
 
-			.date {
-				display: flex;
-				flex-flow: row;
-				align-items: center;
+			.search__country {
+				width: 100%;
+				position: relative;
 				
-				i {
-					color: rgba(#fff, 0.7);
-					transition: 200ms all ease-in-out;
-					margin-right: 0.5rem;
-					font-size: 0.7rem;
-					
-					@include breakpoint(sm, max) {
-						font-size: 0.5rem;
+				@include breakpoint(sm, min) {
+					width: 350px;
+				}
+				
+				&:hover {
+					svg {
+						color: rgba(#fff, 0.8);
 					}
-					
-					&:hover {
-						color: rgba(#fff, 0.85);
-						cursor: pointer;
+
+					input {
+						background-color: rgba(#fff, 0.15);
+						
+						@include placeholder {
+							color: rgba(#fff, 0.6);
+						}
 					}
 				}
+				
+				svg {
+					position: absolute;
+					width: 10px;
+					height: 10px;
+					color: rgba(#fff, 0.3);
+					top: 50%;
+					left: 0.8rem;
+					transform: translateY(-50%);
+					transition: 200ms all ease-in-out;
+				}
 
-				.data__updated {
-					font-size: 0.7rem;
-					color: rgba(#fff, 0.7);
-					margin: 0.1rem 0 0;
+				input {
+					width: 100%;
+					background-color: rgba(#fff, 0.1);
+					border: none;
+					padding: 0.8rem 1rem 0.8rem 2rem;
+					outline-style: none;
+					color: #FFF;
+					font-size: 0.9rem;
+					font-weight: 500;
+					border-radius: 4px;
+					transition: 200ms all ease-in-out;
 					
-					@include breakpoint(sm, max) {
-						font-size: 0.6rem;
+					@include placeholder {
+						color: rgba(#fff, 0.4);
 					}
 				}
 			}
-
 		}	
 
 		.list {
 			width: 100%;
+			min-height: 500px;
 		}
 	}
 

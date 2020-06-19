@@ -69,22 +69,9 @@ function Drzava(props) {
 
 	let getGraphData = async (name, rangeNum) => {
 		//data for graph
-		await axios.get("https://disease.sh/v2/historical/" + name + "/?lastdays=" + rangeNum)
+		await axios.get("https://corona.lmao.ninja/v2/historical/" + name + "/?lastdays=" + rangeNum)
 			.then(res => {
-				const deathsValues = Object.values(res.data.timeline.deaths);
-				const recoveredValues = Object.values(res.data.timeline.recovered);
-				const cases = Object.entries(res.data.timeline.cases).map(([date, Primerov, Okrevanih]) => ({date,Primerov, Okrevanih}));
-
-				for (var key in cases) {
-				    // skip loop if the property is from prototype
-				    if (!cases.hasOwnProperty(key)) continue;
-				    var obj = cases[key];
-				    Object.assign(obj, {smrti: deathsValues[key]})
-				    Object.assign(obj, {Okrevanih: recoveredValues[key]})
-
-				}
-
-				setGraphRequest({graph: cases})
+				console.log(res.data.timeline)
 			})
 			.catch(err => {
 				console.log(err)
@@ -98,7 +85,7 @@ function Drzava(props) {
 		getGraphData(correctName.name, "all");
 		getCountryInfo();
 
-	}, [name])
+	}, [])
 
 
 	function changeRange(event) {
@@ -121,6 +108,7 @@ function Drzava(props) {
 	let {infoLat, infoLong} = CoordinatesRequest;
 	const {graph} = GraphRequest;
 	const {countryInfo} = CountryInfoRequest;
+	console.log(graph)
 
 	return (
 		<div className="Subpage">
