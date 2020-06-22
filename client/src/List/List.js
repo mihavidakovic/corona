@@ -156,7 +156,7 @@ export default class List extends React.Component {
 	    const items = data.filter((data)=>{
 	      if(this.state.search == null)
 	          return data
-	      else if(data.prevod.toLowerCase().includes(this.state.search.toLowerCase())){
+	      else if(data.prevod.toLowerCase().includes(this.state.search.toLowerCase()) || data.country.toLowerCase().includes(this.state.search.toLowerCase())){
 	      	return data
 	          // if(data.prevod == undefined) {
 	          // 	console.log(data.country)
