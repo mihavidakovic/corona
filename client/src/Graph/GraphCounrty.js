@@ -141,7 +141,7 @@ export default function Graph(props) {
 							</div>
 						</div>
 					</div>
-					<div className="Subpage-country__graph--element" style={{width: '100%', height: 210, position: 'relative'}}>
+					<div className="Subpage-country__graph--element" style={{width: '100%', height: 300, position: 'relative'}}>
 						<ResponsiveContainer>
 							<AreaChart
 								height={100}
