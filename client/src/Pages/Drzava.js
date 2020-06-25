@@ -67,31 +67,11 @@ function Drzava(props) {
 			})
 	}
 
-	let getGraphData = async (name, rangeNum) => {
-		//data for graph
-		await axios.get("https://corona.lmao.ninja/v2/historical/" + name + "/?lastdays=" + rangeNum)
-			.then(res => {
-				console.log(res.data.timeline)
-			})
-			.catch(err => {
-				console.log(err)
-			})
-			.then(() => {
-			});
-	}
-
 	useEffect(() => {
 		window.scrollTo(0, 0);
-		getGraphData(correctName.name, "all");
 		getCountryInfo();
 
 	}, [])
-
-
-	function changeRange(event) {
-		setRangeRequest({range: event.target.value})
-		getGraphData(event.target.value)
-	}
 
 	if (name !== "slovenija") {
 		const selectedName = {"url": name}
@@ -106,9 +86,7 @@ function Drzava(props) {
 	const {drzava} = DrzavaRequest;
 	const {range} = RangeRequest;
 	let {infoLat, infoLong} = CoordinatesRequest;
-	const {graph} = GraphRequest;
 	const {countryInfo} = CountryInfoRequest;
-	console.log(graph)
 
 	return (
 		<div className="Subpage">
@@ -174,13 +152,8 @@ function Drzava(props) {
 						</p>
 					</div>
 				</div>
-
-				<div className="Subpage-country__graph">
-					<div className="Graph__head">
-						<h2 className="Graph__head--title">Graf statistike primerov in smrti</h2>
-					</div>
-					<GraphCounrty data={graph} name={countrySlo} range={range} isDarkMode={props.isDarkMode} />
-				</div>
+				
+				<GraphCounrty name={drzava.country} isDarkMode={props.isDarkMode} />
 
 				<div className="Subpage-country__map">
 					<MapCountry lat={infoLat ? infoLat : '555'} long={infoLong ? infoLong : '55555555'} name={countrySlo} flag={_.get(drzava, 'countryInfo.flag')} />

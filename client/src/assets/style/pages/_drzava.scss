@@ -59,6 +59,7 @@
 		.data-points {
 			width: 100%;
 			margin-bottom: 1rem;
+			margin-right: 0;
 			
 			@include breakpoint(lg, min) {
 				width: 70%;
