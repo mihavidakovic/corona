@@ -47,7 +47,7 @@ export default function Graph(props) {
 
 
 	useEffect(() => {
-		getGraphData(props.name, "80");
+		getGraphData(props.name, "all");
 	}, [props])
 
 	let datas = DataRequest.data;
@@ -126,6 +126,8 @@ export default function Graph(props) {
 							<div className="select_range">
 								<select className="select_range--select" onChange={onChangeDays}>
 									<option value="all" selected>Vse dni</option>
+									<option value="3">3 dni</option>
+									<option value="5">5 dni</option>
 									<option value="10">10 dni</option>
 									<option value="15">15 dni</option>
 									<option value="20">20 dni</option>
@@ -134,6 +136,9 @@ export default function Graph(props) {
 									<option value="35">35 dni</option>
 									<option value="40">40 dni</option>
 									<option value="45">45 dni</option>
+									<option value="60">60 dni</option>
+									<option value="80">80 dni</option>
+									<option value="100">100 dni</option>
 								</select>
 								<div className="select_range--icon">
 									<i className="fa fa-chevron-down"></i>
