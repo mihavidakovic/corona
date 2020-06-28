@@ -55,7 +55,8 @@
 				border-radius: 4px;
 				transition: 200ms ease-in-out all;
 				cursor: pointer;
-				
+				animation: pulseButton 2s infinite;
+								
 				&:hover {
 					background: lighten($black, 5%);
 

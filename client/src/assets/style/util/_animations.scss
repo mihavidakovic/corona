@@ -39,3 +39,54 @@
 	43% { transform: rotate(0); }
 	100% { transform: rotate(0); }
 }
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg) scale(1);
+	}
+	50% {
+		transform: rotate(90deg) scale(1.5);
+	}
+	100% {
+		transform: rotate(180deg) scale(1);
+	}
+}
+
+@keyframes moon {
+	0% {
+		transform: rotate(0deg);
+	}
+	20% {
+		transform: rotate(-40deg);
+	}
+	40% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+
+@keyframes pulseButton {
+	0% {
+		box-shadow: 0 0 0 0px rgba(#fff, 0.1);
+	}
+	70% {
+		box-shadow: 0 0 0 10px rgba(#fff, 0);
+	}
+	100% {
+		box-shadow: 0 0 0 0px rgba(#fff, 0);
+	}
+}
+
+@keyframes pulseButtonDark {
+	0% {
+		box-shadow: 0 0 0 0px rgba(#000, 0.2);
+	}
+	70% {
+		box-shadow: 0 0 0 10px rgba(#000, 0);
+	}
+	100% {
+		box-shadow: 0 0 0 0px rgba(#000, 0);
+	}
+}

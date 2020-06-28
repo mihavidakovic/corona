@@ -214,7 +214,7 @@ export default class Graph extends React.Component {
 					<div class="header__select">
 						<h2>Graf primerov v</h2>
 						<div className="select_country">
-							<select className="select_country--select" onChange={this.change} value={this.state.selectedCountry}>
+							<select className="select_country--select" id="selectCountry" onChange={this.change} value={this.state.selectedCountry}>
 								<optgroup>
 									<option value="All" key="all">Ves svet</option>
 									<option value="Slovenia" key="slovenia">Slovenija</option>
@@ -227,9 +227,9 @@ export default class Graph extends React.Component {
 									)}
 								</optgroup>
 							</select>
-							<div className="select_country--icon">
-								<i className="fa fa-chevron-down"></i>
-							</div>
+							<label for="selectCountry" className="select_country--icon">
+								<label for="selectCountry" className="fa fa-chevron-down"></label>
+							</label>
 						</div>
 					</div>
 				</header>
