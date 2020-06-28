@@ -48,6 +48,69 @@ html {
 	a {
 		text-decoration: none;
 	}
+
+	.newBar {
+		width: 100%;
+		background: #2A86CC;
+		display: flex;
+		flex-flow: row;
+		align-items: center;
+		justify-content: center;
+		padding: 0.8rem 0;
+		color: #FFF;
+		cursor: pointer;
+		transition: 200ms all ease-in-out;
+		position: fixed;
+		z-index: 99999;
+		left: 0;
+		bottom: 0;
+		box-shadow: 0 -2px 10px 0px rgba(darken(#2A86CC, 25%), 0.1), 0 -2px 5px 0 rgba(darken(#2A86CC, 25%), 0.25);
+
+		&:hover {
+			background-color: darken(#2A86CC, 3%);
+			
+			.newBar__icon {
+				transform: translateX(0.25rem);
+			}
+		}
+
+		.newBar__notification {
+			color: #FFF;
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			top: 13px;
+			left: 1rem;
+			animation: ring 7s ease-in-out infinite;
+			transform-origin: 50% 4px;
+			display: none;
+			
+			@include breakpoint(md, min) {
+				display: block;
+			}
+		}
+		
+		span {
+			color: #fff;
+			margin-right: 0.5rem;
+			font-size: 0.7rem;
+			
+			@include breakpoint(md, min) {
+				font-size: 0.9rem;
+			}
+			
+			a {
+				color: #fff;
+				
+			}
+		}
+
+		.newBar__icon {
+			width: 12px;
+			height: 12px;
+			transition: 200ms all ease-in-out;
+		}
+	}
 		
 	&.light {
 		background-color: rgba(#000, 0.02);

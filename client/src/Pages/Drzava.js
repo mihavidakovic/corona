@@ -6,7 +6,6 @@ import ReactTooltip from 'react-tooltip';
 import GraphCounrty from '../Graph/GraphCounrty.js';
 import MapCountry from '../Components/MapCountry.js';
 
-
 import {
   Link,
   useParams
